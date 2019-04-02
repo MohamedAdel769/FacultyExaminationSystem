@@ -1,5 +1,7 @@
 package main.dataBaseHelper;
 
+import main.PK.User;
+
 import java.sql.*;
 
 public class dataBaseConVars {
@@ -35,13 +37,16 @@ public class dataBaseConVars {
             stmt = null;
         }
     }
-    public dataBaseConVars(){
+    public User getUser(int id){
         startConnection();
+        User tem = new User();
         try {
             rs = stmt.executeQuery("select * from user");
             while(rs.next()){
-                String id = rs.getString("id");
-                System.out.println(id);
+                tem.id = rs.getInt("id");
+                tem.name = rs.getString("name");
+                if(id == tem.id);
+                    break;
             }
         }
         catch (SQLException ex){
@@ -50,6 +55,8 @@ public class dataBaseConVars {
         finally {
             close();
         }
+        return tem;
     }
+
 
 }

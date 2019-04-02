@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import main.PK.User;
 import main.dataBaseHelper.dataBaseConVars;
 public class Main extends Application {
     public static Stage window ;
@@ -20,7 +21,6 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) {
-       // new dataBaseConVars();
         launch(args);
     }
 }
