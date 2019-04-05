@@ -10,6 +10,9 @@ public class dataBaseConVars {
     public static String dataBaseName = "AVDNGnJD07";
     public static String username = "AVDNGnJD07";
     public static String pass = "VvRVwiy13X";
+    public static int ALREADY_EXIST = 202;
+    public static int OK = 1;
+    public static int NOT_FOUNDED = 404;
     /**
      * start database connection
      */

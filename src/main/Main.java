@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import main.dataBaseHelper.DBHelper;
 
 public class Main extends Application {
     public static Stage window ;
@@ -20,7 +21,7 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) {
-        launch(args);
-        //new DBHelper().test(5);
+        //launch(args);
+        new DBHelper().test(5);
     }
 }

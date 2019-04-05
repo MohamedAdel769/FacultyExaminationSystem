@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="database host set up">
-      <change afterPath="$PROJECT_DIR$/src/main/PK/Exam.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/dataBaseHelper/Trans.java" afterDir="false" />
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="DB helper">
+      <change afterPath="$PROJECT_DIR$/src/main/dataBaseHelper/DBExam.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/FacultyExaminationSystem/main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FacultyExaminationSystem/main/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/PK/Exam.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/PK/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/dataBaseHelper/DBHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dataBaseHelper/DBHelper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/dataBaseHelper/dataBaseConVars.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dataBaseHelper/dataBaseConVars.java" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
@@ -64,6 +65,13 @@
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="AVDNGnJD07: schema" type="76f4a085:MysqlImplModel$Schema" />
       </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="remotemysql.com" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="AVDNGnJD07: schema" type="76f4a085:MysqlImplModel$Schema" />
+        <item name="Exam: table" type="285a2a93:MysqlImplModel$Table" />
+      </path>
     </expand>
     <select />
   </component>
@@ -116,8 +124,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="454">
-              <caret line="27" column="10" selection-start-line="27" selection-start-column="10" selection-end-line="27" selection-end-column="10" />
+            <state relative-caret-position="391">
+              <caret line="23" column="10" selection-start-line="23" selection-start-column="10" selection-end-line="23" selection-end-column="10" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -126,82 +134,22 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/dataBaseHelper/Trans.java">
+        <entry file="file://$PROJECT_DIR$/src/main/dataBaseHelper/dataBaseConVars.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="class#DBExam#0;class#Trans#0" />
-                <element signature="class#Announcement#0;class#Trans#0" />
-                <element signature="class#DBHistogram#0;class#Trans#0" />
-                <element signature="class#ListOfGrades#0;class#Trans#0" />
-                <element signature="method#getExamById#0;class#Trans#0" />
-                <element signature="method#getExamById#1;class#Trans#0" />
-              </folding>
+            <state relative-caret-position="238">
+              <caret line="14" column="40" selection-start-line="14" selection-start-column="40" selection-end-line="14" selection-end-column="40" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/dataBaseHelper/dataBaseConVars.java">
+        <entry file="file://$PROJECT_DIR$/src/main/dataBaseHelper/DBExam.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="7" lean-forward="true" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="das://d218a176-dadd-45ec-b687-d16f3b832dbc/schema/AVDNGnJD07/table/ListOfGrades.sql">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="12" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="das://d218a176-dadd-45ec-b687-d16f3b832dbc/schema/AVDNGnJD07/table/Histogram.sql">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="10" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="10" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="das://d218a176-dadd-45ec-b687-d16f3b832dbc/schema/AVDNGnJD07/table/Announcement.sql">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="11" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="11" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="das://d218a176-dadd-45ec-b687-d16f3b832dbc/schema/AVDNGnJD07/table/Exam">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/d218a176-dadd-45ec-b687-d16f3b832dbc/console.sql">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="24" lean-forward="true" selection-end-column="35" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/PK/Exam.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" selection-start-line="3" selection-end-line="3" />
+            <state relative-caret-position="491">
+              <caret line="69" column="8" selection-start-line="69" selection-start-column="8" selection-end-line="69" selection-end-column="8" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -238,10 +186,13 @@
         <option value="$PROJECT_DIR$/src/main/PK/Exam.java" />
         <option value="$PROJECT_DIR$/src/main/dataBaseHelper/trans.java" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/.datagrid/cell" />
+        <option value="$PROJECT_DIR$/src/main/dataBaseHelper/Trans.java" />
+        <option value="d218a176-dadd-45ec-b687-d16f3b832dbc/schema/AVDNGnJD07/table/ListOfGrades.sql" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/d218a176-dadd-45ec-b687-d16f3b832dbc/console.sql" />
         <option value="$PROJECT_DIR$/src/main/Main.java" />
-        <option value="$PROJECT_DIR$/src/main/dataBaseHelper/Trans.java" />
+        <option value="$PROJECT_DIR$/src/main/dataBaseHelper/DBHelper.java" />
         <option value="$PROJECT_DIR$/src/main/dataBaseHelper/dataBaseConVars.java" />
+        <option value="$PROJECT_DIR$/src/main/dataBaseHelper/DBExam.java" />
       </list>
     </option>
   </component>
@@ -263,7 +214,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -301,6 +251,7 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -430,6 +381,8 @@
       <workItem from="1359379250712" duration="1302000" />
       <workItem from="1554158005507" duration="2548000" />
       <workItem from="1554203325678" duration="18108000" />
+      <workItem from="1554330861299" duration="1769000" />
+      <workItem from="1554402461827" duration="3266000" />
     </task>
     <task id="LOCAL-00001" summary="ok tmam">
       <created>1554158909639</created>
@@ -459,17 +412,24 @@
       <option name="project" value="LOCAL" />
       <updated>1554241348407</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="DB helper">
+      <created>1554330966429</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1554330966429</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21958000" />
+    <option name="totallyTimeSpent" value="26993000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1386" height="788" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.24736048" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.25490198" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" />
       <window_info id="Designer" order="3" />
@@ -477,8 +437,6 @@
       <window_info id="Image Layers" order="5" />
       <window_info id="UI Designer" order="6" />
       <window_info id="Capture Tool" order="7" />
-      <window_info anchor="bottom" id="Database Console" weight="0.32977098" />
-      <window_info anchor="bottom" id="SQL Generator" weight="0.32977098" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32977098" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32824427" />
@@ -493,9 +451,11 @@
       <window_info anchor="bottom" id="Profiler" order="11" />
       <window_info anchor="bottom" id="Event Log" order="12" weight="0.32977098" />
       <window_info anchor="bottom" id="Messages" order="13" weight="0.32977098" />
-      <window_info anchor="bottom" id="Terminal" order="14" />
+      <window_info anchor="bottom" id="Terminal" order="14" weight="0.32977098" />
       <window_info anchor="bottom" id="Docker" order="15" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="16" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Console" order="17" weight="0.32977098" />
+      <window_info anchor="bottom" id="SQL Generator" order="18" weight="0.32977098" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.24962293" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -552,13 +512,40 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
     <MESSAGE value="ok tmam" />
     <MESSAGE value="database helper" />
     <MESSAGE value="database host set up" />
-    <option name="LAST_COMMIT_MESSAGE" value="database host set up" />
+    <MESSAGE value="DB helper" />
+    <option name="LAST_COMMIT_MESSAGE" value="DB helper" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -622,12 +609,13 @@
           </nodes>
           <notes />
           <edges />
-          <settings layout="Hierarchic Group" zoom="1.0" x="237.5" y="243.0" />
+          <settings layout="Hierarchic Group" zoom="1.0" x="238.0" y="243.0" />
           <SelectedNodes />
           <Categories>
             <Category>Key columns</Category>
             <Category>Columns</Category>
           </Categories>
+          <SCOPE>All</SCOPE>
         </state>
       </provider>
     </entry>
@@ -638,24 +626,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/PK/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="22" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
+    <entry file="file://$PROJECT_DIR$/src/main/dataBaseHelper/Trans.java" />
+    <entry file="das://d218a176-dadd-45ec-b687-d16f3b832dbc/schema/AVDNGnJD07/table/Histogram.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="das://d218a176-dadd-45ec-b687-d16f3b832dbc/schema/AVDNGnJD07/table/Announcement.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="das://d218a176-dadd-45ec-b687-d16f3b832dbc/schema/AVDNGnJD07/table/Qustion">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/PK/Exam.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
+    <entry file="das://d218a176-dadd-45ec-b687-d16f3b832dbc/schema/AVDNGnJD07/table/user">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
+    </entry>
+    <entry file="das://d218a176-dadd-45ec-b687-d16f3b832dbc/schema/AVDNGnJD07/table/ListOfGrades.sql">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/d218a176-dadd-45ec-b687-d16f3b832dbc/console.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="24" lean-forward="true" selection-end-column="35" />
+        <state relative-caret-position="17">
+          <caret line="1" column="34" selection-end-line="1" selection-end-column="34" />
         </state>
       </provider>
     </entry>
@@ -668,62 +666,53 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="454">
-          <caret line="27" column="10" selection-start-line="27" selection-start-column="10" selection-end-line="27" selection-end-column="10" />
+        <state relative-caret-position="391">
+          <caret line="23" column="10" selection-start-line="23" selection-start-column="10" selection-end-line="23" selection-end-column="10" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="das://d218a176-dadd-45ec-b687-d16f3b832dbc/schema/AVDNGnJD07/table/Announcement.sql">
+    <entry file="file://$PROJECT_DIR$/src/main/PK/Exam.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="11" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="11" />
+        <state relative-caret-position="51">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
         </state>
       </provider>
     </entry>
-    <entry file="das://d218a176-dadd-45ec-b687-d16f3b832dbc/schema/AVDNGnJD07/table/Histogram.sql">
+    <entry file="file://$PROJECT_DIR$/src/main/PK/User.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="10" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="10" />
+        <state relative-caret-position="51">
+          <caret line="3" column="22" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
         </state>
       </provider>
     </entry>
-    <entry file="das://d218a176-dadd-45ec-b687-d16f3b832dbc/schema/AVDNGnJD07/table/ListOfGrades.sql">
+    <entry file="file://$PROJECT_DIR$/src/main/dataBaseHelper/DBHelper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="12" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://d218a176-dadd-45ec-b687-d16f3b832dbc/schema/AVDNGnJD07/table/user">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/dataBaseHelper/Trans.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
+        <state relative-caret-position="102">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="class#DBExam#0;class#Trans#0" />
-            <element signature="class#Announcement#0;class#Trans#0" />
-            <element signature="class#DBHistogram#0;class#Trans#0" />
-            <element signature="class#ListOfGrades#0;class#Trans#0" />
-            <element signature="method#getExamById#0;class#Trans#0" />
-            <element signature="method#getExamById#1;class#Trans#0" />
+            <element signature="e#3828#3829#0" expanded="true" />
+            <element signature="e#3902#3903#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/dataBaseHelper/dataBaseConVars.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="7" lean-forward="true" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
+        <state relative-caret-position="238">
+          <caret line="14" column="40" selection-start-line="14" selection-start-column="40" selection-end-line="14" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/dataBaseHelper/DBExam.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="491">
+          <caret line="69" column="8" selection-start-line="69" selection-start-column="8" selection-end-line="69" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
