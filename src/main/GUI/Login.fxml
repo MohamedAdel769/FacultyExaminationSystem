@@ -15,17 +15,14 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="main.LoginController"
-            prefHeight="400.0" prefWidth="600.0">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.GUI.LoginController">
 
     <children>
         <Pane prefHeight="525.0" prefWidth="376.0" style="-fx-background-color: #61D4DC;">
             <children>
                 <ImageView fitHeight="256.0" fitWidth="256.0" layoutX="61.0" layoutY="145.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../imgs/university-building.png" />
+                        <Image url="@../../imgs/university-building.png" />
                     </image></ImageView>
                 <Label layoutX="29.0" layoutY="48.0" text="Welcome to &#10;Faculty Examination System&#10;" textAlignment="CENTER" wrapText="true">
                     <font>
@@ -78,10 +75,13 @@
                         <Font name="Century Gothic" size="14.0" />
                     </font>
                 </JFXCheckBox>
-                <JFXButton buttonType="RAISED" layoutX="48.0" layoutY="358.0" prefHeight="35.0" prefWidth="152.0" ripplerFill="#63a1d3" style="-fx-background-color: #61D4DC;" text="Login">
+                <JFXButton fx:id="loginBtn" buttonType="RAISED" layoutX="48.0" layoutY="358.0" onAction="#Signin" prefHeight="35.0" prefWidth="152.0" ripplerFill="#63a1d3" style="-fx-background-color: #61D4DC;" text="Login">
                     <font>
                         <Font name="Century Gothic" size="18.0" />
                     </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
                 </JFXButton>
                 <JFXButton layoutX="200.0" layoutY="362.0" prefHeight="28.0" prefWidth="134.0" ripplerFill="LIGHTGRAY" text="Forgot password?" textFill="LIGHTGRAY" underline="true">
                     <font>
@@ -117,7 +117,7 @@
                 </JFXTextField>
                 <ImageView fx:id="EyeImg" fitHeight="24.0" fitWidth="24.0" layoutX="322.0" layoutY="269.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../imgs/view.png" />
+                        <Image url="@../../imgs/view.png" />
                     </image>
                 </ImageView>
             </children>
