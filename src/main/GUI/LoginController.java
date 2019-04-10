@@ -1,4 +1,4 @@
-package main;
+package main.GUI;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -13,6 +13,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import main.Main;
 
 public class LoginController implements Initializable  {
     @FXML
@@ -23,8 +24,6 @@ public class LoginController implements Initializable  {
     private JFXToggleButton ToggleBtn ;
     @FXML
     private ImageView EyeImg ;
-    @FXML
-    private JFXButton SignupBtn ;
 
     @FXML
     public void ShowPass(ActionEvent event) {
@@ -56,6 +55,22 @@ public class LoginController implements Initializable  {
         } catch(Exception e) {
             e.printStackTrace();
         }
+    }
+
+    @FXML
+    public void Signin(ActionEvent event){
+        // if the user is admin
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("AdminHome.fxml"));
+            Scene scene = new Scene(root);
+            Main.window.setScene(scene);
+            Main.window.show();
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+        // student
+
+        // instructor
     }
 
 

@@ -15,7 +15,7 @@
 
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="main.SignupController"
+            fx:controller="main.GUI.SignupController"
             prefHeight="400.0" prefWidth="600.0">
 
     <children>
@@ -23,57 +23,57 @@
             <children>
                 <ImageView fitHeight="256.0" fitWidth="256.0" layoutX="39.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../imgs/test.png" />
+                        <Image url="@../../imgs/test.png" />
                     </image>
                 </ImageView>
                 <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="13.0" layoutY="223.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../imgs/boolean.png" />
+                        <Image url="@../../imgs/boolean.png" />
                     </image>
                 </ImageView>
                 <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="285.0" layoutY="133.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../imgs/binary-code.png" />
+                        <Image url="@../../imgs/binary-code.png" />
                     </image>
                 </ImageView>
                 <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="14.0" layoutY="312.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../imgs/java.png" />
+                        <Image url="@../../imgs/java.png" />
                     </image>
                 </ImageView>
                 <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="237.0" layoutY="342.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../imgs/formula(1).png" />
+                        <Image url="@../../imgs/formula(1).png" />
                     </image>
                 </ImageView>
                 <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="146.0" layoutY="312.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../imgs/edit.png" />
+                        <Image url="@../../imgs/edit.png" />
                     </image>
                 </ImageView>
                 <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="237.0" layoutY="442.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../imgs/languages.png" />
+                        <Image url="@../../imgs/languages.png" />
                     </image>
                 </ImageView>
                 <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="72.0" layoutY="390.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../imgs/cube.png" />
+                        <Image url="@../../imgs/cube.png" />
                     </image>
                 </ImageView>
                 <ImageView fitHeight="70.0" fitWidth="64.0" layoutX="129.0" layoutY="398.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../imgs/rsz_1badges_csharp_objects_stage01.png" />
+                        <Image url="@../../imgs/rsz_1badges_csharp_objects_stage01.png" />
                     </image>
                 </ImageView>
                 <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="13.0" layoutY="433.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../imgs/math.png" />
+                        <Image url="@../../imgs/math.png" />
                     </image>
                 </ImageView>
                 <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="88.0" layoutY="483.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../imgs/right-arrow-black-triangle.png" />
+                        <Image url="@../../imgs/right-arrow-black-triangle.png" />
                     </image>
                 </ImageView>
                 <Label layoutX="29.0" layoutY="270.0" prefHeight="23.0" prefWidth="289.0" text="Register now and start your test." textFill="WHITE">
@@ -87,12 +87,12 @@
             <children>
                 <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../imgs/Test2.png" />
+                        <Image url="@../../imgs/Test2.png" />
                     </image>
                 </ImageView>
                 <ImageView fitHeight="47.0" fitWidth="83.0" layoutX="78.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../imgs/rsz_fes.png" />
+                        <Image url="@../../imgs/rsz_fes.png" />
                     </image>
                 </ImageView>
                 <Label layoutX="14.0" layoutY="98.0" prefHeight="28.0" prefWidth="392.0" text="Create your Faculty Examination Account">
