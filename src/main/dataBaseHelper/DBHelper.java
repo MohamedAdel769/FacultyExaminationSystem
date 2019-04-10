@@ -9,7 +9,6 @@ public class DBHelper {
 
 
     public void test(int id) {
-        int x = new DBExam().add(new DBExam("55sdvsdv5","600","60:00:00",false,"5-5-5","5",500));
-        System.out.println(x);
+        System.out.println(new DBExam().add(new DBExam("id","id2",TIME_TEST,true,DATE_TEST,"ds",5,TIME_TEST,TIME_TEST)));
     }
 }

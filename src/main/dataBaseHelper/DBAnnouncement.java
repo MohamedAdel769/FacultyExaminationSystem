@@ -10,11 +10,25 @@ public class DBAnnouncement {
     String announID = null, instructorID= null, examID= null, msgBody= null, msgHead= null;
     String tableName = "Announcement";
     String tableId = "announID";
+
+    public DBAnnouncement() {
+    }
+
+    public DBAnnouncement(String announID, String instructorID, String examID, String msgBody, String msgHead, String tableName, String tableId) {
+        this.announID = announID;
+        this.instructorID = instructorID;
+        this.examID = examID;
+        this.msgBody = msgBody;
+        this.msgHead = msgHead;
+        this.tableName = tableName;
+        this.tableId = tableId;
+    }
+
     public DBAnnouncement getById(String id) {
         startConnection();
         DBAnnouncement announcement = new DBAnnouncement();
         try {
-            String query = String.format("select * from DBAnnouncement where announID = %s", id);
+            String query = String.format("select * from %s where announID = %s",tableName, id);
             dBResult = stmt.executeQuery(query);
             while (dBResult.next()) {
                 announcement.announID = dBResult.getString("announID");
@@ -24,7 +38,7 @@ public class DBAnnouncement {
                 announcement.msgHead = dBResult.getString("msgHead");
             }
         } catch (SQLException ex) {
-            System.out.println("query error " + new Throwable().getStackTrace()[0].getMethodName());
+            System.out.println("query error " + new Throwable().getStackTrace()[0].getMethodName() + " " + ex);
         }
         return announcement;
     }
@@ -37,8 +51,8 @@ public class DBAnnouncement {
             startConnection();
             String query = String.format("DELETE FROM %s where %s = '%s'",tableName,tableId,id);
             stmt.executeUpdate(query, Statement.RETURN_GENERATED_KEYS);
-        } catch (SQLException e) {
-            System.out.println("query error " + new Throwable().getStackTrace()[0].getMethodName());
+        } catch (SQLException ex) {
+            System.out.println("query error " + new Throwable().getStackTrace()[0].getMethodName() + " " + ex);
         }finally {
             close();
         }
@@ -54,7 +68,7 @@ public class DBAnnouncement {
                     "values ('%s','%s','%s','%s','%s')",tableName,ann.announID,ann.instructorID,ann.examID,ann.msgBody,ann.msgHead);
             stmt.executeUpdate(query, Statement.RETURN_GENERATED_KEYS);
         } catch (SQLException ex) {
-            System.out.println("query error " + new Throwable().getStackTrace()[0].getMethodName());
+            System.out.println("add error " + new Throwable().getStackTrace()[0].getMethodName() + " " + ex);
         }finally {
             close();
         }

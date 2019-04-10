@@ -13,6 +13,8 @@ public class dataBaseConVars {
     public static int ALREADY_EXIST = 202;
     public static int OK = 1;
     public static int NOT_FOUNDED = 404;
+    public static String TIME_TEST = "00:00:00";
+    public static String DATE_TEST = "12-12-12";
     /**
      * start database connection
      */
