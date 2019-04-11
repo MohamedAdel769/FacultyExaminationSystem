@@ -7,12 +7,21 @@ import static main.dataBaseHelper.dataBaseConVars.*;
 
 public class DBListOfExamSessions {
     String StuID = null , examSessionsID = null;
-    String tableName = "ListOfExamSessions";
+    final String tableName = "ListOfExamSessions";
+
+    public DBListOfExamSessions(String stuID, String examSessionsID) {
+        StuID = stuID;
+        this.examSessionsID = examSessionsID;
+    }
+
+    public DBListOfExamSessions() {
+    }
+
     public DBListOfExamSessions getBySudentId(String id) {
         startConnection();
         DBListOfExamSessions tem = new DBListOfExamSessions();
         try {
-            String query = String.format("select * from %s where StuID = %s",tableName, id);
+            String query = String.format("select * from %s where StuID = '%s'",tableName, id);
             dBResult = stmt.executeQuery(query);
             while (dBResult.next()) {
                 tem.examSessionsID = dBResult.getString("examSessionsID");

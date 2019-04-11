@@ -8,7 +8,10 @@ import static main.dataBaseHelper.dataBaseConVars.*;
 public class DBHelper {
 
 
+    // TODO DBQustion helper
+
     public void test(int id) {
-        System.out.println(new DBExam().add(new DBExam("id","id2",TIME_TEST,true,DATE_TEST,"ds",5,TIME_TEST,TIME_TEST)));
+        System.out.println(new DBStudent().update(new DBStudent("55","55","55","555")));
+        System.out.println(new DBStudent().getById("55").Phone);
     }
 }

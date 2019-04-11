@@ -15,6 +15,7 @@ public class DBExam {
     int totalGrade = 0;
     String handlingTimer  = null;
     String accepTimer = null;
+
     final String tableName = "Exam";
     final String tableId = "examId";
     public DBExam() {
@@ -89,7 +90,7 @@ public class DBExam {
         return OK;
     }
 
-    public int uodate(DBExam exam){
+    public int update(DBExam exam){
         try {
             if(getById(exam.examId).examId == null){
                 return NOT_FOUNDED;
