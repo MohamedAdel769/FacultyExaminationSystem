@@ -50,4 +50,23 @@ public class DBHistogram {
         return OK;
     }
 
+    public String getHistoID() {
+        return histoID;
+    }
+
+    public void setHistoID(String histoID) {
+        this.histoID = histoID;
+    }
+
+    public String getExamID() {
+        return examID;
+    }
+
+    public void setExamID(String examID) {
+        this.examID = examID;
+    }
+
+    public String getTableName() {
+        return tableName;
+    }
 }
