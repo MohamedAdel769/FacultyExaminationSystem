@@ -26,7 +26,7 @@ import java.util.Collection;
 import java.util.ResourceBundle;
 
 public class AdminHomeController implements Initializable {
-
+    GUIHelper guiHelper = new GUIHelper();
     @FXML
     TableColumn idCol , nameCol , emailCol, checkCol ;
     @FXML
@@ -37,32 +37,12 @@ public class AdminHomeController implements Initializable {
 
     @FXML
     public void Logout(ActionEvent event){
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
-            Scene scene = new Scene(root);
-            Main.window.setScene(scene);
-            Main.window.show();
-        } catch(Exception e) {
-            e.printStackTrace();
-        }
+        guiHelper.GoToForm("Login.fxml");
     }
 
     @FXML
     public void CreateSession(ActionEvent event){
-        JFXDialogLayout content = new JFXDialogLayout();
-        content.setHeading(new Text("Examination Session"));
-        content.setBody(new Text("You successfully added a new Examination Session."));
-        JFXDialog dialog = new JFXDialog(stackPane, content, JFXDialog.DialogTransition.CENTER);
-
-        JFXButton button = new JFXButton("Ok");
-        button.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                dialog.close();
-            }
-        });
-        content.setActions(button);
-        dialog.show();
+        guiHelper.ShowDialog(stackPane, "Examination Session", "You successfully added a new examination session.", "Ok");
     }
 
     @Override

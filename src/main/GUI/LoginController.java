@@ -16,10 +16,11 @@ import javafx.scene.image.ImageView;
 import main.Main;
 
 public class LoginController implements Initializable  {
+    GUIHelper guiHelper = new GUIHelper();
     @FXML
     private JFXPasswordField PassTxt ;
     @FXML
-    private JFXTextField textField ;
+    private JFXTextField textField, UserTxt ;
     @FXML
     private JFXToggleButton ToggleBtn ;
     @FXML
@@ -47,27 +48,13 @@ public class LoginController implements Initializable  {
 
     @FXML
     public void GoToSignup(ActionEvent event) {
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource("Signup.fxml"));
-            Scene scene = new Scene(root);
-            Main.window.setScene(scene);
-            Main.window.show();
-        } catch(Exception e) {
-            e.printStackTrace();
-        }
+        guiHelper.GoToForm("Signup.fxml");
     }
 
     @FXML
     public void Signin(ActionEvent event){
         // if the user is admin
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource("AdminHome.fxml"));
-            Scene scene = new Scene(root);
-            Main.window.setScene(scene);
-            Main.window.show();
-        } catch(Exception e) {
-            e.printStackTrace();
-        }
+        guiHelper.GoToForm("AdminHome.fxml");
         // student
 
         // instructor
@@ -80,5 +67,9 @@ public class LoginController implements Initializable  {
         textField.setVisible(false);
         Image image = new Image("/imgs/hide.png");
         EyeImg.setImage(image);
+
+        guiHelper.ValidateText(UserTxt, "Enter Username", false);
+        guiHelper.ValidateText(textField, "Enter Password", false);
+        guiHelper.ValidateText(PassTxt, "Enter Password");
     }
 }

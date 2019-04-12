@@ -1,6 +1,4 @@
-package main.PK;
-
-import main.dataBaseHelper.DBHistogram;
+package main.Session;
 
 import java.util.ArrayList;
 
