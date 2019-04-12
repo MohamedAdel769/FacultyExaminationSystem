@@ -8,12 +8,21 @@ import static main.dataBaseHelper.dataBaseConVars.dBResult;
 
 public class DBExaminationSession {
     String examSessionsID = null , examID = null;
-    String tableName = "ExaminationSession";
+    final String tableName = "ExaminationSession";
+
+    public DBExaminationSession(String examSessionsID, String examID) {
+        this.examSessionsID = examSessionsID;
+        this.examID = examID;
+    }
+
+    public DBExaminationSession() {
+    }
+
     public DBExaminationSession getById(String id) {
         startConnection();
         DBExaminationSession tem = new DBExaminationSession();
         try {
-            String query = String.format("select * from %s where examSessionsID = %s",tableName, id);
+            String query = String.format("select * from %s where examSessionsID = '%s' ",tableName, id);
             dBResult = stmt.executeQuery(query);
             while (dBResult.next()) {
                 tem.examID = dBResult.getString("examID");

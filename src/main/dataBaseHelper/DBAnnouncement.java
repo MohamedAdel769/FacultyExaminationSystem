@@ -75,4 +75,59 @@ public class DBAnnouncement {
         return OK;
     }
 
+    public String getAnnounID() {
+        return announID;
+    }
+
+    public void setAnnounID(String announID) {
+        this.announID = announID;
+    }
+
+    public String getInstructorID() {
+        return instructorID;
+    }
+
+    public void setInstructorID(String instructorID) {
+        this.instructorID = instructorID;
+    }
+
+    public String getExamID() {
+        return examID;
+    }
+
+    public void setExamID(String examID) {
+        this.examID = examID;
+    }
+
+    public String getMsgBody() {
+        return msgBody;
+    }
+
+    public void setMsgBody(String msgBody) {
+        this.msgBody = msgBody;
+    }
+
+    public String getMsgHead() {
+        return msgHead;
+    }
+
+    public void setMsgHead(String msgHead) {
+        this.msgHead = msgHead;
+    }
+
+    public String getTableName() {
+        return tableName;
+    }
+
+    public void setTableName(String tableName) {
+        this.tableName = tableName;
+    }
+
+    public String getTableId() {
+        return tableId;
+    }
+
+    public void setTableId(String tableId) {
+        this.tableId = tableId;
+    }
 }
