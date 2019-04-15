@@ -54,10 +54,11 @@ public class LoginController implements Initializable  {
     @FXML
     public void Signin(ActionEvent event){
         // if the user is admin
-        guiHelper.GoToForm("AdminHome.fxml");
+            //guiHelper.GoToForm("AdminHome.fxml");
         // student
 
         // instructor
+            guiHelper.GoToForm("InstructorHome.fxml");
     }
 
 

@@ -12,8 +12,9 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.StackPane;
 import main.Users.Student;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
-import javafx.scene.control.TableView;
+
 
 public class AdminHomeController implements Initializable {
     GUIHelper guiHelper = new GUIHelper();
@@ -30,6 +31,18 @@ public class AdminHomeController implements Initializable {
 
     @FXML
     public void CreateSession(ActionEvent event){
+        /*for(Object row: adminTableView.getItems()){
+            for(TableColumn col: adminTableView.getColumns()){
+                Object data = col.getCellObservableValue(row);
+                try{
+                    String value = (String)data ;
+                    // System.out.println(value);
+                }catch(Exception e){
+                    CheckBox select = (CheckBox)data ;
+                   //  System.out.println(select.isSelected());
+                }
+            }
+        }*/
         guiHelper.ShowDialog(stackPane, "Examination Session", "You successfully added a new examination session.", "Ok");
     }
 
