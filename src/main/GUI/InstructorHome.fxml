@@ -17,7 +17,7 @@
 
 <AnchorPane prefHeight="525.0" prefWidth="730.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.GUI.InstructorHomeController">
    <children>
-      <VBox fx:id="vBox" layoutX="531.0" prefHeight="525.0" prefWidth="199.0" style="-fx-background-color: #242F41;" visible="false">
+      <VBox fx:id="vBox" layoutX="531.0" prefHeight="525.0" prefWidth="199.0" style="-fx-background-color: #242F41;">
          <children>
             <Label alignment="CENTER" contentDisplay="TOP" prefHeight="94.0" prefWidth="199.0" text="Faculty Examination&#10;System" textAlignment="CENTER" textFill="#e4e2e2">
                <font>
@@ -100,8 +100,8 @@
       </VBox>
       <Pane layoutX="-1.0" layoutY="-1.0" prefHeight="525.0" prefWidth="730.0">
          <children>
-            <JFXHamburger fx:id="hamburger" layoutX="14.0" layoutY="14.0" viewOrder="-2.0" visible="false" />
-            <JFXDrawersStack fx:id="Drawer" prefHeight="525.0" prefWidth="193.0" visible="false" />
+            <JFXHamburger fx:id="hamburger" layoutX="14.0" layoutY="14.0" viewOrder="-2.0" />
+            <JFXDrawersStack fx:id="Drawer" prefHeight="525.0" prefWidth="193.0" />
             <Pane layoutY="1.0" prefHeight="144.0" prefWidth="737.0" style="-fx-background-color: #3E3E40;">
                <children>
                   <ImageView fitHeight="128.0" fitWidth="128.0" layoutX="29.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
