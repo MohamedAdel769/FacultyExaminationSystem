@@ -34,6 +34,7 @@ public class GUIHelper {
         }
     }
 
+
     public void ValidateText(JFXTextField Txt, String Message, boolean isNum){
         if(Txt.isEditable()) {
             if(isNum){
@@ -69,15 +70,15 @@ public class GUIHelper {
         }
     }
 
-    public void ValidateText(JFXPasswordField Txt, String Message){
+    public void ValidateText(JFXPasswordField txt1, String Message){
         RequiredFieldValidator validator = new RequiredFieldValidator();
-        Txt.getValidators().add(validator);
+        txt1.getValidators().add(validator);
         validator.setMessage(Message);
-        Txt.focusedProperty().addListener(new ChangeListener<Boolean>() {
+        txt1.focusedProperty().addListener(new ChangeListener<Boolean>() {
             @Override
             public void changed(ObservableValue<? extends Boolean> observableValue, Boolean aBoolean, Boolean t1) {
                 if (!t1) {
-                    Txt.validate();
+                    txt1.validate();
                 }
             }
         });

@@ -11,6 +11,7 @@ public class DBCourse {
     String Name = null;
     String Department = null;
     String instrID = null;
+
     final String tableName = "Course";
     public DBCourse getById(String id) {
         startConnection();

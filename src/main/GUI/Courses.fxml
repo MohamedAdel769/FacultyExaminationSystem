@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.GUI.CoursesController">
+   <children>
+      <JFXTextField fx:id="id" layoutX="233.0" layoutY="111.0" promptText="ID" />
+      <JFXTextField fx:id="name" layoutX="233.0" layoutY="160.0" promptText="Name" />
+      <JFXTextField fx:id="department" layoutX="233.0" layoutY="209.0" promptText="Department" />
+      <JFXTextField fx:id="instructor" layoutX="233.0" layoutY="257.0" promptText="Instructor" />
+      <Text fill="#3f2ab9" layoutX="237.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="courses">
+         <font>
+            <Font name="System Bold" size="36.0" />
+         </font>
+      </Text>
+      <JFXButton fx:id="add" layoutX="275.0" layoutY="325.0" onAction="#addCourse" text="Add" />
+   </children>
+</AnchorPane>

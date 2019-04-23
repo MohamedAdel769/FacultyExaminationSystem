@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import main.GUI.GUIHelper;
 import main.dataBaseHelper.DBHelper;
 
 public class Main extends Application {
@@ -13,7 +14,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         window = primaryStage ;
-        Parent root = FXMLLoader.load(getClass().getResource("GUI/Login.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("GUI/Exams.fxml"));
         Scene scene = new Scene(root) ;
         window.setTitle("Faculty Examination System");
         window.setScene(scene);
@@ -23,7 +24,5 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         launch(args);
-        // test
-        //new DBHelper().test(4);
     }
 }

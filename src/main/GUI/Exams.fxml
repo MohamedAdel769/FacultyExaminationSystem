@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.GUI.ExamsConroller">
+    <children>
+
+<!--TODO layoutY-->
+
+        <JFXTextField fx:id="id" layoutX="98.0" layoutY="115.0" promptText="ID" />
+        <JFXTextField fx:id="CourseId" layoutX="348.0" layoutY="115.0" promptText="Course Id" />
+        <JFXTextField fx:id="durationTime" layoutX="98.0" layoutY="175.0" promptText="duration Time" />
+        <JFXTextField fx:id="AcceptedStatus" layoutX="348.0" layoutY="175.0" promptText="Accepted Status" />
+        <JFXTextField fx:id="AcceptedTimer" layoutX="98.0" layoutY="232.0" promptText="Accepted Timer" />
+        <JFXTextField fx:id="HandlingTimer" layoutX="348.0" layoutY="232.0" promptText="Handling Timer" />
+        <JFXTextField fx:id="TotalGrade" layoutX="98.0" layoutY="282.0" promptText="Total Grade" />
+        <JFXTextField fx:id="InstructorId" layoutX="348.0" layoutY="288.0" promptText="Instructor Id" />
+        <JFXTextField fx:id="ReleaseData" layoutX="98.0" layoutY="331.0" promptText="Release Data" />
+
+        <Text fill="#3f2ab9" layoutX="237.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Exame">
+            <font>
+                <Font name="System Bold" size="36.0" />
+            </font>
+        </Text>
+        <JFXButton fx:id="add" layoutX="397.0" layoutY="344.0" onAction="#addExam" text="Add" />
+    </children>
+</AnchorPane>

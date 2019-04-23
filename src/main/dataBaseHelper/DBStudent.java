@@ -1,7 +1,11 @@
 package main.dataBaseHelper;
 
+import main.Users.Student;
+
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import static main.dataBaseHelper.dataBaseConVars.*;
 import static main.dataBaseHelper.dataBaseConVars.dBResult;
@@ -73,4 +77,29 @@ public class DBStudent {
         return OK;
     }
 
+    /**
+     *
+     * @param name the name of the dataBase atr
+     * @param value the vale of the atr
+     * @return ArrayList of the all founded students
+     */
+    public ArrayList<DBStudent> getAllWhere(String name , String value){
+        ArrayList<DBStudent> res = new ArrayList<>();
+        startConnection();
+        try {
+            String query = String.format("select * from %s where %s = '%s' ",tableName, name , value);
+            dBResult = stmt.executeQuery(query);
+            while (dBResult.next()) {
+                DBStudent tem = new DBStudent();
+                tem.stdID = dBResult.getString("stdID");
+                tem.Name = dBResult.getString("Name");
+                tem.Phone = dBResult.getString("Phone");
+                tem.email = dBResult.getString("Email");
+                res.add(tem);
+            }
+        } catch (SQLException ex) {
+            System.out.println("query error " + new Throwable().getStackTrace()[0].getMethodName() + " " + ex );
+        }
+        return res;
+    }
 }
