@@ -17,7 +17,7 @@
 
 <AnchorPane prefHeight="525.0" prefWidth="730.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.GUI.InstructorHomeController">
    <children>
-      <VBox fx:id="vBox" layoutX="531.0" prefHeight="525.0" prefWidth="199.0" style="-fx-background-color: #242F41;">
+      <VBox fx:id="vBox" layoutX="531.0" prefHeight="525.0" prefWidth="199.0" style="-fx-background-color: #242F41;" visible="false">
          <children>
             <Label alignment="CENTER" contentDisplay="TOP" prefHeight="94.0" prefWidth="199.0" text="Faculty Examination&#10;System" textAlignment="CENTER" textFill="#e4e2e2">
                <font>
@@ -100,16 +100,16 @@
       </VBox>
       <Pane layoutX="-1.0" layoutY="-1.0" prefHeight="525.0" prefWidth="730.0">
          <children>
-            <JFXHamburger fx:id="hamburger" layoutX="14.0" layoutY="14.0" viewOrder="-2.0" />
-            <JFXDrawersStack fx:id="Drawer" prefHeight="525.0" prefWidth="193.0" />
+            <JFXHamburger fx:id="hamburger" layoutX="14.0" layoutY="14.0" viewOrder="-2.0" visible="false" />
+            <JFXDrawersStack fx:id="Drawer" prefHeight="525.0" prefWidth="54.0" visible="false" />
             <Pane layoutY="1.0" prefHeight="144.0" prefWidth="737.0" style="-fx-background-color: #3E3E40;">
                <children>
-                  <ImageView fitHeight="128.0" fitWidth="128.0" layoutX="29.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="profileImg" fitHeight="128.0" fitWidth="128.0" layoutX="29.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../imgs/user.png" />
                      </image>
                   </ImageView>
-                  <JFXButton contentDisplay="CENTER" layoutX="51.0" layoutY="14.0" prefHeight="26.0" prefWidth="84.0" ripplerFill="#3e3e40" text=" ">
+                  <JFXButton fx:id="addImgBtn" contentDisplay="CENTER" layoutX="76.0" layoutY="14.0" onAction="#addImage" prefHeight="26.0" prefWidth="24.0" text=" ">
                      <graphic>
                         <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -121,100 +121,45 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </JFXButton>
-                  <JFXTextField editable="false" focusColor="#3e3e40" layoutX="478.0" layoutY="75.0" prefHeight="47.0" prefWidth="193.0" style="-fx-text-inner-color: #e1e1e1;" text="Instructor Name" unFocusColor="#3e3e40">
+                  <JFXTextField focusColor="WHITE" labelFloat="true" layoutX="400.0" layoutY="75.0" prefHeight="47.0" prefWidth="220.0" promptText="Instructor Name" style="-fx-text-inner-color: #F4F4F4; -fx-prompt-text-fill: #F4F4F4;">
                      <font>
                         <Font name="Century Gothic" size="24.0" />
                      </font>
                   </JFXTextField>
-                  <JFXButton layoutX="671.0" layoutY="86.0" prefHeight="26.0" prefWidth="30.0" ripplerFill="#3e3e40" text=" ">
-                     <graphic>
-                        <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../imgs/baseline_edit_white_18dp.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </JFXButton>
                   <Label layoutX="177.0" layoutY="83.0" prefHeight="31.0" prefWidth="151.0" text="Username" textFill="#e1e1e1">
                      <font>
                         <Font name="Century Gothic" size="24.0" />
                      </font>
                   </Label>
+                  <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="595.0" layoutY="90.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../imgs/baseline_edit_white_18dp.png" />
+                     </image>
+                  </ImageView>
                </children>
             </Pane>
-            <JFXTextField editable="false" focusColor="WHITE" layoutX="111.0" layoutY="193.0" prefHeight="47.0" prefWidth="209.0" style="-fx-text-inner-color: #3E3E40;" text="Email" unFocusColor="WHITE">
+            <JFXTextField labelFloat="true" layoutX="410.0" layoutY="295.0" prefHeight="47.0" prefWidth="209.0" promptText="Email" style="-fx-text-inner-color: black;">
                <font>
                   <Font name="Century Gothic" size="24.0" />
                </font>
             </JFXTextField>
-            <JFXButton layoutX="327.0" layoutY="204.0" prefHeight="26.0" prefWidth="30.0" ripplerFill="#3e3e40" text=" ">
-               <graphic>
-                  <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../imgs/baseline_edit_black_18dp.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </JFXButton>
-            <JFXTextField editable="false" focusColor="WHITE" layoutX="410.0" layoutY="194.0" prefHeight="47.0" prefWidth="209.0" style="-fx-text-inner-color: #3E3E40;" text="Age" unFocusColor="WHITE">
+            <JFXTextField labelFloat="true" layoutX="410.0" layoutY="382.0" prefHeight="47.0" prefWidth="209.0" promptText="Age" style="-fx-text-inner-color: black;">
                <font>
                   <Font name="Century Gothic" size="24.0" />
                </font>
             </JFXTextField>
-            <JFXButton layoutX="626.0" layoutY="205.0" prefHeight="26.0" prefWidth="30.0" ripplerFill="#3e3e40" text=" ">
-               <graphic>
-                  <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../imgs/baseline_edit_black_18dp.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </JFXButton>
-            <JFXTextField editable="false" focusColor="WHITE" layoutX="111.0" layoutY="293.0" prefHeight="47.0" prefWidth="209.0" style="-fx-text-inner-color: #3E3E40;" text="Mobile Phone" unFocusColor="WHITE">
+            <JFXTextField labelFloat="true" layoutX="111.0" layoutY="294.0" prefHeight="47.0" prefWidth="209.0" promptText="Mobile Phone" style="-fx-text-inner-color: black;">
                <font>
                   <Font name="Century Gothic" size="24.0" />
                </font>
             </JFXTextField>
-            <JFXButton layoutX="327.0" layoutY="304.0" prefHeight="26.0" prefWidth="30.0" ripplerFill="#3e3e40" text=" ">
-               <graphic>
-                  <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../imgs/baseline_edit_black_18dp.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </JFXButton>
-            <JFXButton layoutX="626.0" layoutY="305.0" prefHeight="26.0" prefWidth="30.0" ripplerFill="#3e3e40" text=" ">
-               <graphic>
-                  <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../imgs/baseline_edit_black_18dp.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </JFXButton>
-            <JFXComboBox labelFloat="true" layoutX="111.0" layoutY="391.0" prefHeight="35.0" prefWidth="540.0" promptText="Courses" style="-fx-font-family: sans-serif; -fx-font-size: 18; -fx-font-weight: 600;" />
-            <JFXPasswordField focusColor="WHITE" layoutX="410.0" layoutY="299.0" prefHeight="25.0" prefWidth="209.0" text="Password" unFocusColor="WHITE">
+            <JFXComboBox labelFloat="true" layoutX="112.0" layoutY="211.0" prefHeight="35.0" prefWidth="506.0" promptText="Courses" style="-fx-font-family: sans-serif; -fx-font-size: 18; -fx-font-weight: 600;" />
+            <JFXPasswordField labelFloat="true" layoutX="111.0" layoutY="383.0" prefHeight="47.0" prefWidth="209.0" promptText="Password" style="-fx-text-inner-color: black;">
                <font>
                   <Font name="Century Gothic" size="18.0" />
                </font>
             </JFXPasswordField>
-            <JFXButton layoutX="553.0" layoutY="459.0" prefHeight="26.0" prefWidth="114.0" style="-fx-background-color: #242F41;" text="Save" textFill="WHITE">
+            <JFXButton layoutX="505.0" layoutY="456.0" prefHeight="26.0" prefWidth="114.0" style="-fx-background-color: #242F41;" text="Save" textFill="WHITE">
                <font>
                   <Font name="Century Gothic Bold" size="18.0" />
                </font>
@@ -222,6 +167,26 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </JFXButton>
+            <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="592.0" layoutY="310.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../imgs/baseline_edit_black_18dp.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="293.0" layoutY="310.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../imgs/baseline_edit_black_18dp.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="293.0" layoutY="398.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../imgs/baseline_edit_black_18dp.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="592.0" layoutY="397.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../imgs/baseline_edit_black_18dp.png" />
+               </image>
+            </ImageView>
          </children>
       </Pane>
    </children>
