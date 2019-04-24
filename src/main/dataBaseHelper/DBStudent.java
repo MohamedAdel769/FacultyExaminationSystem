@@ -15,13 +15,17 @@ public class DBStudent {
     String Name = null;
     String Phone = null;
     String email = null;
+    String Username = null;
+    String Password = null;
     final String tableName = "Student";
 
-    public DBStudent(String stdID, String name, String phone, String email) {
+    public DBStudent(String stdID, String name, String phone, String email,String Username , String Password) {
         this.stdID = stdID;
         Name = name;
         Phone = phone;
         this.email = email;
+        this.Username =username;
+        this.Password=Password;
     }
 
     public DBStudent() {
@@ -38,6 +42,8 @@ public class DBStudent {
                 tem.Name = dBResult.getString("Name");
                 tem.Phone = dBResult.getString("Phone");
                 tem.email = dBResult.getString("Email");
+                tem.Username = dBResult.getString("Username");
+                tem.Password = dBResult.getString("Password");
             }
         } catch (SQLException ex) {
             System.out.println("query error " + new Throwable().getStackTrace()[0].getMethodName() + " " + ex );
@@ -48,9 +54,9 @@ public class DBStudent {
         try {
             startConnection();
             String s = "";
-            String query = String.format("insert into %s (stdID, Name, Phone, Email)" +
-                            "values ('%s','%s','%s','%s')",tableName,tem.stdID,tem.Name,tem.Phone
-                    ,tem.email);
+            String query = String.format("insert into %s (stdID, Name, Phone, Email, Username, Password)" +
+                            "values ('%s','%s','%s','%s','%s','%s')",tableName,tem.stdID,tem.Name,tem.Phone
+                    ,tem.email,tem.Username,tem.Password);
             stmt.executeUpdate(query, Statement.RETURN_GENERATED_KEYS);
         } catch (SQLException ex) {
             System.out.println("query error " + new Throwable().getStackTrace()[0].getMethodName() + " " + ex);
@@ -66,8 +72,8 @@ public class DBStudent {
             }
             startConnection();
             String query = String.format("update %s set\n" +
-                    " Name = '%s', Phone = '%s', email = '%s' where stdID = '%s'",
-                    tableName,tem.Name , tem.Phone , tem.email , tem.stdID);
+                    " Name = '%s', Phone = '%s', email = '%s' , Username = '%s' , Password = '%s' where stdID = '%s'",
+                    tableName,tem.Name , tem.Phone , tem.email , tem.Username , tem.Password , tem.stdID);
             stmt.executeUpdate(query, Statement.RETURN_GENERATED_KEYS);
         } catch (SQLException ex) {
             System.out.println("query error " + new Throwable().getStackTrace()[0].getMethodName()+ " " + ex);
@@ -95,6 +101,8 @@ public class DBStudent {
                 tem.Name = dBResult.getString("Name");
                 tem.Phone = dBResult.getString("Phone");
                 tem.email = dBResult.getString("Email");
+                tem.Username = dBResult.getString("Username");
+                tem.Password = dBResult.getString("Password");
                 res.add(tem);
             }
         } catch (SQLException ex) {

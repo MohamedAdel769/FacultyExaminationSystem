@@ -14,7 +14,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         window = primaryStage ;
-        Parent root = FXMLLoader.load(getClass().getResource("GUI/Exams.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("GUI/Login.fxml"));
         Scene scene = new Scene(root) ;
         window.setTitle("Faculty Examination System");
         window.setScene(scene);
