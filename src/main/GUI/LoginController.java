@@ -14,6 +14,7 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import main.Main;
+import main.dataBaseHelper.DBInstructor;
 
 public class LoginController implements Initializable  {
     GUIHelper guiHelper = new GUIHelper();
@@ -56,9 +57,13 @@ public class LoginController implements Initializable  {
         // if the user is admin
             //guiHelper.GoToForm("AdminHome.fxml");
         // student
+        if (PassTxt.getText().equals( new DBInstructor().getByUsername(UserTxt.getText()).Password)){
+            guiHelper.GoToForm("InstructorHome.fxml");
+        }
+
 
         // instructor
-            guiHelper.GoToForm("InstructorHome.fxml");
+
     }
 
 
