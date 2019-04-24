@@ -12,6 +12,6 @@ public class DBHelper {
 
     public void test(int id) {
         System.out.println(new DBStudent());
-        System.out.println(new DBStudent().getById("55").Phone);
+        System.out.println(new DBStudent().getByUsername("55").Phone);
     }
 }

@@ -15,8 +15,8 @@ public class DBStudent {
     String Name = null;
     String Phone = null;
     String email = null;
-    String Username = null;
-    String Password = null;
+    public String Username = null;
+    public String Password = null;
     final String tableName = "Student";
 
     public DBStudent(String stdID, String name, String phone, String email,String Username , String Password) {
@@ -24,18 +24,18 @@ public class DBStudent {
         Name = name;
         Phone = phone;
         this.email = email;
-        this.Username =username;
+        this.Username =Username;
         this.Password=Password;
     }
 
     public DBStudent() {
     }
 
-    public DBStudent getById(String id) {
+    public DBStudent getByUsername(String Username) {
         startConnection();
         DBStudent tem = new DBStudent();
         try {
-            String query = String.format("select * from %s where stdID = '%s' ",tableName, id);
+            String query = String.format("select * from %s where Username = '%s' ",tableName, Username);
             dBResult = stmt.executeQuery(query);
             while (dBResult.next()) {
                 tem.stdID = dBResult.getString("stdID");
@@ -67,7 +67,7 @@ public class DBStudent {
     }
     public int update(DBStudent tem){
         try {
-            if(getById(tem.stdID).stdID == null){
+            if(getByUsername(tem.Username).Username == null){
                 return NOT_FOUNDED;
             }
             startConnection();
