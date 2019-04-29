@@ -11,11 +11,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import main.Main;
 import main.dataBaseHelper.DBInstructor;
 import main.dataBaseHelper.DBStudent;
+
+import javax.swing.*;
 
 public class LoginController implements Initializable  {
     GUIHelper guiHelper = new GUIHelper();
@@ -62,11 +65,32 @@ public class LoginController implements Initializable  {
             if (PassTxt.getText().equals(new DBStudent().getByUsername(UserTxt.getText()).Password)) {
                 guiHelper.GoToForm("Exams.fxml");
             }
+            else{
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Password Handling");
+                alert.setHeaderText("Wrong Password.");
+                alert.setContentText("Please try again.");
+                alert.showAndWait();
+            }
         }
         else if (new DBInstructor().getByUsername(UserTxt.getText()).Username != null){
             if (PassTxt.getText().equals(new DBInstructor().getByUsername(UserTxt.getText()).Password)) {
                 guiHelper.GoToForm("InstructorHome.fxml");
             }
+            else{
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Password Handling");
+                alert.setHeaderText("Wrong Password.");
+                alert.setContentText("Please try again.");
+                alert.showAndWait();
+            }
+        }
+        else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Username Handling");
+            alert.setHeaderText("Wrong Username.");
+            alert.setContentText("Please try again.");
+            alert.showAndWait();
         }
 
 

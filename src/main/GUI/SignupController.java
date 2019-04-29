@@ -1,6 +1,8 @@
 package main.GUI;
 
+import java.awt.*;
 import java.net.URL;
+import java.security.MessageDigest;
 import java.util.ResourceBundle;
 
 import com.jfoenix.controls.*;
@@ -21,8 +23,13 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import main.Main;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+
 import main.dataBaseHelper.DBInstructor;
 import main.dataBaseHelper.DBStudent;
+
+import javax.swing.*;
 
 public class SignupController implements Initializable {
     private GUIHelper guiHelper = new GUIHelper() ;
@@ -58,14 +65,36 @@ public class SignupController implements Initializable {
     @FXML
     public void GoToLogin(ActionEvent event) {
         if(ComboBox.getValue().equals("Student")) {
-            DBStudent stu = new DBStudent(IDTxt.getText(), FnameTxt.getText() + " " + LnameTxt.getText(), PhoneTxt.getText(), EmailTxt.getText(),UsernameTxt.getText(),PassTxt.getText());
-            stu.add(stu);
+            if(new DBStudent().getByUsername(UsernameTxt.getText()).Username != null) {
+                Alert alert = new Alert(AlertType.ERROR);
+                alert.setTitle("Username Handling");
+                alert.setHeaderText("This Username is used:");
+                alert.setContentText("Please Change your Username");
+                alert.showAndWait();
+            }
+
+            else {
+                DBStudent stu = new DBStudent(IDTxt.getText(), FnameTxt.getText() + " " + LnameTxt.getText(), PhoneTxt.getText(), EmailTxt.getText(), UsernameTxt.getText(), PassTxt.getText());
+                stu.add(stu);
+                guiHelper.GoToForm("Login.fxml");
+            }
+
         }
         else {
-            DBInstructor inst = new DBInstructor( FnameTxt.getText() + " " + LnameTxt.getText(), PhoneTxt.getText(), EmailTxt.getText(),AgeTxt.getText() ,UsernameTxt.getText(),PassTxt.getText());
-            inst.add(inst);
+            if(new DBInstructor().getByUsername(UsernameTxt.getText()).Username != null) {
+                Alert alert = new Alert(AlertType.ERROR);
+                alert.setTitle("Username Handling");
+                alert.setHeaderText("This Username is used.");
+                alert.setContentText("Please Change your Username.");
+                alert.showAndWait();
+            }
+            else{
+                DBInstructor inst = new DBInstructor(FnameTxt.getText() + " " + LnameTxt.getText(), PhoneTxt.getText(), EmailTxt.getText(), AgeTxt.getText(), UsernameTxt.getText(), PassTxt.getText());
+                inst.add(inst);
+                guiHelper.GoToForm("Login.fxml");
+            }
         }
-        guiHelper.GoToForm("Login.fxml");
+       // guiHelper.GoToForm("Login.fxml");
     }
 
     @Override
