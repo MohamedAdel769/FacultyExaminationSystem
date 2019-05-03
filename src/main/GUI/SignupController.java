@@ -5,11 +5,24 @@ import java.util.ResourceBundle;
 
 import com.jfoenix.controls.*;
 
+import com.jfoenix.validation.NumberValidator;
+import com.jfoenix.validation.RequiredFieldValidator;
+import javafx.application.Platform;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import main.Main;
+import main.dataBaseHelper.DBInstructor;
+import main.dataBaseHelper.DBStudent;
 
 public class SignupController implements Initializable {
     private GUIHelper guiHelper = new GUIHelper() ;
@@ -27,15 +40,15 @@ public class SignupController implements Initializable {
     public void ComboChanged(ActionEvent event) {
         if(ComboBox.getValue().equals("Student")) {
             AgeTxt.setPromptText("Age (Instructor only)");
-            AgeTxt.setDisable(true);
+            AgeTxt.setEditable(false);
             AgeTxt.setText("");
-            IDTxt.setDisable(false);
+            IDTxt.setEditable(true);
         }
         else {
-            AgeTxt.setDisable(false);
+            AgeTxt.setEditable(true);
             IDTxt.setPromptText("ID (Students only)");
+            IDTxt.setEditable(false);
             IDTxt.setText("");
-            IDTxt.setDisable(true);
         }
         guiHelper.ValidateText(IDTxt, "Enter ID",false);
         guiHelper.ValidateText(AgeTxt, "Enter Age",false);
@@ -44,6 +57,14 @@ public class SignupController implements Initializable {
 
     @FXML
     public void GoToLogin(ActionEvent event) {
+        if(ComboBox.getValue().equals("Student")) {
+            DBStudent stu = new DBStudent(IDTxt.getText(), FnameTxt.getText() + " " + LnameTxt.getText(), PhoneTxt.getText(), EmailTxt.getText(),UsernameTxt.getText(),PassTxt.getText());
+            stu.add(stu);
+        }
+        else {
+            DBInstructor inst = new DBInstructor( FnameTxt.getText() + " " + LnameTxt.getText(), PhoneTxt.getText(), EmailTxt.getText(),AgeTxt.getText() ,UsernameTxt.getText(),PassTxt.getText());
+            inst.add(inst);
+        }
         guiHelper.GoToForm("Login.fxml");
     }
 
