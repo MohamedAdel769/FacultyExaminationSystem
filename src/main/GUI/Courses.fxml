@@ -2,22 +2,69 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
-
 
 <AnchorPane prefHeight="525.0" prefWidth="730.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.GUI.CoursesController">
    <children>
-      <JFXTextField fx:id="id" layoutX="233.0" layoutY="111.0" promptText="ID" />
-      <JFXTextField fx:id="name" layoutX="233.0" layoutY="160.0" promptText="Name" />
-      <JFXTextField fx:id="department" layoutX="233.0" layoutY="209.0" promptText="Department" />
-      <JFXTextField fx:id="instructor" layoutX="233.0" layoutY="257.0" promptText="Instructor" />
-      <Text fill="#3f2ab9" layoutX="237.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="courses">
+      <Pane prefHeight="100.0" prefWidth="732.0" style="-fx-background-color: #fed149;">
+         <children>
+            <Label layoutX="14.0" layoutY="63.0" prefHeight="32.0" prefWidth="115.0" text="Courses" textFill="#575555">
+               <font>
+                  <Font name="Calibri" size="28.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="47.0" fitWidth="83.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../imgs/rsz_fes.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <TitledPane alignment="CENTER" animated="false" collapsible="false" layoutY="100.0" prefHeight="425.0" prefWidth="732.0" text="Add Course" textFill="#171717">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <JFXTextField fx:id="id" labelFloat="true" layoutX="518.0" layoutY="67.0" promptText="ID" viewOrder="-1.0">
+                     <font>
+                        <Font name="Century Gothic" size="14.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXTextField fx:id="name" labelFloat="true" layoutX="518.0" layoutY="150.0" promptText="Name" viewOrder="-1.0">
+                     <font>
+                        <Font name="Century Gothic" size="14.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXTextField fx:id="department" labelFloat="true" layoutX="518.0" layoutY="233.0" promptText="Department" viewOrder="-1.0">
+                     <font>
+                        <Font name="Century Gothic" size="14.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXButton fx:id="add" layoutX="549.0" layoutY="316.0" onAction="#addCourse" prefHeight="28.0" prefWidth="100.0" ripplerFill="#46ff99" style="-fx-background-color: #00A651;" text="Add">
+                     <font>
+                        <Font name="Century Gothic Bold" size="14.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </JFXButton>
+                  <ImageView fitHeight="324.0" fitWidth="550.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../imgs/course_design_tile.jpg" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+        </content>
          <font>
-            <Font name="System Bold" size="36.0" />
+            <Font name="Century Gothic" size="18.0" />
          </font>
-      </Text>
-      <JFXButton fx:id="add" layoutX="275.0" layoutY="325.0" onAction="#addCourse" text="Add" />
+      </TitledPane>
    </children>
 </AnchorPane>

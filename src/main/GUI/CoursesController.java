@@ -21,23 +21,20 @@ import java.util.ResourceBundle;
 public class CoursesController implements Initializable {
     GUIHelper guiHelper = new GUIHelper();
     @FXML
-    private JFXTextField id , name , department , instructor;
+    private JFXTextField id , name , department ;
     @FXML
-    private JFXButton add;
+    private JFXButton add ;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         guiHelper.ValidateText(id, "Enter id", false);
         guiHelper.ValidateText(name, "Enter name", false);
         guiHelper.ValidateText(department, "Enter department" , false);
-        guiHelper.ValidateText(instructor, "Enter instructor's id" , false);
     }
     @FXML
     public void addCourse(){
-
         id.clear();
         name.clear();
         department.clear();
-        instructor.clear();
     }
 
 }
