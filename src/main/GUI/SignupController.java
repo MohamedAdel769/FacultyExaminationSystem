@@ -66,11 +66,7 @@ public class SignupController implements Initializable {
     public void GoToLogin(ActionEvent event) {
         if(ComboBox.getValue().equals("Student")) {
             if(new DBStudent().getByUsername(UsernameTxt.getText()).Username != null) {
-                Alert alert = new Alert(AlertType.ERROR);
-                alert.setTitle("Username Handling");
-                alert.setHeaderText("This Username is used:");
-                alert.setContentText("Please Change your Username");
-                alert.showAndWait();
+                JOptionPane.showMessageDialog(null,"Please try again","Wrong Username",JOptionPane.ERROR_MESSAGE);
             }
 
             else {
@@ -82,11 +78,7 @@ public class SignupController implements Initializable {
         }
         else {
             if(new DBInstructor().getByUsername(UsernameTxt.getText()).Username != null) {
-                Alert alert = new Alert(AlertType.ERROR);
-                alert.setTitle("Username Handling");
-                alert.setHeaderText("This Username is used.");
-                alert.setContentText("Please Change your Username.");
-                alert.showAndWait();
+               JOptionPane.showMessageDialog(null,"Please try again","Wrong Password",JOptionPane.ERROR_MESSAGE);
             }
             else{
                 DBInstructor inst = new DBInstructor(FnameTxt.getText() + " " + LnameTxt.getText(), PhoneTxt.getText(), EmailTxt.getText(), AgeTxt.getText(), UsernameTxt.getText(), PassTxt.getText());

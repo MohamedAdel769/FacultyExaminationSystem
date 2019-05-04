@@ -66,11 +66,7 @@ public class LoginController implements Initializable  {
                 guiHelper.GoToForm("Exams.fxml");
             }
             else{
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Password Handling");
-                alert.setHeaderText("Wrong Password.");
-                alert.setContentText("Please try again.");
-                alert.showAndWait();
+                JOptionPane.showMessageDialog(null,"Please try again","Wrong Password",JOptionPane.ERROR_MESSAGE);
             }
         }
         else if (new DBInstructor().getByUsername(UserTxt.getText()).Username != null){
@@ -78,19 +74,11 @@ public class LoginController implements Initializable  {
                 guiHelper.GoToForm("InstructorHome.fxml");
             }
             else{
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Password Handling");
-                alert.setHeaderText("Wrong Password.");
-                alert.setContentText("Please try again.");
-                alert.showAndWait();
+                JOptionPane.showMessageDialog(null,"Please try again","Wrong Password",JOptionPane.ERROR_MESSAGE);
             }
         }
         else {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Username Handling");
-            alert.setHeaderText("Wrong Username.");
-            alert.setContentText("Please try again.");
-            alert.showAndWait();
+            JOptionPane.showMessageDialog(null,"Please try again","Wrong Username",JOptionPane.ERROR_MESSAGE);
         }
 
 
