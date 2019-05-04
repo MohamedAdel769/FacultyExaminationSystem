@@ -17,7 +17,6 @@ import javafx.stage.FileChooser.*;
 import main.dataBaseHelper.DBInstructor;
 
 import javax.swing.*;
-import java.awt.*;
 import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -32,9 +31,7 @@ public class InstructorHomeController implements Initializable {
     @FXML
     ImageView profileImg ;
     @FXML
-    static JFXTextField nameTxt , phoneTxt, emailTxt, passTxt , ageTxt ;
-    @FXML
-    static Label userNameTxt ;
+    JFXTextField nameTxt , phoneTxt, emailTxt, passF, ageTxt ;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -60,6 +57,11 @@ public class InstructorHomeController implements Initializable {
             else
                 Drawer.setPrefWidth(55);
         });
+        nameTxt.setText(passData.instructor.Username);
+        //passF.setText(passData.instructor.Password);
+        phoneTxt.setText(passData.instructor.Phone);
+        emailTxt.setText(passData.instructor.Email);
+        ageTxt.setText(passData.instructor.Age);
     }
 
     @FXML
@@ -77,5 +79,14 @@ public class InstructorHomeController implements Initializable {
         catch (Exception ex){
             JOptionPane.showMessageDialog(null,"You didn't choose a photo", "Warning",JOptionPane.WARNING_MESSAGE);
         }
+    }
+    @FXML
+    public void save(){
+        String name = nameTxt.getText();
+        String pass = passData.instructor.Password;
+        String age = (ageTxt.getText());
+        String phone = phoneTxt.getText();
+        String email = emailTxt.getText();
+        new DBInstructor().add(new DBInstructor(name, phone, email, age , name , pass));
     }
 }

@@ -4,7 +4,6 @@
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXDrawersStack?>
 <?import com.jfoenix.controls.JFXHamburger?>
-<?import com.jfoenix.controls.JFXPasswordField?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
@@ -126,7 +125,7 @@
                         <Font name="Century Gothic" size="24.0" />
                      </font>
                   </JFXTextField>
-                  <Label fx:id="userNameTxt" layoutX="177.0" layoutY="83.0" prefHeight="31.0" prefWidth="151.0" text="Username" textFill="#e1e1e1">
+                  <Label layoutX="177.0" layoutY="83.0" prefHeight="31.0" prefWidth="151.0" text="Username" textFill="#e1e1e1">
                      <font>
                         <Font name="Century Gothic" size="24.0" />
                      </font>
@@ -143,7 +142,7 @@
                   <Font name="Century Gothic" size="24.0" />
                </font>
             </JFXTextField>
-            <JFXTextField fx:id="ageTxt" labelFloat="true" layoutX="410.0" layoutY="382.0" prefHeight="47.0" prefWidth="209.0" promptText="Age" style="-fx-text-inner-color: black;">
+            <JFXTextField fx:id="ageTxt" labelFloat="true" layoutX="261.0" layoutY="392.0" prefHeight="47.0" prefWidth="209.0" promptText="Age" style="-fx-text-inner-color: black;">
                <font>
                   <Font name="Century Gothic" size="24.0" />
                </font>
@@ -154,12 +153,7 @@
                </font>
             </JFXTextField>
             <JFXComboBox fx:id="coursesBox" labelFloat="true" layoutX="112.0" layoutY="211.0" prefHeight="35.0" prefWidth="506.0" promptText="Courses" style="-fx-font-family: sans-serif; -fx-font-size: 18; -fx-font-weight: 600;" />
-            <JFXPasswordField fx:id="passTxt" labelFloat="true" layoutX="111.0" layoutY="383.0" prefHeight="47.0" prefWidth="209.0" promptText="Password" style="-fx-text-inner-color: black;">
-               <font>
-                  <Font name="Century Gothic" size="18.0" />
-               </font>
-            </JFXPasswordField>
-            <JFXButton layoutX="505.0" layoutY="456.0" prefHeight="26.0" prefWidth="114.0" style="-fx-background-color: #242F41;" text="Save" textFill="WHITE">
+            <JFXButton layoutX="505.0" layoutY="456.0" onAction="#save" prefHeight="26.0" prefWidth="114.0" style="-fx-background-color: #242F41;" text="Save" textFill="WHITE">
                <font>
                   <Font name="Century Gothic Bold" size="18.0" />
                </font>
@@ -177,12 +171,7 @@
                   <Image url="@../../imgs/baseline_edit_black_18dp.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="293.0" layoutY="398.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../imgs/baseline_edit_black_18dp.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="592.0" layoutY="397.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="452.0" layoutY="416.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../imgs/baseline_edit_black_18dp.png" />
                </image>
