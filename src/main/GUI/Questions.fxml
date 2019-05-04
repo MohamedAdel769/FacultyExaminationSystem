@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXTextArea?>
 <?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -84,5 +86,13 @@
          </font>
       </JFXTextField>
       <JFXComboBox layoutX="425.0" layoutY="470.0" prefHeight="25.0" prefWidth="162.0" promptText="Evaluation Rank" />
+      <JFXButton fx:id="add" layoutX="638.0" layoutY="469.0" prefHeight="28.0" prefWidth="83.0" ripplerFill="#46ff99" style="-fx-background-color: #00A651;" text="Add">
+         <font>
+            <Font name="Century Gothic Bold" size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
    </children>
 </AnchorPane>
