@@ -200,9 +200,9 @@
                   </Tab>
                </tabs>
             </JFXTabPane>
-            <JFXHamburger fx:id="hamburger" viewOrder="-2.0" visible="false" />
+            <JFXHamburger fx:id="hamburger" layoutX="15.0" layoutY="14.0" viewOrder="-2.0" />
             <JFXDrawersStack fx:id="Drawer" prefHeight="535.0" prefWidth="54.0" />
-            <Pane prefHeight="100.0" prefWidth="740.0" style="-fx-background-color: #fed149;">
+            <Pane layoutX="-5.0" prefHeight="100.0" prefWidth="748.0" style="-fx-background-color: #fed149;">
                <children>
                   <Label layoutX="14.0" layoutY="63.0" prefHeight="32.0" prefWidth="280.0" text="Evaluation Exam Report" textFill="#575555">
                      <font>
