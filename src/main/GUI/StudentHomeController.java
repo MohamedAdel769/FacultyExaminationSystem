@@ -5,37 +5,26 @@ import com.jfoenix.controls.JFXDrawersStack;
 import com.jfoenix.controls.JFXHamburger;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.transitions.hamburger.HamburgerBackArrowBasicTransition;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
-import javafx.stage.FileChooser;
-import javafx.stage.FileChooser.*;
-import main.dataBaseHelper.DBInstructor;
 
-import javax.swing.*;
-import java.awt.*;
-import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class InstructorHomeController implements Initializable {
+public class StudentHomeController implements Initializable {
+    @FXML
+    private JFXTextField nameTxt ;
     @FXML
     JFXDrawersStack Drawer ;
     @FXML
     JFXHamburger hamburger ;
     @FXML
     VBox vBox ;
-    @FXML
-    ImageView profileImg ;
-    @FXML
-    JFXTextField nameTxt , phoneTxt, emailTxt, passTxt , ageTxt ;
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    public void initialize(URL location, ResourceBundle resources) {
         JFXDrawer leftDrawer = new JFXDrawer();
         vBox.setVisible(true);
         leftDrawer.setSidePane(vBox);
@@ -58,22 +47,5 @@ public class InstructorHomeController implements Initializable {
             else
                 Drawer.setPrefWidth(55);
         });
-    }
-
-    @FXML
-    public void addImage(ActionEvent e)  {
-        FileChooser fileChooser = new FileChooser();
-        fileChooser.getExtensionFilters().addAll(new ExtensionFilter("128x128 - png", "*.png"), new FileChooser.ExtensionFilter("128x128 - jpg", "*.jpg"));
-        try{
-            File file = fileChooser.showOpenDialog(null);
-            String path = file.toURI().toURL().toString() ;
-
-            Image image = new Image(path);
-            profileImg.setImage(image);
-            profileImg.setPreserveRatio(true);
-        }
-        catch (Exception ex){
-            JOptionPane.showMessageDialog(null,"You didn't choose a photo", "Warning",JOptionPane.WARNING_MESSAGE);
-        }
     }
 }
