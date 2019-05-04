@@ -23,6 +23,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class InstructorHomeController implements Initializable {
+    GUIHelper guiHelper = new GUIHelper();
     @FXML
     JFXDrawersStack Drawer ;
     @FXML
@@ -77,5 +78,26 @@ public class InstructorHomeController implements Initializable {
         catch (Exception ex){
             JOptionPane.showMessageDialog(null,"You didn't choose a photo", "Warning",JOptionPane.WARNING_MESSAGE);
         }
+    }
+    @FXML
+    public void LogOut(ActionEvent e){
+        guiHelper.GoToForm("Login.fxml");
+    }
+    @FXML
+    public void addCourses(ActionEvent e){
+        guiHelper.GoToForm("Courses.fxml");
+    }
+
+    @FXML
+    public void Exam(ActionEvent e){
+        guiHelper.GoToForm("Exams.fxml");
+    }
+    @FXML
+    public void ExamReport(ActionEvent e){
+        guiHelper.GoToForm("EvaluationExamReport.fxml");
+    }
+    @FXML
+    public void Home(ActionEvent e){
+        guiHelper.GoToForm("instructorHome.fxml");
     }
 }
