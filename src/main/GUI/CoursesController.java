@@ -11,6 +11,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.*;
+import main.dataBaseHelper.DBCourse;
+import main.dataBaseHelper.dataBaseConVars;
 
 import javax.swing.*;
 import java.awt.*;
@@ -64,9 +66,17 @@ public class CoursesController implements Initializable {
     }
     @FXML
     public void addCourse(){
-        id.clear();
-        name.clear();
-        department.clear();
+        String idValue = id.getText();
+        String nameValue = name.getText();
+        String dapValue = department.getText();
+        if(new DBCourse().add(new DBCourse(idValue, nameValue, dapValue, passData.instructor.Username)) == dataBaseConVars.OK ){
+            id.clear();
+            name.clear();
+            department.clear();
+        }else{
+            System.out.println("NOT added");
+        }
+
     }
     @FXML
     public void Search(ActionEvent e){

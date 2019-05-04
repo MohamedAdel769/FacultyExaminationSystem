@@ -6,8 +6,11 @@ import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXTimePicker;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import main.dataBaseHelper.DBExam;
+import main.dataBaseHelper.dataBaseConVars;
 
 import java.net.URL;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
 public class ExamsConroller implements Initializable {
@@ -19,6 +22,27 @@ public class ExamsConroller implements Initializable {
     @FXML
     JFXDatePicker ReleaseDate ;
 
+    @FXML
+    public void addExam(){
+
+        String idValue = id.getText();
+        String CourseIdValue = CourseId.getText();
+        String durationTimeValue = durationTime.getText();
+        int TotalGradeValue = Integer.parseInt(TotalGrade.getText());
+        String HandlingTimerValue = HandlingTimer.getValue().format(DateTimeFormatter.ISO_DATE);
+        String ReleaseDateValue = ReleaseDate.getValue().format(DateTimeFormatter.ISO_DATE);
+        String ReleaseTimeValue = ReleaseTime.getValue().format(DateTimeFormatter.ISO_TIME);
+        String instrID = passData.instructor.Username;
+        if(new DBExam().add(new DBExam(idValue , CourseIdValue , durationTimeValue , true , ReleaseDateValue , instrID,
+                TotalGradeValue ,HandlingTimerValue ,ReleaseTimeValue )) != dataBaseConVars.OK){
+            System.out.println("not Added");
+        }else {
+            id.clear();
+            CourseId.clear();
+            durationTime.clear();
+            TotalGrade.clear();
+        }
+    }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         guiHelper.ValidateText(id, "Enter Id", false);
@@ -28,13 +52,6 @@ public class ExamsConroller implements Initializable {
         HandlingTimer.activeValidatorProperty();
         ReleaseDate.activeValidatorProperty();
         ReleaseTime.activeValidatorProperty();
-    }
-    @FXML
-    public void addExam(){
-        id.clear();
-        CourseId.clear();
-        durationTime.clear();
-        TotalGrade.clear();
     }
 
 }

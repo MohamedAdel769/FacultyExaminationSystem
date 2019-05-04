@@ -21,6 +21,18 @@ public class DBExam {
     public DBExam() {
     }
 
+    /**
+     *
+     * @param examId
+     * @param courseId
+     * @param durationTime
+     * @param acceptStatus
+     * @param releaseData
+     * @param instructorId
+     * @param totalGrade
+     * @param handlingTimer
+     * @param accepTimer
+     */
     public DBExam(String examId, String courseId, String durationTime, boolean acceptStatus, String releaseData, String instructorId, int totalGrade, String handlingTimer, String accepTimer) {
         this.examId = examId;
         this.courseId = courseId;

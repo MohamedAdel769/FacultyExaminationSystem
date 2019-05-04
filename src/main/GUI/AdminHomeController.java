@@ -52,10 +52,10 @@ public class AdminHomeController implements Initializable {
         TableColumn<Student,String> nameCol = new TableColumn<>("Name");
         TableColumn<Student,String> emailCol = new TableColumn<>("E-mail");
         TableColumn<Student,String> selectCol = new TableColumn<>("Select");
-        nameCol.setCellValueFactory(new PropertyValueFactory("name"));
-        emailCol.setCellValueFactory(new PropertyValueFactory("email"));
-        idCol.setCellValueFactory(new PropertyValueFactory("id"));
-        selectCol.setCellValueFactory(new PropertyValueFactory("selectStd"));
+        nameCol.setCellValueFactory(new PropertyValueFactory("Name"));
+        emailCol.setCellValueFactory(new PropertyValueFactory("Phone"));
+        idCol.setCellValueFactory(new PropertyValueFactory("email"));
+        selectCol.setCellValueFactory(new PropertyValueFactory("Username"));
         idCol.setPrefWidth(100.0);
         nameCol.setPrefWidth(150.0);
         emailCol.setPrefWidth(200.0);

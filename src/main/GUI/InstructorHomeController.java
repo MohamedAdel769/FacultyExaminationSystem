@@ -105,10 +105,11 @@ public class InstructorHomeController implements Initializable {
     @FXML
     public void save(){
         String name = nameTxt.getText();
+        String id = passData.instructor.Username;
         String pass = passData.instructor.Password;
         String age = (ageTxt.getText());
         String phone = phoneTxt.getText();
         String email = emailTxt.getText();
-        new DBInstructor().add(new DBInstructor(name, phone, email, age , name , pass));
+        new DBInstructor().update(new DBInstructor(name, phone, email, age , id , pass));
     }
 }
