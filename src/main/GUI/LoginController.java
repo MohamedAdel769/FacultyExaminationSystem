@@ -71,6 +71,7 @@ public class LoginController implements Initializable  {
         }
         else if (new DBInstructor().getByUsername(UserTxt.getText()).Username != null){
             if (PassTxt.getText().equals(new DBInstructor().getByUsername(UserTxt.getText()).Password)) {
+                passData.instructor = new DBInstructor().getByUsername(UserTxt.getText());
                 guiHelper.GoToForm("InstructorHome.fxml");
             }
             else{
