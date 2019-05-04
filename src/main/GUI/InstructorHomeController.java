@@ -3,6 +3,7 @@ package main.GUI;
 import com.jfoenix.controls.JFXDrawer;
 import com.jfoenix.controls.JFXDrawersStack;
 import com.jfoenix.controls.JFXHamburger;
+import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.transitions.hamburger.HamburgerBackArrowBasicTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,6 +14,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.*;
+import main.dataBaseHelper.DBInstructor;
 
 import javax.swing.*;
 import java.awt.*;
@@ -29,6 +31,10 @@ public class InstructorHomeController implements Initializable {
     VBox vBox ;
     @FXML
     ImageView profileImg ;
+    @FXML
+    static JFXTextField nameTxt , phoneTxt, emailTxt, passTxt , ageTxt ;
+    @FXML
+    static Label userNameTxt ;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

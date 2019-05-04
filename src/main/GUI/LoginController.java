@@ -17,6 +17,7 @@ import javafx.scene.image.ImageView;
 import main.Main;
 import main.dataBaseHelper.DBInstructor;
 import main.dataBaseHelper.DBStudent;
+import javax.swing.JOptionPane;
 
 import javax.swing.*;
 
@@ -61,16 +62,18 @@ public class LoginController implements Initializable  {
         // if the user is admin
             //guiHelper.GoToForm("AdminHome.fxml");
         // student
+
         if (new DBStudent().getByUsername(UserTxt.getText()).Username != null) {
             if (PassTxt.getText().equals(new DBStudent().getByUsername(UserTxt.getText()).Password)) {
                 guiHelper.GoToForm("Exams.fxml");
             }
             else{
-                Alert alert = new Alert(Alert.AlertType.ERROR);
+                /*Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Password Handling");
                 alert.setHeaderText("Wrong Password.");
                 alert.setContentText("Please try again.");
-                alert.showAndWait();
+                alert.showAndWait();*/
+                JOptionPane.showMessageDialog(null,"Please try again.", "Wrong Password", JOptionPane.ERROR_MESSAGE);
             }
         }
         else if (new DBInstructor().getByUsername(UserTxt.getText()).Username != null){

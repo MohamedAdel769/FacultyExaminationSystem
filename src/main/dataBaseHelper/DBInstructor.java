@@ -6,10 +6,10 @@ import java.sql.Statement;
 import static main.dataBaseHelper.dataBaseConVars.*;
 
 public class DBInstructor {
-    String Name = null;
-    String Phone = null;
-    String Email = null;
-    String Age = null;
+    public String Name = null;
+    public String Phone = null;
+    public String Email = null;
+    public String Age = null;
     public String Username = null;
     public String Password = null;
     final String tableName = "Instructor";
