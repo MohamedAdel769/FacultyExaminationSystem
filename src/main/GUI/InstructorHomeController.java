@@ -8,6 +8,7 @@ import com.jfoenix.transitions.hamburger.HamburgerBackArrowBasicTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -32,7 +33,9 @@ public class InstructorHomeController implements Initializable {
     @FXML
     ImageView profileImg ;
     @FXML
-    JFXTextField nameTxt , phoneTxt, emailTxt, passF, ageTxt ;
+    JFXTextField nameTxt , phoneTxt, emailTxt, ageTxt ;
+    @FXML
+    Label userName ;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -58,11 +61,11 @@ public class InstructorHomeController implements Initializable {
             else
                 Drawer.setPrefWidth(55);
         });
-        nameTxt.setText(passData.instructor.Username);
-        //passF.setText(passData.instructor.Password);
+        nameTxt.setText(passData.instructor.Name);
         phoneTxt.setText(passData.instructor.Phone);
         emailTxt.setText(passData.instructor.Email);
         ageTxt.setText(passData.instructor.Age);
+        userName.setText(passData.instructor.Username);
     }
 
     @FXML

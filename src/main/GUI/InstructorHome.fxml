@@ -125,7 +125,7 @@
                         <Font name="Century Gothic" size="24.0" />
                      </font>
                   </JFXTextField>
-                  <Label layoutX="177.0" layoutY="83.0" prefHeight="31.0" prefWidth="151.0" text="Username" textFill="#e1e1e1">
+                  <Label fx:id="userName" layoutX="177.0" layoutY="83.0" prefHeight="31.0" prefWidth="151.0" text="Username" textFill="#e1e1e1">
                      <font>
                         <Font name="Century Gothic" size="24.0" />
                      </font>
