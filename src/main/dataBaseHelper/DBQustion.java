@@ -16,10 +16,10 @@ public class DBQustion {
     int grade = 0;
     String EvaluationRankAChar ;
     String examID  = null;
-    final String tableName = "Qustion";
+    String Question = null;
+    final String tableName = "Questions";
 
-    public DBQustion(String quesID, String choice1, String choice2, String choice3, String choice4, String correctChoice, int grade, String evaluationRankAChar, String examID) {
-        QuesID = quesID;
+    public DBQustion( String choice1, String choice2, String choice3, String choice4, String correctChoice, int grade, String evaluationRankAChar, String examID,String Question) {
         Choice1 = choice1;
         Choice2 = choice2;
         Choice3 = choice3;
@@ -28,6 +28,7 @@ public class DBQustion {
         this.grade = grade;
         EvaluationRankAChar = evaluationRankAChar;
         this.examID = examID;
+        this.Question = Question;
     }
 
     public DBQustion() {
@@ -50,6 +51,7 @@ public class DBQustion {
                 tem.grade = dBResult.getInt("grade");
                 tem.EvaluationRankAChar = dBResult.getString("EvaluationRank");
                 tem.examID = dBResult.getString("examID");
+                tem.Question = dBResult.getString("Question");
             }
         } catch (SQLException ex) {
             System.out.println("query error " + new Throwable().getStackTrace()[0].getMethodName() + " " + ex );
@@ -60,9 +62,9 @@ public class DBQustion {
         try {
             startConnection();
             String s = "";
-            String query = String.format("insert into %s (QuesID,Choice1, Choice2, Choice3, Choice4, CorrectChoice, grade, EvaluationRank, examID)" +
-                    "values ('%s','%s','%s','%s','%s', '%s' ,%d ,'%s','%s')",tableName,tem.QuesID,tem.Choice1,tem.Choice2
-                    ,tem.Choice3,tem.Choice4 , tem.CorrectChoice,tem.grade,tem.EvaluationRankAChar,tem.examID);
+            String query = String.format("insert into %s (Choice1, Choice2, Choice3, Choice4, CorrectChoice, grade, EvaluationRank, examID,Question)" +
+                    "values ('%s','%s','%s','%s', '%s' ,%d ,'%s','%s','%s')",tableName,tem.Choice1,tem.Choice2
+                    ,tem.Choice3,tem.Choice4 , tem.CorrectChoice,tem.grade,tem.EvaluationRankAChar,tem.examID,tem.Question);
             stmt.executeUpdate(query, Statement.RETURN_GENERATED_KEYS);
         } catch (SQLException ex) {
             System.out.println("query error " + new Throwable().getStackTrace()[0].getMethodName() + " " + ex);

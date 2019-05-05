@@ -12,12 +12,11 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="525.0" prefWidth="730.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.GUI.QuestionsController">
    <children>
       <Pane prefHeight="100.0" prefWidth="740.0" style="-fx-background-color: #fed149;">
          <children>
-            <Label layoutX="14.0" layoutY="63.0" prefHeight="32.0" prefWidth="115.0" text="Questions" textFill="#575555">
+            <Label layoutX="8.0" layoutY="61.0" prefHeight="32.0" prefWidth="115.0" text="Questions" textFill="#575555">
                <font>
                   <Font name="Calibri" size="28.0" />
                </font>
@@ -29,12 +28,12 @@
             </ImageView>
          </children>
       </Pane>
-      <JFXTextArea layoutX="17.0" layoutY="106.0" prefHeight="187.0" prefWidth="706.0" promptText="Write your Question here">
+      <JFXTextArea fx:id="QtxtArea" layoutX="17.0" layoutY="106.0" prefHeight="187.0" prefWidth="706.0" promptText="Write your Question here">
          <font>
             <Font name="Century Gothic" size="18.0" />
          </font>
       </JFXTextArea>
-      <JFXTextField layoutX="150.0" layoutY="311.0" promptText="Choice 1">
+      <JFXTextField fx:id="Q1txt" layoutX="150.0" layoutY="311.0" promptText="Choice 1">
          <font>
             <Font name="Century Gothic" size="14.0" />
          </font>
@@ -44,17 +43,17 @@
             <Font name="Century Gothic" size="14.0" />
          </font>
       </Label>
-      <JFXTextField layoutX="150.0" layoutY="468.0" promptText="Choice 4">
+      <JFXTextField fx:id="Q4txt" layoutX="150.0" layoutY="468.0" promptText="Choice 4">
          <font>
             <Font name="Century Gothic" size="14.0" />
          </font>
       </JFXTextField>
-      <JFXTextField layoutX="150.0" layoutY="364.0" promptText="Choice 2">
+      <JFXTextField fx:id="Q2txt" layoutX="150.0" layoutY="364.0" promptText="Choice 2">
          <font>
             <Font name="Century Gothic" size="14.0" />
          </font>
       </JFXTextField>
-      <JFXTextField layoutX="150.0" layoutY="418.0" promptText="Choice 3">
+      <JFXTextField fx:id="Q3txt" layoutX="150.0" layoutY="418.0" promptText="Choice 3">
          <font>
             <Font name="Century Gothic" size="14.0" />
          </font>
@@ -74,19 +73,19 @@
             <Font name="Century Gothic" size="14.0" />
          </font>
       </Label>
-      <JFXComboBox layoutX="425.0" layoutY="314.0" prefHeight="25.0" prefWidth="162.0" promptText="Correct Choice" />
-      <JFXTextField layoutX="425.0" layoutY="364.0" promptText="Grade">
+      <JFXComboBox fx:id="Answertxt" layoutX="425.0" layoutY="314.0" prefHeight="25.0" prefWidth="162.0" promptText="Correct Choice" visibleRowCount="4" />
+      <JFXTextField fx:id="Gradetxt" layoutX="425.0" layoutY="364.0" promptText="Grade">
          <font>
             <Font name="Century Gothic" size="14.0" />
          </font>
       </JFXTextField>
-      <JFXTextField editable="false" layoutX="425.0" layoutY="418.0" promptText="Exam id">
+      <JFXTextField fx:id="examID" editable="false" layoutX="425.0" layoutY="418.0" promptText="Exam id">
          <font>
             <Font name="Century Gothic" size="14.0" />
          </font>
       </JFXTextField>
-      <JFXComboBox layoutX="425.0" layoutY="470.0" prefHeight="25.0" prefWidth="162.0" promptText="Evaluation Rank" />
-      <JFXButton fx:id="add" layoutX="638.0" layoutY="469.0" prefHeight="28.0" prefWidth="83.0" ripplerFill="#46ff99" style="-fx-background-color: #00A651;" text="Add">
+      <JFXComboBox fx:id="EvRank" layoutX="425.0" layoutY="470.0" prefHeight="25.0" prefWidth="162.0" promptText="Evaluation Rank" />
+      <JFXButton fx:id="add" layoutX="638.0" layoutY="469.0" onAction="#add" prefHeight="28.0" prefWidth="83.0" ripplerFill="#46ff99" style="-fx-background-color: #00A651;" text="Add">
          <font>
             <Font name="Century Gothic Bold" size="14.0" />
          </font>
