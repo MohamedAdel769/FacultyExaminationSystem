@@ -13,6 +13,17 @@ public class DBCourse {
     String instrID = null;
 
     final String tableName = "Course";
+
+    public DBCourse(String courseID, String name, String department, String instrID) {
+        this.courseID = courseID;
+        Name = name;
+        Department = department;
+        this.instrID = instrID;
+    }
+
+    public DBCourse() {
+    }
+
     public DBCourse getById(String id) {
         startConnection();
         DBCourse tem = new DBCourse();
