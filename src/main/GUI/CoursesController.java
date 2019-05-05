@@ -95,9 +95,7 @@ public class CoursesController implements Initializable {
     }
 
     @FXML
-    public void Exam(ActionEvent e){
-        guiHelper.GoToForm("Exams.fxml");
-    }
+    public void Exam(ActionEvent e){ guiHelper.GoToForm("Exams.fxml"); }
     @FXML
     public void ExamReport(ActionEvent e){
         guiHelper.GoToForm("EvaluationExamReport.fxml");

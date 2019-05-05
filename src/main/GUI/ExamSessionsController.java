@@ -4,6 +4,7 @@ import com.jfoenix.controls.JFXDrawer;
 import com.jfoenix.controls.JFXDrawersStack;
 import com.jfoenix.controls.JFXHamburger;
 import com.jfoenix.transitions.hamburger.HamburgerBackArrowBasicTransition;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.input.MouseEvent;
@@ -13,6 +14,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class ExamSessionsController implements Initializable {
+    GUIHelper guiHelper = new GUIHelper();
     @FXML
     JFXDrawersStack Drawer ;
     @FXML
@@ -44,5 +46,19 @@ public class ExamSessionsController implements Initializable {
             else
                 Drawer.setPrefWidth(55);
         });
+    }
+    @FXML
+    public void LogOut(ActionEvent e){
+        guiHelper.GoToForm("Login.fxml");
+    }
+    @FXML
+    public void Home(ActionEvent e){
+        guiHelper.GoToForm("StudentHome.fxml");
+    }
+    @FXML
+    public void Exam(ActionEvent e){ guiHelper.GoToForm("ExamSessions.fxml"); }
+    @FXML
+    public void Grades(ActionEvent e){
+        guiHelper.GoToForm("Grades.fxml");
     }
 }

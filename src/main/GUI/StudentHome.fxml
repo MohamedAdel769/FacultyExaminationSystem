@@ -34,7 +34,7 @@
                   <Font name="Century Gothic" size="18.0" />
                </font>
             </Label>
-            <JFXButton prefHeight="64.0" prefWidth="199.0" text="Home" textFill="#e4e2e2">
+            <JFXButton onAction="#Home" prefHeight="64.0" prefWidth="199.0" text="Home" textFill="#e4e2e2">
                <font>
                   <Font name="Century Gothic" size="18.0" />
                </font>
@@ -46,7 +46,7 @@
                   </ImageView>
                </graphic>
             </JFXButton>
-            <JFXButton prefHeight="69.0" prefWidth="199.0" text="Exam Sessions" textFill="#e4e2e2">
+            <JFXButton onAction="#Exam" prefHeight="69.0" prefWidth="199.0" text="Exam Sessions" textFill="#e4e2e2">
                <font>
                   <Font name="Century Gothic" size="18.0" />
                </font>
@@ -58,7 +58,7 @@
                   </ImageView>
                </graphic>
             </JFXButton>
-            <JFXButton prefHeight="81.0" prefWidth="199.0" text="Grades" textFill="#e4e2e2">
+            <JFXButton onAction="#Grades" prefHeight="81.0" prefWidth="199.0" text="Grades" textFill="#e4e2e2">
                <font>
                   <Font name="Century Gothic" size="18.0" />
                </font>
@@ -70,7 +70,7 @@
                   </ImageView>
                </graphic>
             </JFXButton>
-            <JFXButton prefHeight="90.0" prefWidth="199.0" text="Logout" textFill="#e4e2e2">
+            <JFXButton onAction="#LogOut" prefHeight="90.0" prefWidth="199.0" text="Logout" textFill="#e4e2e2">
                <font>
                   <Font name="Century Gothic" size="18.0" />
                </font>
@@ -101,7 +101,7 @@
                   <Font name="Century Gothic" size="24.0" />
                </font>
             </JFXTextField>
-            <JFXButton fx:id="saveBtn" layoutX="422.0" layoutY="361.0" prefHeight="31.0" prefWidth="199.0" style="-fx-background-color: #242F41;" text="Save" textFill="WHITE">
+            <JFXButton fx:id="saveBtn" layoutX="422.0" layoutY="361.0" onAction="#save" prefHeight="31.0" prefWidth="199.0" style="-fx-background-color: #242F41;" text="Save" textFill="WHITE">
                <font>
                   <Font name="Century Gothic Bold" size="18.0" />
                </font>

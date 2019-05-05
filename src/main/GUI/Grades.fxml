@@ -59,7 +59,7 @@
                   <Font name="Century Gothic" size="18.0" />
                </font>
             </Label>
-            <JFXButton prefHeight="64.0" prefWidth="199.0" text="Home" textFill="#e4e2e2">
+            <JFXButton onAction="#Home" prefHeight="64.0" prefWidth="199.0" text="Home" textFill="#e4e2e2">
                <font>
                   <Font name="Century Gothic" size="18.0" />
                </font>
@@ -71,7 +71,7 @@
                   </ImageView>
                </graphic>
             </JFXButton>
-            <JFXButton prefHeight="69.0" prefWidth="199.0" text="Exam Sessions" textFill="#e4e2e2">
+            <JFXButton onAction="#Exam" prefHeight="69.0" prefWidth="199.0" text="Exam Sessions" textFill="#e4e2e2">
                <font>
                   <Font name="Century Gothic" size="18.0" />
                </font>
@@ -83,7 +83,7 @@
                   </ImageView>
                </graphic>
             </JFXButton>
-            <JFXButton prefHeight="81.0" prefWidth="199.0" text="Grades" textFill="#e4e2e2">
+            <JFXButton onAction="#Grades" prefHeight="81.0" prefWidth="199.0" text="Grades" textFill="#e4e2e2">
                <font>
                   <Font name="Century Gothic" size="18.0" />
                </font>
@@ -95,7 +95,7 @@
                   </ImageView>
                </graphic>
             </JFXButton>
-            <JFXButton prefHeight="90.0" prefWidth="199.0" text="Logout" textFill="#e4e2e2">
+            <JFXButton onAction="#LogOut" prefHeight="90.0" prefWidth="199.0" text="Logout" textFill="#e4e2e2">
                <font>
                   <Font name="Century Gothic" size="18.0" />
                </font>

@@ -11,10 +11,10 @@ import static main.dataBaseHelper.dataBaseConVars.*;
 import static main.dataBaseHelper.dataBaseConVars.dBResult;
 
 public class DBStudent {
-    String stdID = null;
-    String Name = null;
-    String Phone = null;
-    String email = null;
+    public String stdID = null;
+    public String Name = null;
+    public String Phone = null;
+    public String email = null;
     public String Username = null;
     public String Password = null;
     final String tableName = "Student";
