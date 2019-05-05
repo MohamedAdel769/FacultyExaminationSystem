@@ -49,9 +49,6 @@ public class ExamsConroller implements Initializable {
         guiHelper.ValidateText(CourseId, "Enter CourseId", false);
         guiHelper.ValidateText(durationTime, "Enter durationTime", false);
         guiHelper.ValidateText(TotalGrade, "Enter TotalGrade", false);
-        HandlingTimer.activeValidatorProperty();
-        ReleaseDate.activeValidatorProperty();
-        ReleaseTime.activeValidatorProperty();
     }
 
 }

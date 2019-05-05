@@ -61,9 +61,9 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </JFXButton>
-                  <JFXDatePicker defaultColor="#4059a9" layoutX="305.0" layoutY="275.0" overLay="true" promptText="Release Date" />
-                  <JFXTimePicker defaultColor="#4059a9" layoutX="530.0" layoutY="201.0" overLay="true" promptText="Release Time" />
-                  <JFXTimePicker defaultColor="#4059a9" layoutX="530.0" layoutY="86.0" overLay="true" promptText="Deadline Time" />
+                  <JFXDatePicker defaultColor="#4059a9" layoutX="305.0" layoutY="275.0" promptText="Release Date" />
+                  <JFXTimePicker defaultColor="#4059a9" layoutX="530.0" layoutY="201.0" promptText="Release Time" />
+                  <JFXTimePicker defaultColor="#4059a9" layoutX="530.0" layoutY="86.0" promptText="Deadline Time" />
                   <ImageView fitHeight="256.0" fitWidth="256.0" layoutX="14.0" layoutY="61.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../imgs/exam.png" />
