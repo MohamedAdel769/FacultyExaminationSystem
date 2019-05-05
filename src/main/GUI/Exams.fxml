@@ -53,7 +53,7 @@
                         <Font name="Century Gothic" size="14.0" />
                      </font>
                   </JFXTextField>
-                    <JFXButton fx:id="add" layoutX="532.0" layoutY="277.0" prefHeight="28.0" prefWidth="163.0" ripplerFill="#46ff99" style="-fx-background-color: #00A651;" text="Next">
+                    <JFXButton fx:id="add" layoutX="532.0" layoutY="277.0" onAction="#addExam" prefHeight="28.0" prefWidth="163.0" ripplerFill="#46ff99" style="-fx-background-color: #00A651;" text="Next">
                      <font>
                         <Font name="Century Gothic Bold" size="14.0" />
                      </font>
