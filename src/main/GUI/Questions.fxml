@@ -26,7 +26,7 @@
                   <Image url="@../../imgs/rsz_fes.png" />
                </image>
             </ImageView>
-            <JFXButton buttonType="RAISED" layoutX="628.0" layoutY="63.0" prefHeight="28.0" prefWidth="98.0" ripplerFill="#46ff99" style="-fx-background-color: #00A651;" text="Done">
+            <JFXButton fx:id="done" buttonType="RAISED" layoutX="628.0" layoutY="63.0" prefHeight="28.0" prefWidth="98.0" ripplerFill="#46ff99" style="-fx-background-color: #00A651;" text="Done">
                <font>
                   <Font name="Century Gothic Bold" size="14.0" />
                </font>

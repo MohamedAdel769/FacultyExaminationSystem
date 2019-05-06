@@ -2,12 +2,13 @@ package main.dataBaseHelper;
 
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 import static main.dataBaseHelper.dataBaseConVars.*;
 import static main.dataBaseHelper.dataBaseConVars.dBResult;
 
 public class DBExaminationSession {
-    String examSessionsID = null , examID = null;
+    public String examSessionsID = null , examID = null;
     final String tableName = "ExaminationSession";
 
     public DBExaminationSession(String examSessionsID, String examID) {
@@ -16,6 +17,7 @@ public class DBExaminationSession {
     }
 
     public DBExaminationSession() {
+
     }
 
     public DBExaminationSession getById(String id) {
@@ -33,6 +35,25 @@ public class DBExaminationSession {
         }
         return tem;
     }
+
+    public ArrayList<DBExaminationSession> getAll() {
+        startConnection();
+        ArrayList<DBExaminationSession> v = new ArrayList<>();
+        try {
+            String query = String.format("select * from %s",tableName);
+            dBResult = stmt.executeQuery(query);
+            while (dBResult.next()) {
+                DBExaminationSession tem = new DBExaminationSession();
+                tem.examID = dBResult.getString("examID");
+                tem.examSessionsID = dBResult.getString("examSessionsID");
+                v.add(tem);
+            }
+        } catch (SQLException ex) {
+            System.out.println("query error " + new Throwable().getStackTrace()[0].getMethodName() + " " + ex );
+        }
+        return v;
+    }
+
     public int add(DBExaminationSession tem) {
         try {
             if(getById(tem.examSessionsID).examSessionsID != null){

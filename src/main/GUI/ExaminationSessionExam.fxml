@@ -11,7 +11,6 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="525.0" prefWidth="730.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.GUI.ExaminationSessionExamController">
    <children>
       <Pane prefHeight="100.0" prefWidth="740.0" style="-fx-background-color: #fed149;">
@@ -26,21 +25,20 @@
                   <Image url="@../../imgs/rsz_fes.png" />
                </image>
             </ImageView>
-            <JFXButton buttonType="RAISED" layoutX="628.0" layoutY="63.0" prefHeight="28.0" prefWidth="98.0" ripplerFill="#46ff99" style="-fx-background-color: #00A651;" text="Done">
-               <font>
-                  <Font name="Century Gothic Bold" size="14.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </JFXButton>
          </children>
       </Pane>
-      <TableView layoutX="40.0" layoutY="136.0" prefHeight="344.0" prefWidth="647.0">
+      <TableView fx:id="table" layoutX="40.0" layoutY="136.0" prefHeight="268.0" prefWidth="647.0">
         <columns>
-          <TableColumn prefWidth="163.0" text="Examination Session" />
-          <TableColumn prefWidth="137.0" text="Select" />
+          <TableColumn fx:id="ExCol" prefWidth="163.0" text="Examination Session" />
         </columns>
       </TableView>
+      <JFXButton buttonType="RAISED" layoutX="315.0" layoutY="433.0" onAction="#done" prefHeight="28.0" prefWidth="98.0" ripplerFill="#46ff99" style="-fx-background-color: #00A651;" text="Done">
+         <font>
+            <Font name="Century Gothic Bold" size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
    </children>
 </AnchorPane>

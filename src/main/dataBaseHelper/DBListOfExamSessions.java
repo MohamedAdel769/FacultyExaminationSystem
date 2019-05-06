@@ -2,11 +2,12 @@ package main.dataBaseHelper;
 
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 import static main.dataBaseHelper.dataBaseConVars.*;
 
 public class DBListOfExamSessions {
-    String StuID = null , examSessionsID = null;
+    public String StuID = null , examSessionsID = null;
     final String tableName = "ListOfExamSessions";
 
     public DBListOfExamSessions(String stuID, String examSessionsID) {
@@ -32,6 +33,25 @@ public class DBListOfExamSessions {
         }
         return tem;
     }
+
+    public ArrayList<DBListOfExamSessions> getById(String id) {
+        startConnection();
+        ArrayList<DBListOfExamSessions> arr = new ArrayList<>();
+        try {
+            String query = String.format("select * from %s where examSessionsID = '%s'",tableName, id);
+            dBResult = stmt.executeQuery(query);
+            while (dBResult.next()) {
+                DBListOfExamSessions tem = new DBListOfExamSessions();
+                tem.examSessionsID = dBResult.getString("examSessionsID");
+                tem.StuID = dBResult.getString("StuID");
+                arr.add(tem);
+            }
+        } catch (SQLException ex) {
+            System.out.println("query error " + new Throwable().getStackTrace()[0].getMethodName()+ " " + ex);
+        }
+        return arr;
+    }
+
     public int add(DBListOfExamSessions tem) {
         try {
             startConnection();

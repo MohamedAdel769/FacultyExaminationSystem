@@ -1,5 +1,6 @@
 package main.GUI;
 
+import com.jfoenix.controls.JFXTextField;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -12,6 +13,8 @@ import javafx.scene.control.cell.CheckBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.StackPane;
 import main.Users.Student;
+import main.dataBaseHelper.DBListOfExamSessions;
+
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -25,7 +28,8 @@ public class AdminHomeController implements Initializable {
     GUIHelper guiHelper = new GUIHelper();
     @FXML
     TableView<Student> adminTableView;
-
+    @FXML
+    JFXTextField id;
     @FXML
     StackPane stackPane ;
     @FXML
@@ -44,10 +48,11 @@ public class AdminHomeController implements Initializable {
 
     @FXML
     public void CreateSession(ActionEvent event){
-        Vector<Student> v = new Vector<>();
+        String idV = id.getText();
         for(int i = 0;i<adminTableView.getItems().size();i++){
             if(adminTableView.getItems().get(i).getSelectStd().isSelected()){
-                v.add(adminTableView.getItems().get(i));
+                String StuId = adminTableView.getItems().get(i).getId();
+                new DBListOfExamSessions().add(new DBListOfExamSessions(StuId , idV));
             }
         }
         guiHelper.ShowDialog(stackPane, "Examination Session", "You successfully added a new examination session.", "Ok");

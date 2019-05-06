@@ -60,7 +60,7 @@
                   <Font name="Century Gothic" size="28.0" />
                </font>
             </Label>
-            <JFXTextField layoutX="330.0" layoutY="83.0" prefHeight="25.0" prefWidth="219.0">
+            <JFXTextField fx:id="id" layoutX="330.0" layoutY="83.0" prefHeight="25.0" prefWidth="219.0">
                <font>
                   <Font name="Century Gothic" size="14.0" />
                </font>

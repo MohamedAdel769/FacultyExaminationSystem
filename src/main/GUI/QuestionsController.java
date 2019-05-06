@@ -56,4 +56,8 @@ public class QuestionsController implements Initializable {
         Answertxt.setItems(list);
         EvRank.setItems(listt);
     }
+    @FXML
+    public void done(){
+        new GUIHelper().GoToForm("ExaminationSessionExam.fxml");
+    }
 }
