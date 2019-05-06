@@ -7,8 +7,14 @@ import com.jfoenix.transitions.hamburger.HamburgerBackArrowBasicTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
+import main.Session.ExamSession;
+import main.dataBaseHelper.DBExam;
+import main.dataBaseHelper.DBExaminationSession;
+import main.dataBaseHelper.DBListOfExamSessions;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -21,9 +27,19 @@ public class ExamSessionsController implements Initializable {
     JFXHamburger hamburger ;
     @FXML
     VBox vBox ;
-
+    @FXML
+    TableColumn examSessionID;
+    @FXML
+    TableColumn acStatus;
+    @FXML
+    TableColumn<DBExaminationSession,String> emailCol = new TableColumn<>("ExamSessionID");
+    @FXML
+    TableColumn<DBExaminationSession,Boolean> selectCol = new TableColumn<>("acceptance status");
     @Override
+        ///boolean ac = new DBExam().getById(id).acceptStatus;
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        examSessionID.setCellValueFactory(new PropertyValueFactory("examSessionsID"));
+        acStatus.setCellValueFactory(new PropertyValueFactory("examID"));
         JFXDrawer leftDrawer = new JFXDrawer();
         vBox.setVisible(true);
         leftDrawer.setSidePane(vBox);

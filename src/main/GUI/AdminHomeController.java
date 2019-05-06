@@ -31,6 +31,8 @@ public class AdminHomeController implements Initializable {
     @FXML
     JFXTextField id;
     @FXML
+    JFXTextField SessionID;
+    @FXML
     StackPane stackPane ;
     @FXML
     TableColumn<Student,String> idCol = new TableColumn<>("ID");
@@ -48,13 +50,21 @@ public class AdminHomeController implements Initializable {
 
     @FXML
     public void CreateSession(ActionEvent event){
+        Vector<Student> v = new Vector<>();
         String idV = id.getText();
         for(int i = 0;i<adminTableView.getItems().size();i++){
             if(adminTableView.getItems().get(i).getSelectStd().isSelected()){
                 String StuId = adminTableView.getItems().get(i).getId();
                 new DBListOfExamSessions().add(new DBListOfExamSessions(StuId , idV));
+                v.add(adminTableView.getItems().get(i));
+                adminTableView.getItems().get(i).getSelectStd().setSelected(false);
             }
         }
+        for(Student S : v){
+            DBListOfExamSessions L = new DBListOfExamSessions(S.getId(),SessionID.getText());
+            L.add(L);
+        }
+        SessionID.setText(null);
         guiHelper.ShowDialog(stackPane, "Examination Session", "You successfully added a new examination session.", "Ok");
     }
 

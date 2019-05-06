@@ -34,8 +34,8 @@
             </Pane>
             <TableView layoutX="32.0" layoutY="135.0" prefHeight="325.0" prefWidth="686.0">
               <columns>
-                <TableColumn prefWidth="97.0" text="ExamSessionID" />
-                <TableColumn prefWidth="123.0" text="acceptance status" />
+                <TableColumn fx:id="examSessionID" prefWidth="97.0" text="ExamSessionID" />
+                <TableColumn fx:id="acStatus" prefWidth="123.0" text="acceptance status" />
               </columns>
             </TableView>
             <JFXButton layoutX="284.0" layoutY="483.0" prefHeight="28.0" prefWidth="183.0" style="-fx-background-color: #00A651;" text="Take Exam">
