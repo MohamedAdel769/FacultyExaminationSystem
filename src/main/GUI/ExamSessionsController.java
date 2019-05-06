@@ -4,10 +4,15 @@ import com.jfoenix.controls.JFXDrawer;
 import com.jfoenix.controls.JFXDrawersStack;
 import com.jfoenix.controls.JFXHamburger;
 import com.jfoenix.transitions.hamburger.HamburgerBackArrowBasicTransition;
+import javafx.beans.Observable;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
@@ -16,10 +21,13 @@ import main.dataBaseHelper.DBExam;
 import main.dataBaseHelper.DBExaminationSession;
 import main.dataBaseHelper.DBListOfExamSessions;
 
+import javax.lang.model.util.SimpleElementVisitor6;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class ExamSessionsController implements Initializable {
+
     GUIHelper guiHelper = new GUIHelper();
     @FXML
     JFXDrawersStack Drawer ;
@@ -28,18 +36,33 @@ public class ExamSessionsController implements Initializable {
     @FXML
     VBox vBox ;
     @FXML
-    TableColumn examSessionID;
+    TableColumn<tableData,String> examSessionID = new TableColumn<>("ExamSessionID");
     @FXML
-    TableColumn acStatus;
+    TableColumn<tableData,String> acStatus = new TableColumn<>("acceptance status");
     @FXML
-    TableColumn<DBExaminationSession,String> emailCol = new TableColumn<>("ExamSessionID");
-    @FXML
-    TableColumn<DBExaminationSession,Boolean> selectCol = new TableColumn<>("acceptance status");
+    TableView<tableData> tableView;
+
+
     @Override
-        ///boolean ac = new DBExam().getById(id).acceptStatus;
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        examSessionID.setCellValueFactory(new PropertyValueFactory("examSessionsID"));
-        acStatus.setCellValueFactory(new PropertyValueFactory("examID"));
+        ObservableList < tableData > print = FXCollections.observableArrayList();
+        examSessionID.setCellValueFactory(new PropertyValueFactory("fff"));
+        acStatus.setCellValueFactory(new PropertyValueFactory("sss"));
+        ArrayList < DBExaminationSession > v = new DBExaminationSession().getAll();
+        for(int i = 0 ; i < v.size() ; i++){
+            String id = v.get(i).examID;
+            boolean ac = new DBExam().getById(id).acceptStatus;
+            tableData temp = new tableData();
+            temp.fff = new SimpleStringProperty(v.get(i).examSessionsID);
+            if (ac){
+                temp.sss = new SimpleStringProperty("Yes");
+            }
+            else {
+                temp.sss = new SimpleStringProperty("No");
+            }
+            print.add(temp);
+        }
+        tableView.setItems(print);
         JFXDrawer leftDrawer = new JFXDrawer();
         vBox.setVisible(true);
         leftDrawer.setSidePane(vBox);
@@ -62,6 +85,14 @@ public class ExamSessionsController implements Initializable {
             else
                 Drawer.setPrefWidth(55);
         });
+    }
+    @FXML
+    public void takeExamButton() {
+        // shof anhe selected
+        tableData chosen = tableView.getSelectionModel().getSelectedItem();
+        // ro7 lel exam ele 3mltlo select
+        passData.chosenExam =  chosen.fff.getValue();
+        new GUIHelper().GoToForm("Exam.fxml");
     }
     @FXML
     public void LogOut(ActionEvent e){
