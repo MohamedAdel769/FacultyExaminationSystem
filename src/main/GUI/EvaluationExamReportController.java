@@ -96,7 +96,7 @@ public class EvaluationExamReportController implements Initializable {
         String studentID = passData.Student.stdID;
         String examID = idExamBox.getText();
         DBExam curExam = new DBExam().getById(examID);
-        if (curExam.acceptStatus == true){
+        if (curExam.acceptStatus == false){
             // el accept status bt5osh 3la tool
             Vector<DBQustion> questions = new DBQustion().getByExamId(examID);
             displayHisto.setDisable(false);
@@ -153,14 +153,13 @@ public class EvaluationExamReportController implements Initializable {
             q4_evaluationRankBox.setText(ev.elementAt(3));
             q5_gradeBox.setText(gr.elementAt(4).toString());
             q5_evaluationRankBox.setText(ev.elementAt(4));
-
+            tabPane.setDisable(false);
+            displayHisto.setDisable(false);
         }
         else {
             guiHelper.ShowDialog(h5a,"Error","This exam status still open","OK");
         }
         /// dool elmafrood hna wla t7t
-        tabPane.setDisable(false);
-        displayHisto.setDisable(false);
     }
 
 
