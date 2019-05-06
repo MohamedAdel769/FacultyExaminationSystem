@@ -2,6 +2,7 @@ package main.dataBaseHelper;
 
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Vector;
 
 import static main.dataBaseHelper.dataBaseConVars.*;
 import static main.dataBaseHelper.dataBaseConVars.OK;
@@ -57,6 +58,30 @@ public class DBQustion {
             System.out.println("query error " + new Throwable().getStackTrace()[0].getMethodName() + " " + ex );
         }
         return tem;
+    }
+    public Vector<DBQustion> getByExamId(String id){
+        startConnection();
+        DBQustion tem = new DBQustion();
+        Vector<DBQustion> v = new Vector<>();
+        try {
+            String query = String.format("select * from %s where examID = '%s' ",tableName, id);
+            dBResult = stmt.executeQuery(query);
+            while (dBResult.next()) {
+                tem.QuesID = dBResult.getString("QuesID");
+                tem.Choice1 = dBResult.getString("Choice1");
+                tem.Choice2 = dBResult.getString("Choice2");
+                tem.Choice3 = dBResult.getString("Choice3");
+                tem.Choice4 = dBResult.getString("Choice4");
+                tem.CorrectChoice = dBResult.getString("CorrectChoice");
+                tem.grade = dBResult.getInt("grade");
+                tem.EvaluationRankAChar = dBResult.getString("EvaluationRank");
+                tem.examID = dBResult.getString("examID");
+                v.add(tem);
+            }
+        } catch (SQLException ex) {
+            System.out.println("query error " + new Throwable().getStackTrace()[0].getMethodName() + " " + ex );
+        }
+        return v;
     }
     public int add(DBQustion tem) {
         try {

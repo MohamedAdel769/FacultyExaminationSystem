@@ -26,6 +26,14 @@
                   <Image url="@../../imgs/rsz_fes.png" />
                </image>
             </ImageView>
+            <JFXButton buttonType="RAISED" layoutX="628.0" layoutY="63.0" prefHeight="28.0" prefWidth="98.0" ripplerFill="#46ff99" style="-fx-background-color: #00A651;" text="Done">
+               <font>
+                  <Font name="Century Gothic Bold" size="14.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
          </children>
       </Pane>
       <JFXTextArea fx:id="QtxtArea" layoutX="17.0" layoutY="106.0" prefHeight="187.0" prefWidth="706.0" promptText="Write your Question here">
@@ -85,7 +93,7 @@
          </font>
       </JFXTextField>
       <JFXComboBox fx:id="EvRank" layoutX="425.0" layoutY="470.0" prefHeight="25.0" prefWidth="162.0" promptText="Evaluation Rank" />
-      <JFXButton fx:id="add" layoutX="638.0" layoutY="469.0" onAction="#add" prefHeight="28.0" prefWidth="83.0" ripplerFill="#46ff99" style="-fx-background-color: #00A651;" text="Add">
+      <JFXButton fx:id="add" layoutX="640.0" layoutY="468.0" onAction="#add" prefHeight="28.0" prefWidth="83.0" ripplerFill="#46ff99" style="-fx-background-color: #00A651;" text="Add">
          <font>
             <Font name="Century Gothic Bold" size="14.0" />
          </font>

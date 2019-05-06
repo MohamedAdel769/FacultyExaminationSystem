@@ -18,5 +18,7 @@
     </orderEntry>
     <orderEntry type="library" name="lib" level="project" />
     <orderEntry type="library" name="mysql-connector-java-8.0.15" level="project" />
+    <orderEntry type="library" name="R User Library" level="project" />
+    <orderEntry type="library" name="R Skeletons" level="application" />
   </component>
 </module>
