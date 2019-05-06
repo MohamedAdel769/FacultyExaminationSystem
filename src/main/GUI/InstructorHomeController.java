@@ -15,12 +15,15 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.*;
+import main.dataBaseHelper.DBCourse;
 import main.dataBaseHelper.DBInstructor;
+import com.jfoenix.controls.JFXComboBox;
 
 import javax.swing.*;
 import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.Vector;
 
 public class InstructorHomeController implements Initializable {
     GUIHelper guiHelper = new GUIHelper();
@@ -36,6 +39,8 @@ public class InstructorHomeController implements Initializable {
     JFXTextField nameTxt , phoneTxt, emailTxt, ageTxt ;
     @FXML
     Label userName ;
+    @FXML
+    JFXComboBox coursesBox;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -66,6 +71,16 @@ public class InstructorHomeController implements Initializable {
         emailTxt.setText(passData.instructor.Email);
         ageTxt.setText(passData.instructor.Age);
         userName.setText(passData.instructor.Username);
+        getCor();
+        coursesBox.setItems(passData.Corseslist);
+    }
+
+    private void getCor() {
+        Vector<DBCourse> v = new DBCourse().getByInstrId(passData.instructor.Username);
+        for(int i = 0;i<v.size();i++){
+            if(passData.Corseslist.contains(v.elementAt(i).Name) == false)
+                passData.Corseslist.addAll(v.elementAt(i).Name);
+        }
     }
 
     @FXML

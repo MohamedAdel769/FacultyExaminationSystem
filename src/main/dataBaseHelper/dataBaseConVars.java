@@ -6,10 +6,10 @@ public class dataBaseConVars {
     public static Connection conn = null;
     public static Statement stmt = null;
     public static ResultSet dBResult = null;
-    public static String host = "remotemysql.com";
-    public static String dataBaseName = "AVDNGnJD07";
-    public static String username = "AVDNGnJD07";
-    public static String pass = "VvRVwiy13X";
+    public static String host = "localhost";
+    public static String dataBaseName = "new_schema";
+    public static String username = "root";
+    public static String pass = null;
     public static int ALREADY_EXIST = 202;
     public static int OK = 1;
     public static int NOT_FOUNDED = 404;
@@ -24,7 +24,7 @@ public class dataBaseConVars {
             conn = DriverManager.getConnection(url,username,pass);
             stmt = conn.createStatement();
         } catch (SQLException ex) {
-            System.out.println("connection error");
+            System.out.println("connection error " + ex );
         }
     }
     /**
