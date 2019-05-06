@@ -6,7 +6,8 @@ import java.sql.Statement;
 import static main.dataBaseHelper.dataBaseConVars.*;
 
 public class DBEvaluationExamReport {
-    String examID = null, histogramID= null,hardQ1= null,hardQ2= null,
+
+    public String examID = null, histogramID= null,hardQ1= null,hardQ2= null,
             hardQ3= null,hardQ4= null,hardQ5= null;
     final String tableName = "EvaluationExamReport";
 

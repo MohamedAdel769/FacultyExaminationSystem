@@ -2,13 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="courses and exams gui and controller">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/GUI/EvaluationExamReport.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GUI/EvaluationExamReport.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FacultyExaminationSystem/main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FacultyExaminationSystem/main/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/GUI/EvaluationExamReportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GUI/EvaluationExamReportController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/dataBaseHelper/DBExam.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dataBaseHelper/DBExam.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/dataBaseHelper/DBListOfGrades.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dataBaseHelper/DBListOfGrades.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/dataBaseHelper/DBEvaluationExamReport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dataBaseHelper/DBEvaluationExamReport.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/dataBaseHelper/DBQustion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dataBaseHelper/DBQustion.java" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -117,7 +115,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/Main.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="4">
-              <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+              <caret line="7" selection-start-line="7" selection-end-line="7" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -138,7 +136,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/GUI/EvaluationExamReport.fxml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="153">
-              <caret line="9" column="37" lean-forward="true" selection-start-line="9" selection-start-column="37" selection-end-line="9" selection-end-column="37" />
+              <caret line="9" column="37" selection-start-line="9" selection-start-column="37" selection-end-line="9" selection-end-column="37" />
             </state>
           </provider>
           <provider editor-type-id="JavaFX-Scene-Builder" />
@@ -147,8 +145,42 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/GUI/EvaluationExamReportController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="91" column="36" lean-forward="true" selection-start-line="91" selection-start-column="36" selection-end-line="91" selection-end-column="36" />
+            <state relative-caret-position="-740">
+              <caret line="104" column="52" lean-forward="true" selection-start-line="104" selection-start-column="52" selection-end-line="104" selection-end-column="52" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#3615#3616#0" expanded="true" />
+                <element signature="e#3663#3664#0" expanded="true" />
+                <element signature="e#3716#3717#0" expanded="true" />
+                <element signature="e#3766#3767#0" expanded="true" />
+                <element signature="e#3814#3815#0" expanded="true" />
+                <element signature="e#3862#3863#0" expanded="true" />
+                <element signature="e#3915#3916#0" expanded="true" />
+                <element signature="e#3978#3979#0" expanded="true" />
+                <element signature="e#4025#4026#0" expanded="true" />
+                <element signature="e#4082#4083#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/dataBaseHelper/DBEvaluationExamReport.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="17" column="29" lean-forward="true" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/dataBaseHelper/DBQustion.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="13" column="37" selection-start-line="13" selection-start-column="37" selection-end-line="13" selection-end-column="37" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -160,7 +192,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/dataBaseHelper/DBExam.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="182">
-              <caret line="11" column="39" selection-start-line="11" selection-start-column="39" selection-end-line="11" selection-end-column="39" />
+              <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -184,7 +216,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/dataBaseHelper/DBListOfGrades.java">
           <provider selected="true" editor-type-id="text-editor">
             <state>
-              <caret column="28" lean-forward="true" selection-start-column="28" selection-end-column="28" />
+              <caret column="28" selection-start-column="28" selection-end-column="28" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -203,30 +235,6 @@
                 <element signature="e#1277#1278#0" expanded="true" />
                 <element signature="e#1329#1330#0" expanded="true" />
                 <element signature="e#1371#1372#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/GUI/InstructorHomeController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-17">
-              <caret line="17" column="40" selection-start-line="17" selection-start-column="40" selection-end-line="17" selection-end-column="40" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/GUI/passData.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="8" column="49" selection-start-line="8" selection-start-column="49" selection-end-line="8" selection-end-column="49" />
-              <folding>
-                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -277,13 +285,11 @@
         <option value="$PROJECT_DIR$/src/main/dataBaseHelper/Trans.java" />
         <option value="d218a176-dadd-45ec-b687-d16f3b832dbc/schema/AVDNGnJD07/table/ListOfGrades.sql" />
         <option value="d218a176-dadd-45ec-b687-d16f3b832dbc/schema/AVDNGnJD07/table/EvaluationExamReport.sql" />
-        <option value="$PROJECT_DIR$/src/main/dataBaseHelper/DBEvaluationExamReport.java" />
         <option value="d218a176-dadd-45ec-b687-d16f3b832dbc/schema/AVDNGnJD07/table/ExaminationSession.sql" />
         <option value="$PROJECT_DIR$/src/main/dataBaseHelper/Histogram.java" />
         <option value="$PROJECT_DIR$/src/main/dataBaseHelper/DBExaminationSession.java" />
         <option value="$PROJECT_DIR$/src/main/dataBaseHelper/DBListOfExamSessions.java" />
         <option value="$PROJECT_DIR$/src/main/dataBaseHelper/DBUser.java" />
-        <option value="$PROJECT_DIR$/src/main/dataBaseHelper/DBQustion.java" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/d218a176-dadd-45ec-b687-d16f3b832dbc/console.sql" />
         <option value="$PROJECT_DIR$/src/main/dataBaseHelper/svs.java" />
         <option value="$PROJECT_DIR$/src/main/dataBaseHelper/dataBaseConVars.java" />
@@ -313,6 +319,8 @@
         <option value="$PROJECT_DIR$/src/main/dataBaseHelper/DBListOfGrades.java" />
         <option value="$PROJECT_DIR$/src/main/Main.java" />
         <option value="$PROJECT_DIR$/src/main/dataBaseHelper/DBExam.java" />
+        <option value="$PROJECT_DIR$/src/main/dataBaseHelper/DBEvaluationExamReport.java" />
+        <option value="$PROJECT_DIR$/src/main/dataBaseHelper/DBQustion.java" />
         <option value="$PROJECT_DIR$/src/main/GUI/EvaluationExamReportController.java" />
       </list>
     </option>
@@ -531,7 +539,7 @@
       <workItem from="1555676595581" duration="1187000" />
       <workItem from="1555691134058" duration="758000" />
       <workItem from="1556039888163" duration="4851000" />
-      <workItem from="1557070067750" duration="9033000" />
+      <workItem from="1557070067750" duration="12594000" />
     </task>
     <task id="LOCAL-00001" summary="ok tmam">
       <created>1554158909639</created>
@@ -624,11 +632,18 @@
       <option name="project" value="LOCAL" />
       <updated>1556133477210</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="courses and exams gui and controller">
+      <created>1557107956168</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1557107956168</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="72912000" />
+    <option name="totallyTimeSpent" value="76473000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -653,7 +668,7 @@
       <window_info id="Capture Tool" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.50844854" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.31950846" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.31336406" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -780,7 +795,8 @@
     <MESSAGE value="admin form" />
     <MESSAGE value="instructor Signin &amp; Signup" />
     <MESSAGE value="Student Signin &amp; Signup" />
-    <option name="LAST_COMMIT_MESSAGE" value="Student Signin &amp; Signup" />
+    <MESSAGE value="courses and exams gui and controller" />
+    <option name="LAST_COMMIT_MESSAGE" value="courses and exams gui and controller" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -805,19 +821,8 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="das://d218a176-dadd-45ec-b687-d16f3b832dbc/schema/AVDNGnJD07/table/Histogram.sql" />
     <entry file="das://d218a176-dadd-45ec-b687-d16f3b832dbc/schema/AVDNGnJD07/table/ListOfExamSessions.sql" />
     <entry file="file://$PROJECT_DIR$/src/main/LoginController.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/dataBaseHelper/DBEvaluationExamReport.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="358">
-          <caret line="41" column="13" selection-start-line="41" selection-start-column="13" selection-end-line="41" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1122" />
@@ -827,16 +832,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="782">
           <caret line="50" column="5" selection-start-line="20" selection-start-column="4" selection-end-line="50" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/dataBaseHelper/DBQustion.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="453">
-          <caret line="72" column="5" selection-start-line="58" selection-start-column="3" selection-end-line="72" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1154,7 +1149,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/GUI/EvaluationExamReport.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
-          <caret line="9" column="37" lean-forward="true" selection-start-line="9" selection-start-column="37" selection-end-line="9" selection-end-column="37" />
+          <caret line="9" column="37" selection-start-line="9" selection-start-column="37" selection-end-line="9" selection-end-column="37" />
         </state>
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder" />
@@ -1162,7 +1157,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/dataBaseHelper/DBListOfGrades.java">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret column="28" lean-forward="true" selection-start-column="28" selection-end-column="28" />
+          <caret column="28" selection-start-column="28" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1182,7 +1177,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1192,7 +1187,34 @@
     <entry file="file://$PROJECT_DIR$/src/main/dataBaseHelper/DBExam.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="182">
-          <caret line="11" column="39" selection-start-line="11" selection-start-column="39" selection-end-line="11" selection-end-column="39" />
+          <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://D:/javafx-sdk-11.0.2/lib/javafx.base.jar!/javafx/event/EventHandler.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="8" column="9" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/dataBaseHelper/DBQustion.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="13" column="37" selection-start-line="13" selection-start-column="37" selection-end-line="13" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/dataBaseHelper/DBEvaluationExamReport.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="29" lean-forward="true" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1201,10 +1223,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/GUI/EvaluationExamReportController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="91" column="36" lean-forward="true" selection-start-line="91" selection-start-column="36" selection-end-line="91" selection-end-column="36" />
+        <state relative-caret-position="-740">
+          <caret line="104" column="52" lean-forward="true" selection-start-line="104" selection-start-column="52" selection-end-line="104" selection-end-column="52" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#3615#3616#0" expanded="true" />
+            <element signature="e#3663#3664#0" expanded="true" />
+            <element signature="e#3716#3717#0" expanded="true" />
+            <element signature="e#3766#3767#0" expanded="true" />
+            <element signature="e#3814#3815#0" expanded="true" />
+            <element signature="e#3862#3863#0" expanded="true" />
+            <element signature="e#3915#3916#0" expanded="true" />
+            <element signature="e#3978#3979#0" expanded="true" />
+            <element signature="e#4025#4026#0" expanded="true" />
+            <element signature="e#4082#4083#0" expanded="true" />
           </folding>
         </state>
       </provider>

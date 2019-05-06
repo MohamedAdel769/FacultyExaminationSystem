@@ -8,17 +8,17 @@ import static main.dataBaseHelper.dataBaseConVars.*;
 import static main.dataBaseHelper.dataBaseConVars.OK;
 
 public class DBQustion {
-    String QuesID = null;
-    String Choice1 = null;
-    String Choice2 = null;
-    String Choice3 = null;
-    String Choice4 = null;
-    String CorrectChoice;
-    int grade = 0;
-    String EvaluationRankAChar ;
-    String examID  = null;
-    String Question = null;
-    final String tableName = "Questions";
+   public String QuesID = null;
+   public String Choice1 = null;
+   public String Choice2 = null;
+   public String Choice3 = null;
+   public String Choice4 = null;
+   public String CorrectChoice;
+   public int grade = 0;
+   public String EvaluationRankAChar ;
+   public String examID  = null;
+   public String Question = null;
+   public final String tableName = "Questions";
 
     public DBQustion( String choice1, String choice2, String choice3, String choice4, String correctChoice, int grade, String evaluationRankAChar, String examID,String Question) {
         Choice1 = choice1;
