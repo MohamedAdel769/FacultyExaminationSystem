@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorPane" prefHeight="525.0" prefWidth="730.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.GUI.ExamController">
+<AnchorPane prefHeight="525.0" prefWidth="730.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.GUI.ExamController">
    <children>
       <Pane prefHeight="73.0" prefWidth="742.0" style="-fx-background-color: #fed149;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -42,7 +42,7 @@
       </Pane>
       <Pane layoutY="73.0" prefHeight="452.0" prefWidth="742.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <JFXTextArea layoutX="20.0" layoutY="38.0" prefHeight="164.0" prefWidth="707.0">
+            <JFXTextArea fx:id="questionTxt" layoutX="20.0" layoutY="38.0" prefHeight="164.0" prefWidth="707.0">
                <font>
                   <Font name="Century Gothic" size="18.0" />
                </font>
@@ -52,7 +52,7 @@
                   <Font name="Century Gothic" size="14.0" />
                </font>
             </Label>
-            <Label layoutX="64.0" layoutY="9.0" text="5">
+            <Label fx:id="qNo" layoutX="64.0" layoutY="9.0" text="5">
                <font>
                   <Font name="Century Gothic" size="14.0" />
                </font>
@@ -62,32 +62,32 @@
                   <Font name="Century Gothic Bold" size="14.0" />
                </font>
             </Label>
-            <Label layoutX="657.0" layoutY="9.0" text="1:10:23">
+            <Label fx:id="timeLeft" layoutX="657.0" layoutY="9.0" text="1:10:23">
                <font>
                   <Font name="Century Gothic Bold" size="14.0" />
                </font>
             </Label>
-            <JFXCheckBox layoutX="45.0" layoutY="226.0" prefHeight="20.0" prefWidth="683.0" text="100">
+            <JFXCheckBox fx:id="choice1" layoutX="45.0" layoutY="226.0" prefHeight="20.0" prefWidth="683.0" text="100">
                <font>
                   <Font name="Century Gothic" size="16.0" />
                </font>
             </JFXCheckBox>
-            <JFXCheckBox layoutX="45.0" layoutY="279.0" prefHeight="20.0" prefWidth="683.0" text="100">
+            <JFXCheckBox fx:id="choice2" layoutX="45.0" layoutY="279.0" prefHeight="20.0" prefWidth="683.0" text="100">
                <font>
                   <Font name="Century Gothic" size="16.0" />
                </font>
             </JFXCheckBox>
-            <JFXCheckBox layoutX="45.0" layoutY="332.0" prefHeight="20.0" prefWidth="683.0" text="100">
+            <JFXCheckBox fx:id="choice3" layoutX="45.0" layoutY="332.0" prefHeight="20.0" prefWidth="683.0" text="100">
                <font>
                   <Font name="Century Gothic" size="16.0" />
                </font>
             </JFXCheckBox>
-            <JFXCheckBox layoutX="45.0" layoutY="383.0" prefHeight="20.0" prefWidth="683.0" text="100">
+            <JFXCheckBox fx:id="choice4" layoutX="45.0" layoutY="383.0" prefHeight="20.0" prefWidth="683.0" text="100">
                <font>
                   <Font name="Century Gothic" size="16.0" />
                </font>
             </JFXCheckBox>
-            <JFXButton layoutX="632.0" layoutY="406.0" onAction="#Next" prefHeight="32.0" prefWidth="98.0" ripplerFill="#46ff99" style="-fx-background-color: #00A651;" text="Next">
+            <JFXButton layoutX="623.0" layoutY="406.0" onAction="#Next" prefHeight="32.0" prefWidth="98.0" ripplerFill="#46ff99" style="-fx-background-color: #00A651;" text="Next">
                <font>
                   <Font name="Century Gothic Bold" size="14.0" />
                </font>
@@ -95,7 +95,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </JFXButton>
-            <JFXButton layoutX="461.0" layoutY="406.0" prefHeight="32.0" prefWidth="98.0" ripplerFill="#46ff99" style="-fx-background-color: #00A651;" text="Pervious">
+            <JFXButton layoutX="461.0" layoutY="406.0" onAction="#Previous" prefHeight="32.0" prefWidth="98.0" ripplerFill="#46ff99" style="-fx-background-color: #00A651;" text="Pervious">
                <font>
                   <Font name="Century Gothic Bold" size="14.0" />
                </font>
