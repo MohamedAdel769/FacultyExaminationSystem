@@ -16,6 +16,7 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.Vector;
 
 import static main.dataBaseHelper.dataBaseConVars.*;
 
@@ -43,18 +44,12 @@ public class AdminHomeController implements Initializable {
 
     @FXML
     public void CreateSession(ActionEvent event){
-        /*for(Object row: adminTableView.getItems()){
-            for(TableColumn col: adminTableView.getColumns()){
-                Object data = col.getCellObservableValue(row);
-                try{
-                    String value = (String)data ;
-                    // System.out.println(value);
-                }catch(Exception e){
-                    CheckBox select = (CheckBox)data ;
-                   //  System.out.println(select.isSelected());
-                }
+        Vector<Student> v = new Vector<>();
+        for(int i = 0;i<adminTableView.getItems().size();i++){
+            if(adminTableView.getItems().get(i).getSelectStd().isSelected()){
+                v.add(adminTableView.getItems().get(i));
             }
-        }*/
+        }
         guiHelper.ShowDialog(stackPane, "Examination Session", "You successfully added a new examination session.", "Ok");
     }
 
