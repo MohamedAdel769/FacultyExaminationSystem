@@ -24,7 +24,7 @@ public class dataBaseConVars {
             conn = DriverManager.getConnection(url,username,pass);
             stmt = conn.createStatement();
         } catch (SQLException ex) {
-            System.out.println("connection error");
+            System.out.println("connection error " + ex );
         }
     }
     /**

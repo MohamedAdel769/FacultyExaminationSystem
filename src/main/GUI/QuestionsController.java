@@ -8,6 +8,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import main.dataBaseHelper.DBQustion;
+import main.dataBaseHelper.dataBaseConVars;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -27,8 +28,6 @@ public class QuestionsController implements Initializable {
     @FXML
     JFXTextField Gradetxt;
     @FXML
-    JFXTextField examID;
-    @FXML
     JFXComboBox Answertxt;
     @FXML
     JFXComboBox EvRank;
@@ -37,12 +36,19 @@ public class QuestionsController implements Initializable {
     ObservableList<String> listt = FXCollections.observableArrayList("A", "B","C","D");
 
     @FXML
-    public void add()
-    {
+    public void add() {
         int n = Integer.parseInt(Gradetxt.getText());
-        DBQustion Q = new DBQustion(Q1txt.getText(),Q2txt.getText(),Q3txt.getText(),Q4txt.getText(),Answertxt.getValue().toString(),n,EvRank.getValue().toString(),examID.getText(),QtxtArea.getText());
-        Q.add(Q);
-
+        if(new DBQustion().add(new DBQustion(Q1txt.getText(),Q2txt.getText(),Q3txt.getText(),Q4txt.getText()
+                ,Answertxt.getValue().toString(),n,EvRank.getValue().toString(),passData.Exam.examId,QtxtArea.getText())) == dataBaseConVars.OK){
+            Q1txt.clear();
+            Q2txt.clear();
+            Q3txt.clear();
+            Q4txt.clear();
+            QtxtArea.clear();
+            Gradetxt.clear();
+        }else{
+            System.out.println("not Added");
+        }
     }
 
     @Override

@@ -2,15 +2,16 @@ package main.dataBaseHelper;
 
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Vector;
 
 import static main.dataBaseHelper.dataBaseConVars.*;
 import static main.dataBaseHelper.dataBaseConVars.OK;
 
 public class DBCourse {
-    String courseID = null;
-    String Name = null;
-    String Department = null;
-    String instrID = null;
+    public String courseID = null;
+    public String Name = null;
+    public String Department = null;
+    public String instrID = null;
 
     final String tableName = "Course";
 
@@ -40,6 +41,25 @@ public class DBCourse {
             System.out.println("query error " + new Throwable().getStackTrace()[0].getMethodName() + " " + ex );
         }
         return tem;
+    }
+    public Vector<DBCourse> getByInstrId(String id) {
+        startConnection();
+        DBCourse tem = new DBCourse();
+        Vector<DBCourse> v = new Vector<>();
+        try {
+            String query = String.format("select * from %s where instrID = '%s' ",tableName, id);
+            dBResult = stmt.executeQuery(query);
+            while (dBResult.next()) {
+                tem.courseID = dBResult.getString("courseID");
+                tem.Name = dBResult.getString("Name");
+                tem.Department = dBResult.getString("Department");
+                tem.instrID = dBResult.getString("instrID");
+                v.add(tem);
+            }
+        } catch (SQLException ex) {
+            System.out.println("query error " + new Throwable().getStackTrace()[0].getMethodName() + " " + ex );
+        }
+        return v;
     }
     public int add(DBCourse tem) {
         try {

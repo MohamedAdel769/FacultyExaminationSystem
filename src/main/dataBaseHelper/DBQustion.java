@@ -2,22 +2,23 @@ package main.dataBaseHelper;
 
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Vector;
 
 import static main.dataBaseHelper.dataBaseConVars.*;
 import static main.dataBaseHelper.dataBaseConVars.OK;
 
 public class DBQustion {
-    String QuesID = null;
-    String Choice1 = null;
-    String Choice2 = null;
-    String Choice3 = null;
-    String Choice4 = null;
-    String CorrectChoice;
-    int grade = 0;
-    String EvaluationRankAChar ;
-    String examID  = null;
-    String Question = null;
-    final String tableName = "Questions";
+   public String QuesID = null;
+   public String Choice1 = null;
+   public String Choice2 = null;
+   public String Choice3 = null;
+   public String Choice4 = null;
+   public String CorrectChoice;
+   public int grade = 0;
+   public String EvaluationRankAChar ;
+   public String examID  = null;
+   public String Question = null;
+   public final String tableName = "Questions";
 
     public DBQustion( String choice1, String choice2, String choice3, String choice4, String correctChoice, int grade, String evaluationRankAChar, String examID,String Question) {
         Choice1 = choice1;
@@ -57,6 +58,30 @@ public class DBQustion {
             System.out.println("query error " + new Throwable().getStackTrace()[0].getMethodName() + " " + ex );
         }
         return tem;
+    }
+    public Vector<DBQustion> getByExamId(String id){
+        startConnection();
+        Vector<DBQustion> v = new Vector<>();
+        try {
+            String query = String.format("select * from %s where examID = '%s' ",tableName, id);
+            dBResult = stmt.executeQuery(query);
+            while (dBResult.next()) {
+                DBQustion tem = new DBQustion();
+                tem.QuesID = dBResult.getString("QuesID");
+                tem.Choice1 = dBResult.getString("Choice1");
+                tem.Choice2 = dBResult.getString("Choice2");
+                tem.Choice3 = dBResult.getString("Choice3");
+                tem.Choice4 = dBResult.getString("Choice4");
+                tem.CorrectChoice = dBResult.getString("CorrectChoice");
+                tem.grade = dBResult.getInt("grade");
+                tem.EvaluationRankAChar = dBResult.getString("EvaluationRank");
+                tem.examID = dBResult.getString("examID");
+                v.add(tem);
+            }
+        } catch (SQLException ex) {
+            System.out.println("query error " + new Throwable().getStackTrace()[0].getMethodName() + " " + ex );
+        }
+        return v;
     }
     public int add(DBQustion tem) {
         try {

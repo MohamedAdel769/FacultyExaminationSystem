@@ -28,18 +28,20 @@ public class ExamsConroller implements Initializable {
         String CourseIdValue = CourseId.getText();
         String durationTimeValue = durationTime.getText();
         int TotalGradeValue = Integer.parseInt(TotalGrade.getText());
-        String HandlingTimerValue = HandlingTimer.getValue().format(DateTimeFormatter.ISO_DATE);
+        String HandlingTimerValue = HandlingTimer.getValue().format(DateTimeFormatter.ISO_TIME);
         String ReleaseDateValue = ReleaseDate.getValue().format(DateTimeFormatter.ISO_DATE);
         String ReleaseTimeValue = ReleaseTime.getValue().format(DateTimeFormatter.ISO_TIME);
         String instrID = passData.instructor.Username;
-        if(new DBExam().add(new DBExam(idValue , CourseIdValue , durationTimeValue , true , ReleaseDateValue , instrID,
-                TotalGradeValue ,HandlingTimerValue ,ReleaseTimeValue )) != dataBaseConVars.OK){
+        passData.Exam = new DBExam(idValue , CourseIdValue , durationTimeValue , true , ReleaseDateValue , instrID,
+                TotalGradeValue ,HandlingTimerValue ,ReleaseTimeValue );
+        if(new DBExam().add(passData.Exam) != dataBaseConVars.OK){
             System.out.println("not Added");
         }else {
             id.clear();
             CourseId.clear();
             durationTime.clear();
             TotalGrade.clear();
+            new GUIHelper().GoToForm("Questions.fxml");
         }
     }
     @Override
@@ -49,5 +51,4 @@ public class ExamsConroller implements Initializable {
         guiHelper.ValidateText(durationTime, "Enter durationTime", false);
         guiHelper.ValidateText(TotalGrade, "Enter TotalGrade", false);
     }
-
 }

@@ -6,15 +6,15 @@ import java.sql.Statement;
 import static main.dataBaseHelper.dataBaseConVars.*;
 
 public class DBExam {
-    String examId = null;
-    String courseId= null;
-    String  durationTime= null;
-    boolean acceptStatus;
-    String releaseData= null;
-    String instructorId= null;
-    int totalGrade = 0;
-    String handlingTimer  = null;
-    String accepTimer = null;
+    public String examId = null;
+    public String courseId= null;
+    public String  durationTime= null;
+    public boolean acceptStatus;
+    public String releaseData= null;
+    public String instructorId= null;
+    public int totalGrade = 0;
+    public String handlingTimer  = null;
+    public String accepTimer = null;
 
     final String tableName = "Exam";
     final String tableId = "examId";

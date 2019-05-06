@@ -10,7 +10,7 @@ public class DBListOfGrades {
     String examID = null;
     int stdGrade = 0;
     final String tableName = "ListOfGrades";
-
+    // function btgeeb grades & evaluation rank lel 5 hardest
     public DBListOfGrades(String stdID, String examID, int stdGrade) {
         this.stdID = stdID;
         this.examID = examID;

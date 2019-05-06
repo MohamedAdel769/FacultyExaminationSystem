@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="@localhost" uuid="babcd0e1-7639-4ad4-8ccc-2793d8debaa4">
+    <data-source source="LOCAL" name="remotemysql.com" uuid="d218a176-dadd-45ec-b687-d16f3b832dbc">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://localhost:3306</jdbc-url>
+      <jdbc-url>jdbc:mysql://remotemysql.com:3306/AVDNGnJD07</jdbc-url>
       <driver-properties>
         <property name="autoReconnect" value="true" />
         <property name="zeroDateTimeBehavior" value="CONVERT_TO_NULL" />
@@ -15,11 +15,11 @@
         <property name="yearIsDateType" value="false" />
       </driver-properties>
     </data-source>
-    <data-source source="LOCAL" name="remotemysql.com" uuid="d218a176-dadd-45ec-b687-d16f3b832dbc">
+    <data-source source="LOCAL" name="new_schema@localhost" uuid="64f65d60-86ea-4558-b41a-9a63b71d2f9c">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://remotemysql.com:3306/AVDNGnJD07</jdbc-url>
+      <jdbc-url>jdbc:mysql://localhost:8012/new_schema</jdbc-url>
       <driver-properties>
         <property name="autoReconnect" value="true" />
         <property name="zeroDateTimeBehavior" value="CONVERT_TO_NULL" />
