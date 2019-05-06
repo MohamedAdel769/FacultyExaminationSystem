@@ -14,6 +14,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import main.dataBaseHelper.DBInstructor;
+import main.dataBaseHelper.DBStudent;
 
 import javax.swing.*;
 import java.io.File;
@@ -76,7 +77,7 @@ public class StudentHomeController implements Initializable {
         String pass = passData.Student.Password;
         String phone = phoneTxt.getText();
         String email = emailTxt.getText();
-        new DBInstructor().update(new DBInstructor( id , name, phone, email , username , pass));
+        new DBStudent().update(new DBStudent( id , name, phone, email , username , pass));
     }
     @FXML
     public void LogOut(ActionEvent e){

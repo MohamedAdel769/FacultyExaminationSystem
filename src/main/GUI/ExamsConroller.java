@@ -24,7 +24,6 @@ public class ExamsConroller implements Initializable {
 
     @FXML
     public void addExam(){
-
         String idValue = id.getText();
         String CourseIdValue = CourseId.getText();
         String durationTimeValue = durationTime.getText();
