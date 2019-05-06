@@ -153,13 +153,13 @@ public class EvaluationExamReportController implements Initializable {
             q4_evaluationRankBox.setText(ev.elementAt(3));
             q5_gradeBox.setText(gr.elementAt(4).toString());
             q5_evaluationRankBox.setText(ev.elementAt(4));
-            /// dool elmafrood hna wla t7t
-            tabPane.setDisable(false);
-            displayHisto.setDisable(false);
         }
         else {
             guiHelper.ShowDialog(h5a,"Error","This exam status still open","OK");
         }
+        /// dool elmafrood hna wla t7t
+        tabPane.setDisable(false);
+        displayHisto.setDisable(false);
     }
 
 
