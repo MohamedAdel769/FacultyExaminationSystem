@@ -21,6 +21,8 @@ import java.util.Objects;
 import java.util.ResourceBundle;
 import java.util.Vector;
 
+import static java.lang.Integer.min;
+
 public class EvaluationExamReportController implements Initializable {
 
     GUIHelper guiHelper = new GUIHelper();
@@ -96,45 +98,46 @@ public class EvaluationExamReportController implements Initializable {
         // if we have this exam id and duration is finished then
         String studentID = passData.Student.stdID;
         String examID = idExamBox.getText();
-        Vector<DBQustion> questions = new DBQustion().getByExamId(examID);
-        Vector <Pair<String, DBQustion >> v = null;
-        for(int i = 0 ; i < questions.size() ; i++){
-            Pair p = new Pair(questions.elementAt(i).EvaluationRankAChar, questions.elementAt(i));
-            v.add(p);
-        }
-        for(int i = 0 ; i < questions.size() ; i++){
-            for(int j = i + 1 ; j < questions.size() ; j++){
-                Pair p1 = v.elementAt(i);
-                Pair p2 = v.elementAt(j);
-                String s1 = (String) p1.getKey();
-                String s2 = (String) p2.getKey();
-                if (s1.equals("D") && (s2.equals("A") || s2.equals("B") || s2.equals("C"))){
-                    Pair p  = p1;
-                    p1 = p2;
-                    p2 = p;
-                }
-                if (s1.equals("C") && (s2.equals("A") || s2.equals("B") || s2.equals("C"))){
-                    Pair p  = p1;
-                    p1 = p2;
-                    p2 = p;
-                }
-                if (s1.equals("B") && (s2.equals("A") || s2.equals("B") )){
-                    Pair p  = p1;
-                    p1 = p2;
-                    p2 = p;
-                }
-
-
-            }
-        }
         DBExam curExam = new DBExam().getById(examID);
         if (curExam.acceptStatus == false){
+            // el accept status bt5osh 3la tool
+            Vector<DBQustion> questions = new DBQustion().getByExamId(examID);
+            Vector <Pair<String, DBQustion >> v = null;
+            for(int i = 0 ; i < questions.size() ; i++){
+                Pair p = new Pair(questions.elementAt(i).EvaluationRankAChar, questions.elementAt(i));
+                v.add(p);
+            }
+            for(int i = 0 ; i < questions.size() ; i++){
+                for(int j = i + 1 ; j < questions.size() ; j++){
+                    Pair p1 = v.elementAt(i);
+                    Pair p2 = v.elementAt(j);
+                    String s1 = (String) p1.getKey();
+                    String s2 = (String) p2.getKey();
+                    if (s1.equals("D") && (s2.equals("A") || s2.equals("B") || s2.equals("C"))){
+                        Pair p  = p1;
+                        p1 = p2;
+                        p2 = p;
+                    }
+                    if (s1.equals("C") && (s2.equals("A") || s2.equals("B") || s2.equals("C"))){
+                        Pair p  = p1;
+                        p1 = p2;
+                        p2 = p;
+                    }
+                    if (s1.equals("B") && (s2.equals("A") || s2.equals("B") )){
+                        Pair p  = p1;
+                        p1 = p2;
+                        p2 = p;
+                    }
+
+
+                }
+            }
             displayHisto.setDisable(false);
             tabPane.setDisable(false);
             // han-fill el data hena
             Vector < String > ev = null;
             Vector < Integer > gr = null;
-            for(int i = 0 ; i < 5 ; i++){
+            for(int i = 0 ; i < min((int)v.size(),5) ; i++){
                 Pair p = v.elementAt(i);
                 DBQustion temp = (DBQustion) p.getValue();
                 ev.add(temp.EvaluationRankAChar);
@@ -150,12 +153,13 @@ public class EvaluationExamReportController implements Initializable {
             q4_evaluationRankBox.setText(ev.elementAt(3));
             q5_gradeBox.setText(gr.elementAt(4).toString());
             q5_evaluationRankBox.setText(ev.elementAt(4));
+            /// dool elmafrood hna wla t7t
+            tabPane.setDisable(false);
+            displayHisto.setDisable(false);
         }
         else {
             guiHelper.ShowDialog(h5a,"Error","This exam status still open","OK");
         }
-        tabPane.setDisable(false);
-        displayHisto.setDisable(false);
     }
 
 
