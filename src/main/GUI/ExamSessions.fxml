@@ -32,13 +32,7 @@
                   </ImageView>
                </children>
             </Pane>
-            <TableView layoutX="32.0" layoutY="135.0" prefHeight="325.0" prefWidth="686.0">
-              <columns>
-                <TableColumn fx:id="examSessionID" prefWidth="97.0" text="ExamSessionID" />
-                <TableColumn fx:id="acStatus" prefWidth="123.0" text="acceptance status" />
-              </columns>
-            </TableView>
-            <JFXButton layoutX="284.0" layoutY="483.0" prefHeight="28.0" prefWidth="183.0" style="-fx-background-color: #00A651;" text="Take Exam">
+            <JFXButton layoutX="284.0" layoutY="483.0" onAction="#takeExamButton" prefHeight="28.0" prefWidth="183.0" style="-fx-background-color: #00A651;" text="Take Exam">
                <font>
                   <Font name="Century Gothic Bold" size="14.0" />
                </font>
@@ -48,6 +42,12 @@
             </JFXButton>
             <JFXDrawersStack fx:id="Drawer" prefHeight="545.0" prefWidth="54.0" visible="false" />
             <JFXHamburger fx:id="hamburger" layoutX="12.0" layoutY="14.0" viewOrder="-2.0" visible="false" />
+            <TableView fx:id="tableView" layoutX="32.0" layoutY="135.0" prefHeight="325.0" prefWidth="686.0">
+              <columns>
+                <TableColumn fx:id="examSessionID" prefWidth="97.0" text="ExamSessionID" />
+                <TableColumn fx:id="acStatus" prefWidth="123.0" text="acceptance status" />
+              </columns>
+            </TableView>
          </children>
       </Pane>
       <VBox fx:id="vBox" layoutX="551.0" layoutY="20.0" prefHeight="525.0" prefWidth="199.0" style="-fx-background-color: #242F41;" visible="false">
