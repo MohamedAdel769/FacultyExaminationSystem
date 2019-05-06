@@ -1,5 +1,6 @@
 package main.Users;
 
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.scene.control.CheckBox;
@@ -23,13 +24,15 @@ public class User {
         this.id = new SimpleStringProperty(id);
         this.username = new SimpleStringProperty(username);
         this.Password =  new SimpleStringProperty(password);
+        this.selectStd=new CheckBox();
+
     }
 
-    public User(String name, String email, String id, CheckBox select) {
+    public User(String id,String name, String email) {
         this.name = new SimpleStringProperty(name);
         this.email = new SimpleStringProperty(email);
         this.id = new SimpleStringProperty(id);
-        this.selectStd = select;
+        this.selectStd=new CheckBox();
     }
 
     public CheckBox getSelectStd() {
@@ -119,5 +122,4 @@ public class User {
     public void setPassword(String password) {
         this.Password.set(password);
     }
-
 }
