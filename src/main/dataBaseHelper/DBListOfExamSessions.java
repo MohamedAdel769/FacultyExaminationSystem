@@ -1,7 +1,10 @@
 package main.dataBaseHelper;
 
+import javafx.util.Pair;
+
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Vector;
 
 import static main.dataBaseHelper.dataBaseConVars.*;
 
@@ -17,7 +20,7 @@ public class DBListOfExamSessions {
     public DBListOfExamSessions() {
     }
 
-    public DBListOfExamSessions getBySudentId(String id) {
+    public DBListOfExamSessions getById(String id) {
         startConnection();
         DBListOfExamSessions tem = new DBListOfExamSessions();
         try {
