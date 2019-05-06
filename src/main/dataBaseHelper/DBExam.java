@@ -9,7 +9,7 @@ public class DBExam {
     String examId = null;
     String courseId= null;
     String  durationTime= null;
-    boolean acceptStatus;
+    public boolean acceptStatus = false;
     String releaseData= null;
     String instructorId= null;
     int totalGrade = 0;
