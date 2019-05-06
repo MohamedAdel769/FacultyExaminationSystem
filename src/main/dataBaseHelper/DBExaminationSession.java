@@ -36,6 +36,17 @@ public class DBExaminationSession {
         return tem;
     }
 
+    public void update(DBExaminationSession tem) {
+        startConnection();
+        try{
+            String query = String.format("update %s set examID = '%s' where examSessionsID = '%s' ", tableName, tem.examID , tem.examSessionsID);
+            stmt.executeUpdate(query, Statement.RETURN_GENERATED_KEYS);
+
+        }catch (SQLException ex){
+            System.out.println("query error " + new Throwable().getStackTrace()[0].getMethodName() + " " + ex );
+        }
+    }
+
     public ArrayList<DBExaminationSession> getAll() {
         startConnection();
         ArrayList<DBExaminationSession> v = new ArrayList<>();

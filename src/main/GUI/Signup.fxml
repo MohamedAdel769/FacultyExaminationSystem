@@ -98,16 +98,6 @@
                     </font>
                 </Label>
                 <Separator layoutX="52.0" layoutY="134.0" prefHeight="11.0" prefWidth="289.0" />
-                <JFXTextField fx:id="FnameTxt" focusColor="#226f3a" labelFloat="true" layoutX="12.0" layoutY="231.0" prefHeight="32.0" prefWidth="164.0" promptText="First name">
-                    <font>
-                        <Font name="Century Gothic" size="16.0" />
-                    </font>
-                </JFXTextField>
-                <JFXTextField fx:id="LnameTxt" focusColor="#226f3a" labelFloat="true" layoutX="198.0" layoutY="231.0" prefHeight="32.0" prefWidth="183.0" promptText="Last name">
-                    <font>
-                        <Font name="Century Gothic" size="16.0" />
-                    </font>
-                </JFXTextField>
                 <JFXTextField fx:id="UsernameTxt" focusColor="#226f3a" labelFloat="true" layoutX="14.0" layoutY="158.0" prefHeight="32.0" prefWidth="164.0" promptText="Username">
                     <font>
                         <Font name="Century Gothic" size="16.0" />
@@ -118,6 +108,26 @@
                         <Font name="Century Gothic" size="16.0" />
                     </font>
                 </JFXTextField>
+                <JFXTextField fx:id="FnameTxt" focusColor="#226f3a" labelFloat="true" layoutX="12.0" layoutY="231.0" prefHeight="32.0" prefWidth="164.0" promptText="First name">
+                    <font>
+                        <Font name="Century Gothic" size="16.0" />
+                    </font>
+                </JFXTextField>
+                <JFXTextField fx:id="LnameTxt" focusColor="#226f3a" labelFloat="true" layoutX="198.0" layoutY="231.0" prefHeight="32.0" prefWidth="183.0" promptText="Last name">
+                    <font>
+                        <Font name="Century Gothic" size="16.0" />
+                    </font>
+                </JFXTextField>
+                <JFXPasswordField fx:id="PassTxt" focusColor="#226f3a" labelFloat="true" layoutX="14.0" layoutY="300.0" prefHeight="25.0" prefWidth="164.0" promptText="Password">
+                    <font>
+                        <Font name="Century Gothic" size="16.0" />
+                    </font>
+                </JFXPasswordField>
+                <JFXPasswordField fx:id="CpassTxt" focusColor="#226f3a" labelFloat="true" layoutX="200.0" layoutY="300.0" prefHeight="32.0" prefWidth="183.0" promptText="Confirm Password">
+                    <font>
+                        <Font name="Century Gothic" size="16.0" />
+                    </font>
+                </JFXPasswordField>
                 <JFXTextField fx:id="PhoneTxt" focusColor="#226f3a" labelFloat="true" layoutX="14.0" layoutY="364.0" prefHeight="32.0" prefWidth="164.0" promptText="Mobile number">
                     <font>
                         <Font name="Century Gothic" size="16.0" />
@@ -142,16 +152,6 @@
                         <Cursor fx:constant="HAND" />
                     </cursor>
                 </JFXButton>
-                <JFXPasswordField fx:id="PassTxt" focusColor="#226f3a" labelFloat="true" layoutX="14.0" layoutY="300.0" prefHeight="25.0" prefWidth="164.0" promptText="Password">
-                    <font>
-                        <Font name="Century Gothic" size="16.0" />
-                    </font>
-                </JFXPasswordField>
-                <JFXPasswordField fx:id="CpassTxt" focusColor="#226f3a" labelFloat="true" layoutX="200.0" layoutY="300.0" prefHeight="32.0" prefWidth="183.0" promptText="Confirm Password">
-                    <font>
-                        <Font name="Century Gothic" size="16.0" />
-                    </font>
-                </JFXPasswordField>
             </children>
         </Pane>
     </children>

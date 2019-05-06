@@ -26,7 +26,7 @@
                   <Image url="@../../imgs/rsz_fes.png" />
                </image>
             </ImageView>
-            <JFXButton fx:id="done" buttonType="RAISED" layoutX="628.0" layoutY="63.0" prefHeight="28.0" prefWidth="98.0" ripplerFill="#46ff99" style="-fx-background-color: #00A651;" text="Done">
+            <JFXButton buttonType="RAISED" layoutX="628.0" layoutY="63.0" onAction="#done" prefHeight="28.0" prefWidth="98.0" ripplerFill="#46ff99" style="-fx-background-color: #00A651;" text="Done">
                <font>
                   <Font name="Century Gothic Bold" size="14.0" />
                </font>
@@ -87,13 +87,8 @@
             <Font name="Century Gothic" size="14.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="examID" editable="false" layoutX="425.0" layoutY="418.0" promptText="Exam id">
-         <font>
-            <Font name="Century Gothic" size="14.0" />
-         </font>
-      </JFXTextField>
-      <JFXComboBox fx:id="EvRank" layoutX="425.0" layoutY="470.0" prefHeight="25.0" prefWidth="162.0" promptText="Evaluation Rank" />
-      <JFXButton fx:id="add" layoutX="640.0" layoutY="468.0" onAction="#add" prefHeight="28.0" prefWidth="83.0" ripplerFill="#46ff99" style="-fx-background-color: #00A651;" text="Add">
+      <JFXComboBox fx:id="EvRank" layoutX="425.0" layoutY="420.0" prefHeight="25.0" prefWidth="162.0" promptText="Evaluation Rank" />
+      <JFXButton fx:id="add" layoutX="465.0" layoutY="477.0" onAction="#add" prefHeight="28.0" prefWidth="83.0" ripplerFill="#46ff99" style="-fx-background-color: #00A651;" text="Add">
          <font>
             <Font name="Century Gothic Bold" size="14.0" />
          </font>

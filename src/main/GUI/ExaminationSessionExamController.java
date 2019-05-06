@@ -7,28 +7,45 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import main.Session.ExamSession;
 import main.Session.ListOfExamSession;
 import main.Users.Student;
+import main.dataBaseHelper.DBExaminationSession;
 import main.dataBaseHelper.DBListOfExamSessions;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class ExaminationSessionExamController implements Initializable {
     @FXML
-    TableView<ListOfExamSession> table;
+    TableView<ExamSession> table;
     @FXML
-    TableColumn<ListOfExamSession,String> ExCol = new TableColumn<>("Examination Session");
+    TableColumn<ExamSession,String> ExCol = new TableColumn<>("Examination Session");
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        ExCol.setCellValueFactory(new PropertyValueFactory("examSessionsID"));
-        ObservableList<ListOfExamSession> items = FXCollections.observableArrayList(
-                new ListOfExamSession("xx","zz")
-        );
+        ExCol.setCellValueFactory(new PropertyValueFactory("ID"));
+        ObservableList<ExamSession> items = FXCollections.observableArrayList();
+        ArrayList<DBExaminationSession> list = new DBExaminationSession().getAll();
+        for(int i = 0;i<list.size();i++){
+            if(list.get(i).examID == null ||list.get(i).examID.equals("null"))
+                items.add(new ExamSession(list.get(i).examSessionsID,null));
+        }
         table.setItems(items);
     }
     @FXML
-    public void done(){
-
+public void done(){
+        ExamSession h = table.getSelectionModel().getSelectedItem();
+        DBExaminationSession es = new DBExaminationSession(h.ID.getValue(),passData.Exam.examId);
+        new DBExaminationSession().update(es);
+        System.out.println(h.ID);
+        ObservableList<ExamSession> items = FXCollections.observableArrayList();
+        ArrayList<DBExaminationSession> list = new DBExaminationSession().getAll();
+        for(int i = 0;i<list.size();i++){
+            if(list.get(i).examID == null ||list.get(i).examID.equals("null"))
+                items.add(new ExamSession(list.get(i).examSessionsID,null));
+        }
+        table.setItems(items);
+        new GUIHelper().GoToForm("InstructorHome.fxml");
     }
 }
