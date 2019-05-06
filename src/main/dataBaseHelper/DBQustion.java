@@ -61,12 +61,12 @@ public class DBQustion {
     }
     public Vector<DBQustion> getByExamId(String id){
         startConnection();
-        DBQustion tem = new DBQustion();
         Vector<DBQustion> v = new Vector<>();
         try {
             String query = String.format("select * from %s where examID = '%s' ",tableName, id);
             dBResult = stmt.executeQuery(query);
             while (dBResult.next()) {
+                DBQustion tem = new DBQustion();
                 tem.QuesID = dBResult.getString("QuesID");
                 tem.Choice1 = dBResult.getString("Choice1");
                 tem.Choice2 = dBResult.getString("Choice2");

@@ -16,10 +16,7 @@ import main.dataBaseHelper.DBQustion;
 
 
 import java.net.URL;
-import java.util.Collections;
-import java.util.Objects;
-import java.util.ResourceBundle;
-import java.util.Vector;
+import java.util.*;
 
 import static java.lang.Integer.min;
 
@@ -99,49 +96,52 @@ public class EvaluationExamReportController implements Initializable {
         String studentID = passData.Student.stdID;
         String examID = idExamBox.getText();
         DBExam curExam = new DBExam().getById(examID);
-        if (curExam.acceptStatus == false){
+        if (curExam.acceptStatus == true){
             // el accept status bt5osh 3la tool
             Vector<DBQustion> questions = new DBQustion().getByExamId(examID);
-            Vector <Pair<String, DBQustion >> v = null;
-            for(int i = 0 ; i < questions.size() ; i++){
-                Pair p = new Pair(questions.elementAt(i).EvaluationRankAChar, questions.elementAt(i));
-                v.add(p);
-            }
-            for(int i = 0 ; i < questions.size() ; i++){
-                for(int j = i + 1 ; j < questions.size() ; j++){
-                    Pair p1 = v.elementAt(i);
-                    Pair p2 = v.elementAt(j);
-                    String s1 = (String) p1.getKey();
-                    String s2 = (String) p2.getKey();
-                    if (s1.equals("D") && (s2.equals("A") || s2.equals("B") || s2.equals("C"))){
-                        Pair p  = p1;
-                        p1 = p2;
-                        p2 = p;
-                    }
-                    if (s1.equals("C") && (s2.equals("A") || s2.equals("B") || s2.equals("C"))){
-                        Pair p  = p1;
-                        p1 = p2;
-                        p2 = p;
-                    }
-                    if (s1.equals("B") && (s2.equals("A") || s2.equals("B") )){
-                        Pair p  = p1;
-                        p1 = p2;
-                        p2 = p;
-                    }
-
-
-                }
-            }
             displayHisto.setDisable(false);
             tabPane.setDisable(false);
             // han-fill el data hena
-            Vector < String > ev = null;
-            Vector < Integer > gr = null;
-            for(int i = 0 ; i < min((int)v.size(),5) ; i++){
-                Pair p = v.elementAt(i);
-                DBQustion temp = (DBQustion) p.getValue();
-                ev.add(temp.EvaluationRankAChar);
-                gr.add(temp.grade);
+            Vector < Integer > a = new Vector ();
+            Vector < Integer > b = new Vector ();
+            Vector < Integer > c = new Vector ();
+            Vector < Integer > d = new Vector ();
+
+            for(int i = 0 ; i < questions.size() ; i++){
+                DBQustion temp = questions.elementAt(i);
+                if (temp.EvaluationRankAChar.equals("A"))
+                    a.add(i);
+                if (temp.EvaluationRankAChar.equals("B"))
+                    b.add(i);
+                if (temp.EvaluationRankAChar.equals("C"))
+                    c.add(i);
+                if (temp.EvaluationRankAChar.equals("D"))
+                    d.add(i);
+            }
+            int cnt = 0;
+            Vector < DBQustion > v = new Vector();
+            for(int i = 0 ; i < a.size() && cnt < 5 ; i++){
+                v.add(questions.elementAt(a.elementAt(i)));
+                cnt++;
+            }
+            for(int i = 0 ; i < b.size() && cnt < 5 ; i++){
+                v.add(questions.elementAt(b.elementAt(i)));
+                cnt++;
+            }
+            for(int i = 0 ; i < c.size() && cnt < 5 ; i++){
+                v.add(questions.elementAt(c.elementAt(i)));
+                cnt++;
+            }
+            for(int i = 0 ; i < d.size() && cnt < 5 ; i++){
+                v.add(questions.elementAt(d.elementAt(i)));
+                cnt++;
+            }
+            Vector < String > ev =new Vector < String>  ();
+            Vector < Integer > gr = new Vector <Integer>();
+            for(int i = 0 ; i < 5 ; i++){
+                DBQustion he5o = v.elementAt(i);
+                ev.add(he5o.EvaluationRankAChar);
+                gr.add(he5o.grade);
             }
             q1_gradeBox.setText(gr.elementAt(0).toString());
             q1_evaluationRankBox.setText(ev.elementAt(0));
@@ -153,6 +153,7 @@ public class EvaluationExamReportController implements Initializable {
             q4_evaluationRankBox.setText(ev.elementAt(3));
             q5_gradeBox.setText(gr.elementAt(4).toString());
             q5_evaluationRankBox.setText(ev.elementAt(4));
+
         }
         else {
             guiHelper.ShowDialog(h5a,"Error","This exam status still open","OK");
