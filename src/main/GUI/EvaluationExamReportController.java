@@ -20,6 +20,7 @@ import java.net.URL;
 import java.util.*;
 
 import static java.lang.Integer.min;
+import static main.GUI.passData.QuestionsFreq;
 
 public class EvaluationExamReportController implements Initializable {
     GUIHelper guiHelper = new GUIHelper();
@@ -96,10 +97,11 @@ public class EvaluationExamReportController implements Initializable {
         String studentID = passData.Student.stdID;
         String examID = idExamBox.getText();
         DBExam curExam = new DBExam().getById(examID);
+        passData.examID = examID;
         if (curExam.acceptStatus == false){
             ArrayList < DBQustion > v = new ArrayList<>();
-            // 7ot dola hena 
-            ArrayList< Pair<Integer, DBQustion>> questions = new ArrayList<>();
+            // 7ot dola hena
+            ArrayList< Pair<Integer, DBQustion>> questions = QuestionsFreq;
             for(int i = 0 ; i < 5 ; i++){
                 for(int j = i + 1 ; j < questions.size() ; j++){
                     Pair p1 = questions.get(i);
