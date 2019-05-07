@@ -1,8 +1,10 @@
 package main.Exam;
 
+import main.dataBaseHelper.DBEvaluationExamReport;
+
 import java.util.ArrayList;
 
-public class EvaluationExamReport {
+public class EvaluationExamReport implements getFromDB{
     private String ExamID ;
     private String HistogramID ;
     private ArrayList<Character> TopQuestions ;
@@ -35,5 +37,12 @@ public class EvaluationExamReport {
 
     public void setTopQuestions(ArrayList<Character> topQuestions) {
         TopQuestions = topQuestions;
+    }
+
+    @Override
+    public void getFromDbByid(String id) {
+        DBEvaluationExamReport dbEvaluationExamReport = new DBEvaluationExamReport().getByExamId(id);
+        this.ExamID = dbEvaluationExamReport.examID;
+        this.HistogramID = dbEvaluationExamReport.histogramID ;
     }
 }

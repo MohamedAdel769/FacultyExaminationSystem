@@ -40,6 +40,8 @@ public class ExamController implements Initializable {
     @FXML
     JFXButton startBtn ;
     @FXML
+    Label userName , name;
+    @FXML
     StackPane stackPane ;
     @FXML
     JFXButton submitBtn, nextBtn , prevBtn ;
@@ -65,6 +67,8 @@ public class ExamController implements Initializable {
            ch[i] = -1;
        }
        currIndex = 0;
+       userName.setText(passData.Student.Username);
+       name.setText(passData.Student.Name);
        e = new DBExam();
        g = new GUIHelper();
     }

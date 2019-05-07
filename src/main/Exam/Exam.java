@@ -1,24 +1,32 @@
 package main.Exam;
 
-public class Exam {
-    private String Id = null;
-    private String courseId= null;
-    private String  durationTime= null;
+import main.dataBaseHelper.DBExam;
+
+public class Exam implements getFromDB{
+    private String Id;
+    private String courseId;
+    private String  durationTime;
     private boolean acceptStatus;
-    private String releaseData= null;
-    private String instructorId= null;
-    private int totalGrade = 0;
-    private String handlingTimer  = null;
-    private String accepTimer = null;
+    private String releaseData;
+    private String instructorId;
+    private int totalGrade;
+    private String handlingTimer;
+    private String accepTimer;
 
     public Exam(String id, String courseId, String durationTime, boolean acceptStatus, String releaseData, String instructorId, int totalGrade, String handlingTimer, String accepTimer) {
         Id = id;
+        this.courseId = null;
         this.courseId = courseId;
+        this.durationTime = null;
         this.durationTime = durationTime;
         this.acceptStatus = acceptStatus;
+        this.releaseData = null;
         this.releaseData = releaseData;
+        this.instructorId = null;
         this.instructorId = instructorId;
+        this.totalGrade = 0;
         this.totalGrade = totalGrade;
+        this.handlingTimer = null;
         this.handlingTimer = handlingTimer;
         this.accepTimer = accepTimer;
     }
@@ -93,5 +101,18 @@ public class Exam {
 
     public void setAccepTimer(String accepTimer) {
         this.accepTimer = accepTimer;
+    }
+
+    @Override
+    public void getFromDbByid(String id) {
+        DBExam dbExam = new DBExam().getById(id);
+        this.courseId = dbExam.courseId;
+        this.durationTime = dbExam.durationTime;
+        this.acceptStatus = dbExam.acceptStatus;
+        this.releaseData = dbExam.releaseData;
+        this.instructorId = dbExam.instructorId;
+        this.totalGrade = dbExam.totalGrade;
+        this.handlingTimer = dbExam.handlingTimer;
+        this.accepTimer = dbExam.accepTimer;
     }
 }

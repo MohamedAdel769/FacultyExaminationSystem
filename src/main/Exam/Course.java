@@ -1,6 +1,8 @@
 package main.Exam;
 
-public class Course {
+import main.dataBaseHelper.DBCourse;
+
+public class Course implements getFromDB {
 
     private String ID,Name,DepName,InstructorID;
 
@@ -43,4 +45,12 @@ public class Course {
         this.InstructorID = InstructorID;
     }
 
+    @Override
+    public void getFromDbByid(String id) {
+        DBCourse dbCourse = new DBCourse().getById(id);
+        this.ID = dbCourse.courseID;
+        this.Name = dbCourse.Name;
+        this.DepName = dbCourse.Department;
+        this.InstructorID = dbCourse.instrID;
+    }
 }

@@ -50,9 +50,9 @@ public class Announcement implements getFromDB {
     }
 
     @Override
-    public void getFromDbByUserName(String id) {
+    public void getFromDbByid(String id) {
         DBAnnouncement dbAnnouncement = new DBAnnouncement().getById(id);
-        id = dbAnnouncement.announID;
+        this.id = dbAnnouncement.announID;
         instructorId = dbAnnouncement.instructorID;
         headOfAnnoun = dbAnnouncement.getMsgHead();
         bodyOfAnnoun = dbAnnouncement.getMsgBody();
