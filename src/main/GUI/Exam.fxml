@@ -15,7 +15,7 @@
    <children>
       <Pane prefHeight="73.0" prefWidth="742.0" style="-fx-background-color: #fed149;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label layoutX="128.0" layoutY="22.0" prefHeight="32.0" prefWidth="121.0" text="Username" textFill="#575555">
+            <Label fx:id="userName" layoutX="128.0" layoutY="22.0" prefHeight="32.0" prefWidth="121.0" text="Username" textFill="#575555">
                <font>
                   <Font name="Calibri" size="28.0" />
                </font>
@@ -25,7 +25,7 @@
                   <Image url="@../../imgs/rsz_fes.png" />
                </image>
             </ImageView>
-            <Label layoutX="409.0" layoutY="22.0" prefHeight="32.0" prefWidth="169.0" text="Student name" textFill="#575555">
+            <Label fx:id="name" layoutX="409.0" layoutY="22.0" prefHeight="32.0" prefWidth="169.0" text="Student name" textFill="#575555">
                <font>
                   <Font name="Calibri" size="28.0" />
                </font>

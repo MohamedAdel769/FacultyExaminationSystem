@@ -1,6 +1,8 @@
 package main.Exam;
 
-public class Exam {
+import main.dataBaseHelper.DBExam;
+
+public class Exam implements getFromDB{
     private String Id = null;
     private String courseId= null;
     private String  durationTime= null;
@@ -93,5 +95,18 @@ public class Exam {
 
     public void setAccepTimer(String accepTimer) {
         this.accepTimer = accepTimer;
+    }
+
+    @Override
+    public void getFromDbByid(String id) {
+        DBExam dbExam = new DBExam().getById(id);
+        this.courseId = dbExam.courseId;
+        this.durationTime = dbExam.durationTime;
+        this.acceptStatus = dbExam.acceptStatus;
+        this.releaseData = dbExam.releaseData;
+        this.instructorId = dbExam.instructorId;
+        this.totalGrade = dbExam.totalGrade;
+        this.handlingTimer = dbExam.handlingTimer;
+        this.accepTimer = dbExam.accepTimer;
     }
 }

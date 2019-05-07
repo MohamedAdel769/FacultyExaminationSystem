@@ -30,6 +30,8 @@ public class ExamController implements Initializable {
     Label qNo, timeLeft ;
     @FXML
     JFXButton startBtn ;
+    @FXML
+    Label userName , name;
     public int TotalS ;
     int[] ch;
     @Override
@@ -42,6 +44,8 @@ public class ExamController implements Initializable {
            ch[i] = -1;
        }
        currIndex = 0;
+       userName.setText(passData.Student.Username);
+       name.setText(passData.Student.Name);
     }
 
     @FXML

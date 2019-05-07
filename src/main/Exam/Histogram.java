@@ -2,9 +2,9 @@ package main.Exam;
 
 import java.util.ArrayList;
 
-public class Histogram {
+public class Histogram{
     private String Id;
-    private ArrayList listOfGrades = null;
+    private ArrayList<Integer> listOfGrades = null;
     private int numberOfStudent = 0;
 
     public Histogram(String id, ArrayList listOfGrades, int numberOfStudent) {
@@ -36,4 +36,5 @@ public class Histogram {
     public void setNumberOfStudent(int numberOfStudent) {
         this.numberOfStudent = numberOfStudent;
     }
+
 }

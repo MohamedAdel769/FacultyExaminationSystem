@@ -2,7 +2,7 @@ package main.Exam;
 
 import java.util.ArrayList;
 
-public class EvaluationExamReport {
+public class EvaluationExamReport implements getFromDB{
     private String ExamID ;
     private String HistogramID ;
     private ArrayList<Character> TopQuestions ;
@@ -35,5 +35,12 @@ public class EvaluationExamReport {
 
     public void setTopQuestions(ArrayList<Character> topQuestions) {
         TopQuestions = topQuestions;
+    }
+
+    @Override
+    public void getFromDbByid(String id) {
+
+        this.ExamID = ExamID ;
+        this.HistogramID = HistogramID ;
     }
 }

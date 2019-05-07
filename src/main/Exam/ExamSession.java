@@ -1,12 +1,14 @@
 package main.Exam;
 
 import javafx.beans.property.SimpleStringProperty;
+import main.dataBaseHelper.DBExaminationSession;
+import main.dataBaseHelper.DBListOfExamSessions;
 
 import java.util.ArrayList;
 
-public class ExamSession {
+public class ExamSession implements getFromDB {
     public SimpleStringProperty ID ;
-    public ArrayList<String> ListOfStudentsID ;
+    public ArrayList<String> ListOfStudentsID = new ArrayList<>();
     public SimpleStringProperty ExamID;
 
     public ExamSession(String ID, ArrayList<String> ListOfStudentsID, String ExamID){
@@ -50,5 +52,16 @@ public class ExamSession {
 
     public void setExamID(String examID) {
         this.ExamID.set(examID);
+    }
+
+    @Override
+    public void getFromDbByid(String id) {
+        ID = new SimpleStringProperty(id);
+        DBExaminationSession dbExaminationSession = new DBExaminationSession().getById(id);
+        ExamID = new SimpleStringProperty(dbExaminationSession.examID);
+        ArrayList<DBListOfExamSessions> list = new DBListOfExamSessions().getAllStudentsById(id);
+        for(int i = 0;i<list.size();i++){
+            ListOfStudentsID.add(list.get(i).StuID);
+        }
     }
 }

@@ -18,20 +18,22 @@ public class DBListOfExamSessions {
     public DBListOfExamSessions() {
     }
 
-    public DBListOfExamSessions getBySudentId(String id) {
+    public ArrayList<DBListOfExamSessions> getAllStudentsById(String id) {
         startConnection();
-        DBListOfExamSessions tem = new DBListOfExamSessions();
+        ArrayList<DBListOfExamSessions> arr = new ArrayList<>();
         try {
-            String query = String.format("select * from %s where StuID = '%s'",tableName, id);
+            String query = String.format("select * from %s where examSessionsID = '%s'",tableName, id);
             dBResult = stmt.executeQuery(query);
             while (dBResult.next()) {
+                DBListOfExamSessions tem = new DBListOfExamSessions();
                 tem.examSessionsID = dBResult.getString("examSessionsID");
                 tem.StuID = dBResult.getString("StuID");
+                arr.add(tem);
             }
         } catch (SQLException ex) {
             System.out.println("query error " + new Throwable().getStackTrace()[0].getMethodName()+ " " + ex);
         }
-        return tem;
+        return arr;
     }
 
     public ArrayList<DBListOfExamSessions> getByStudentId(String id) {
