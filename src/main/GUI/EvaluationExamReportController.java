@@ -22,7 +22,6 @@ import java.util.*;
 import static java.lang.Integer.min;
 
 public class EvaluationExamReportController implements Initializable {
-
     GUIHelper guiHelper = new GUIHelper();
     @FXML
     JFXTabPane tabPane ;
@@ -146,7 +145,7 @@ public class EvaluationExamReportController implements Initializable {
 
 
     public void displayHistogram(ActionEvent e){
-
+          passData.examID = idExamBox.getText();
     }
     @FXML
     public void LogOut(ActionEvent e){

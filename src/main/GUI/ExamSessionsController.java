@@ -50,6 +50,7 @@ public class ExamSessionsController implements Initializable {
         acStatus.setCellValueFactory(new PropertyValueFactory("sss"));
         String curStudent = passData.Student.stdID;
         ArrayList<DBListOfExamSessions> lol = new DBListOfExamSessions().getByStudentId(passData.Student.stdID);
+        // getByStudentId -> elmafrood yb3tle el sessions ele feha active exams bs
         ArrayList < DBExaminationSession > v = new ArrayList<>();
         for(int i = 0 ; i < lol.size() ; i++){
             if (lol.get(i).StuID.equals(curStudent))
