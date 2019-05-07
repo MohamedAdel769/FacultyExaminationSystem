@@ -8,8 +8,8 @@ import java.util.ArrayList;
 
 public class ExamSession implements getFromDB {
     public SimpleStringProperty ID ;
-    public ArrayList<String> ListOfStudentsID = new ArrayList<>();
-    public SimpleStringProperty ExamID;
+    private ArrayList<String> ListOfStudentsID = new ArrayList<>();
+    private SimpleStringProperty ExamID;
 
     public ExamSession(String ID, ArrayList<String> ListOfStudentsID, String ExamID){
         this.ID =new SimpleStringProperty(ID) ;
@@ -60,8 +60,8 @@ public class ExamSession implements getFromDB {
         DBExaminationSession dbExaminationSession = new DBExaminationSession().getById(id);
         ExamID = new SimpleStringProperty(dbExaminationSession.examID);
         ArrayList<DBListOfExamSessions> list = new DBListOfExamSessions().getAllStudentsById(id);
-        for(int i = 0;i<list.size();i++){
-            ListOfStudentsID.add(list.get(i).StuID);
+        for (DBListOfExamSessions dbListOfExamSessions : list) {
+            ListOfStudentsID.add(dbListOfExamSessions.StuID);
         }
     }
 }

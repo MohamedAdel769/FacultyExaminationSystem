@@ -1,5 +1,7 @@
 package main.Exam;
 
+import main.dataBaseHelper.DBEvaluationExamReport;
+
 import java.util.ArrayList;
 
 public class EvaluationExamReport implements getFromDB{
@@ -39,8 +41,8 @@ public class EvaluationExamReport implements getFromDB{
 
     @Override
     public void getFromDbByid(String id) {
-
-        this.ExamID = ExamID ;
-        this.HistogramID = HistogramID ;
+        DBEvaluationExamReport dbEvaluationExamReport = new DBEvaluationExamReport().getByExamId(id);
+        this.ExamID = dbEvaluationExamReport.examID;
+        this.HistogramID = dbEvaluationExamReport.histogramID ;
     }
 }
