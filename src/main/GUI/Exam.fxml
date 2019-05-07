@@ -87,7 +87,7 @@
                   <Font name="Century Gothic" size="16.0" />
                </font>
             </JFXCheckBox>
-            <JFXButton layoutX="623.0" layoutY="406.0" onAction="#Next" prefHeight="32.0" prefWidth="98.0" ripplerFill="#46ff99" style="-fx-background-color: #00A651;" text="Next">
+            <JFXButton fx:id="nextbtn" layoutX="623.0" layoutY="406.0" onAction="#Next" prefHeight="32.0" prefWidth="98.0" ripplerFill="#46ff99" style="-fx-background-color: #00A651;" text="Next">
                <font>
                   <Font name="Century Gothic Bold" size="14.0" />
                </font>
@@ -95,7 +95,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </JFXButton>
-            <JFXButton layoutX="461.0" layoutY="406.0" onAction="#Previous" prefHeight="32.0" prefWidth="98.0" ripplerFill="#46ff99" style="-fx-background-color: #00A651;" text="Pervious">
+            <JFXButton fx:id="prebtn" layoutX="461.0" layoutY="406.0" onAction="#Previous" prefHeight="32.0" prefWidth="98.0" ripplerFill="#46ff99" style="-fx-background-color: #00A651;" text="Pervious">
                <font>
                   <Font name="Century Gothic Bold" size="14.0" />
                </font>

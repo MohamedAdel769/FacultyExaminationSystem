@@ -34,11 +34,11 @@ public class DBListOfExamSessions {
         return tem;
     }
 
-    public ArrayList<DBListOfExamSessions> getById(String id) {
+    public ArrayList<DBListOfExamSessions> getByStudentId(String id) {
         startConnection();
         ArrayList<DBListOfExamSessions> arr = new ArrayList<>();
         try {
-            String query = String.format("select * from %s where examSessionsID = '%s'",tableName, id);
+            String query = String.format("select * from %s where StuID = '%s'",tableName, id);
             dBResult = stmt.executeQuery(query);
             while (dBResult.next()) {
                 DBListOfExamSessions tem = new DBListOfExamSessions();

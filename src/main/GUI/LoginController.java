@@ -59,7 +59,7 @@ public class LoginController implements Initializable  {
     @FXML
     public void Signin(ActionEvent event){
         // if the user is admin
-            //guiHelper.GoToForm("AdminHome.fxml");
+        //guiHelper.GoToForm("AdminHome.fxml");
         // student
         if (UserTxt.getText().equals("admin")&&PassTxt.getText().equals("admin"))
         {

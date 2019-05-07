@@ -58,6 +58,9 @@ public class AdminHomeController implements Initializable {
         }
         new DBExaminationSession().add(new DBExaminationSession(idV , null));
         id.clear();
+        for(int i = 0;i<adminTableView.getItems().size();i++){
+            adminTableView.getItems().get(i).getSelectStd().setSelected(false);
+        }
         guiHelper.ShowDialog(stackPane, "Examination Session", "You successfully added a new examination session.", "Ok");
     }
 

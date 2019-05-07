@@ -48,7 +48,13 @@ public class ExamSessionsController implements Initializable {
         ObservableList < tableData > print = FXCollections.observableArrayList();
         examSessionID.setCellValueFactory(new PropertyValueFactory("fff"));
         acStatus.setCellValueFactory(new PropertyValueFactory("sss"));
-        ArrayList < DBExaminationSession > v = new DBExaminationSession().getAll();
+        String curStudent = passData.Student.stdID;
+        ArrayList<DBListOfExamSessions> lol = new DBListOfExamSessions().getByStudentId(passData.Student.stdID);
+        ArrayList < DBExaminationSession > v = new ArrayList<>();
+        for(int i = 0 ; i < lol.size() ; i++){
+            if (lol.get(i).StuID.equals(curStudent))
+                v.add(new DBExaminationSession().getById(lol.get(i).examSessionsID));
+        }
         for(int i = 0 ; i < v.size() ; i++){
             String id = v.get(i).examID;
             boolean ac = new DBExam().getById(id).acceptStatus;
@@ -87,7 +93,7 @@ public class ExamSessionsController implements Initializable {
         });
     }
     @FXML
-    public void takeExamButton() {
+    public void takeExamButton(ActionEvent e) {
         // shof anhe selected
         tableData chosen = tableView.getSelectionModel().getSelectedItem();
         // ro7 lel exam ele 3mltlo select

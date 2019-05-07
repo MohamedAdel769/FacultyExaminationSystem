@@ -49,6 +49,7 @@ public class QuestionsController implements Initializable {
         }else{
             System.out.println("not Added");
         }
+        passData.numOfQ++;
     }
 
     @Override
@@ -58,6 +59,10 @@ public class QuestionsController implements Initializable {
     }
     @FXML
     public void done(){
-        new GUIHelper().GoToForm("ExaminationSessionExam.fxml");
+        if(passData.numOfQ > 1) {
+            new GUIHelper().GoToForm("ExaminationSessionExam.fxml");
+        }else{
+            /// TODO message Box ( add more Questions )
+        }
     }
 }
