@@ -10,7 +10,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
+import javafx.scene.layout.StackPane;
 import javafx.stage.WindowEvent;
+import javafx.util.Pair;
+import main.Exam.Question;
 import main.dataBaseHelper.DBExam;
 import main.dataBaseHelper.DBQustion;
 
@@ -20,6 +23,8 @@ import java.util.ResourceBundle;
 import java.util.Timer;
 import java.util.TimerTask;
 import main.Main;
+
+import javax.swing.*;
 
 
 public class ExamController implements Initializable {
@@ -34,36 +39,53 @@ public class ExamController implements Initializable {
     Label qNo, timeLeft ;
     @FXML
     JFXButton startBtn ;
+    @FXML
+    StackPane stackPane ;
+    @FXML
+    JFXButton submitBtn, nextBtn , prevBtn ;
+
     public int TotalS ;
     int[] ch;
+    int totalGrade  ;
+    DBExam e ;
+    GUIHelper g ;
+    Timer timert ;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+       timeLeft.setText("00:00:00");
+       qNo.setText("0");
+       totalGrade = 0;
        dbQ  = new DBQustion();
        Qlist  = new ArrayList<>(dbQ.getByExamId("z"));
+       timert = new Timer();
        mxIndex = Qlist.size() ;
        ch  = new int[mxIndex];
        for(int i = 0;i<mxIndex;i++){
            ch[i] = -1;
        }
        currIndex = 0;
+       e = new DBExam();
+       g = new GUIHelper();
     }
 
     @FXML
     public void startTimer(ActionEvent event){
-        choice1.setDisable(true);
-        choice2.setDisable(true);
-        choice3.setDisable(true);
-        choice4.setDisable(true);
+        prevBtn.setDisable(false);
+        nextBtn.setDisable(false);
+        submitBtn.setDisable(false);
+        choice1.setDisable(false);
+        choice2.setDisable(false);
+        choice3.setDisable(false);
+        choice4.setDisable(false);
         SetQuestion(Qlist.get(currIndex));
         qNo.setText("1");
-        DBExam e = new DBExam();
         timeLeft.setText(e.getById("z").durationTime);
         String [] time = e.getById("z").durationTime.split(":");
         int H = Integer.parseInt(time[0]) , M = Integer.parseInt(time[1]) , S = Integer.parseInt(time[2]);
         TotalS = (M * 60) + (H * 60 * 60) + S ;
         long delay = TotalS * 1000;
         startBtn.setDisable(true);
-        Timer timert = new Timer();
         timert.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run(){
@@ -73,8 +95,10 @@ public class ExamController implements Initializable {
                     int seconds = TotalS % 60;
                     String T = hours + ":" + minutes + ":" + seconds ;
                     timeLeft.setText(T);
-                    if(TotalS<0)
-                        timert.cancel();
+                    if(TotalS<0) {
+                        Submit(new ActionEvent());
+                        ExamFinished();
+                    }
                     TotalS = TotalS - 1;
                 });
             }
@@ -94,6 +118,7 @@ public class ExamController implements Initializable {
     @FXML
     public void Previous(ActionEvent e){
         if(currIndex > 0) {
+            ResetChoices();
             currIndex--;
             qNo.setText(String.valueOf(currIndex + 1));
             SetQuestion(Qlist.get(currIndex));
@@ -178,6 +203,34 @@ public class ExamController implements Initializable {
 
     @FXML
     public void Submit(ActionEvent event){
+        ArrayList<Pair<Integer, DBQustion>> freq = new ArrayList<>();
+        for (int i=0;i<Qlist.size();i++){
+            freq.add(new Pair<>(0, Qlist.get(i)));
+        }
 
+        for(int i=0;i<Qlist.size();i++){
+            if(ch[i]!= -1){
+                DBQustion q = Qlist.get(i);
+                if((q.CorrectChoice.equals("A") && ch[i] == 1)||(q.CorrectChoice.equals("B") && ch[i] == 2)
+                        ||(q.CorrectChoice.equals("C") && ch[i] == 3)||(q.CorrectChoice.equals("D") && ch[i] == 4)){
+                    totalGrade += q.grade;
+                }
+                for(int j=0;j<freq.size();j++){
+                    Pair<Integer, DBQustion> current = freq.get(j);
+                    Pair<Integer, DBQustion> newValue = new Pair<>(current.getKey()+1, freq.get(j).getValue());
+                    if(current.getValue().QuesID.equals(q.QuesID)){
+                        freq.set(j, newValue);
+                    }
+                }
+            }
+        }
+        ExamFinished();
+        passData.QuestionsFreq = new ArrayList<>(freq);
+    }
+
+    public void ExamFinished(){
+        timert.cancel();
+        stackPane.setVisible(true);
+        g.ShowDialog(stackPane, "Exam Finished", "Your Grade is: " + totalGrade + "/" + e.getById("z").totalGrade,"OK", "StudentHome.fxml");
     }
 }

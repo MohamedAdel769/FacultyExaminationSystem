@@ -9,6 +9,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="525.0" prefWidth="730.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.GUI.ExamController">
@@ -87,7 +88,7 @@
                   <Font name="Century Gothic" size="16.0" />
                </font>
             </JFXCheckBox>
-            <JFXButton layoutX="623.0" layoutY="406.0" onAction="#Next" prefHeight="32.0" prefWidth="98.0" ripplerFill="#46ff99" style="-fx-background-color: #00A651;" text="Next">
+            <JFXButton fx:id="nextBtn" disable="true" layoutX="623.0" layoutY="406.0" onAction="#Next" prefHeight="32.0" prefWidth="98.0" ripplerFill="#46ff99" style="-fx-background-color: #00A651;" text="Next">
                <font>
                   <Font name="Century Gothic Bold" size="14.0" />
                </font>
@@ -95,7 +96,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </JFXButton>
-            <JFXButton layoutX="473.0" layoutY="405.0" onAction="#Previous" prefHeight="32.0" prefWidth="98.0" ripplerFill="#46ff99" style="-fx-background-color: #00A651;" text="Pervious">
+            <JFXButton fx:id="prevBtn" disable="true" layoutX="473.0" layoutY="405.0" onAction="#Previous" prefHeight="32.0" prefWidth="98.0" ripplerFill="#46ff99" style="-fx-background-color: #00A651;" text="Pervious">
                <font>
                   <Font name="Century Gothic Bold" size="14.0" />
                </font>
@@ -103,7 +104,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </JFXButton>
-            <JFXButton buttonType="RAISED" layoutX="314.0" layoutY="405.0" onAction="#Submit" prefHeight="32.0" prefWidth="98.0" ripplerFill="#46ff99" style="-fx-background-color: #00A651;" text="Submit">
+            <JFXButton fx:id="submitBtn" buttonType="RAISED" disable="true" layoutX="314.0" layoutY="405.0" onAction="#Submit" prefHeight="32.0" prefWidth="98.0" ripplerFill="#46ff99" style="-fx-background-color: #00A651;" text="Submit">
                <font>
                   <Font name="Century Gothic Bold" size="14.0" />
                </font>
@@ -111,6 +112,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </JFXButton>
+            <StackPane fx:id="stackPane" layoutX="116.0" layoutY="79.0" prefHeight="273.0" prefWidth="455.0" visible="false" />
          </children>
       </Pane>
       <Label layoutX="19.0" layoutY="300.0" text="A)">

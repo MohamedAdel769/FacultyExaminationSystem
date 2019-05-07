@@ -139,7 +139,7 @@ public class EvaluationExamReportController implements Initializable {
             displayHisto.setDisable(false);
         }
         else {
-            guiHelper.ShowDialog(h5a,"Error","This exam status still open","OK");
+            guiHelper.ShowDialog(h5a,"Error","This exam status still open","OK","-1");
         }
         /// dool elmafrood hna wla t7t
     }
