@@ -20,7 +20,7 @@ import java.net.URL;
 import java.util.*;
 
 import static java.lang.Integer.min;
-import static main.GUI.passData.QuestionsFreq;
+
 
 public class EvaluationExamReportController implements Initializable {
     GUIHelper guiHelper = new GUIHelper();
@@ -92,7 +92,7 @@ public class EvaluationExamReportController implements Initializable {
     }
 
     @FXML
-    public void Search(ActionEvent e){
+    public void Search(ActionEvent event){
         // if we have this exam id and duration is finished then
         String studentID = passData.Student.stdID;
         String examID = idExamBox.getText();
@@ -100,8 +100,9 @@ public class EvaluationExamReportController implements Initializable {
         passData.examID = examID;
         if (curExam.acceptStatus == false){
             ArrayList < DBQustion > v = new ArrayList<>();
+            ExamController e = new ExamController() ;
             // 7ot dola hena
-            ArrayList< Pair<Integer, DBQustion>> questions = QuestionsFreq;
+            ArrayList< Pair<Integer, DBQustion>> questions = e.getFreq(examID);
             for(int i = 0 ; i < 5 ; i++){
                 for(int j = i + 1 ; j < questions.size() ; j++){
                     Pair p1 = questions.get(i);

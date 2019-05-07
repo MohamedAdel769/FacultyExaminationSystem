@@ -16,7 +16,6 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-import static main.GUI.passData.QuestionsFreq;
 
 public class HistogramController implements Initializable {
     @FXML
@@ -41,7 +40,8 @@ public class HistogramController implements Initializable {
         new GUIHelper().GoToForm("LineChart.fxml");
     }
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        ArrayList <Pair<Integer, DBQustion>> v = QuestionsFreq;
+        ExamController e = new ExamController() ;
+        ArrayList <Pair<Integer, DBQustion>> v = e.getFreq(passData.examID);
         ObservableList< tableData > print = FXCollections.observableArrayList();
         /// 7ot dola hena
         int totalStudents = 5;
