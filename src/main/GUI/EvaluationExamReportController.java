@@ -21,6 +21,7 @@ import java.util.*;
 
 import static java.lang.Integer.min;
 
+
 public class EvaluationExamReportController implements Initializable {
     GUIHelper guiHelper = new GUIHelper();
     @FXML
@@ -91,15 +92,17 @@ public class EvaluationExamReportController implements Initializable {
     }
 
     @FXML
-    public void Search(ActionEvent e){
+    public void Search(ActionEvent event){
         // if we have this exam id and duration is finished then
         String studentID = passData.Student.stdID;
         String examID = idExamBox.getText();
         DBExam curExam = new DBExam().getById(examID);
+        passData.examID = examID;
         if (curExam.acceptStatus == false){
             ArrayList < DBQustion > v = new ArrayList<>();
-            // 7ot dola hena 
-            ArrayList< Pair<Integer, DBQustion>> questions = new ArrayList<>();
+            ExamController e = new ExamController() ;
+            // 7ot dola hena
+            ArrayList< Pair<Integer, DBQustion>> questions = e.getFreq(examID);
             for(int i = 0 ; i < 5 ; i++){
                 for(int j = i + 1 ; j < questions.size() ; j++){
                     Pair p1 = questions.get(i);
