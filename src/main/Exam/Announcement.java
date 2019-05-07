@@ -1,8 +1,8 @@
-package main.Session;
+package main.Exam;
 
 import main.dataBaseHelper.DBAnnouncement;
 
-public class Announcement {
+public class Announcement implements getFromDB {
     private String id;
     private String instructorId;
     private String headOfAnnoun;
@@ -14,12 +14,9 @@ public class Announcement {
         this.headOfAnnoun = headOfAnnoun;
         this.bodyOfAnnoun = bodyOfAnnoun;
     }
-    public Announcement(DBAnnouncement a){
-        id = a.getAnnounID();
-        instructorId = a.getInstructorID();
-        headOfAnnoun = a.getMsgHead();
-        bodyOfAnnoun = a.getMsgBody();
-    }
+
+
+
     public String getId() {
         return id;
     }
@@ -50,5 +47,14 @@ public class Announcement {
 
     public void setBodyOfAnnoun(String bodyOfAnnoun) {
         this.bodyOfAnnoun = bodyOfAnnoun;
+    }
+
+    @Override
+    public void getFromDbByid(String id) {
+        DBAnnouncement dbAnnouncement = new DBAnnouncement().getById(id);
+        this.id = dbAnnouncement.announID;
+        instructorId = dbAnnouncement.instructorID;
+        headOfAnnoun = dbAnnouncement.getMsgHead();
+        bodyOfAnnoun = dbAnnouncement.getMsgBody();
     }
 }

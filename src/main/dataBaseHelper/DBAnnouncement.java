@@ -7,9 +7,9 @@ import static main.dataBaseHelper.dataBaseConVars.*;
 import static main.dataBaseHelper.dataBaseConVars.dBResult;
 
 public class DBAnnouncement {
-    String announID = null, instructorID= null, examID= null, msgBody= null, msgHead= null;
-    String tableName = "Announcement";
-    String tableId = "announID";
+    public String announID = null, instructorID= null, examID= null, msgBody= null, msgHead= null;
+    public String tableName = "Announcement";
+    public String tableId = "announID";
 
     public DBAnnouncement() {
     }

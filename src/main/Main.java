@@ -5,6 +5,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import main.Users.Student;
+import main.Users.User;
 
 public class Main extends Application {
     public static Stage window ;
@@ -12,7 +14,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         window = primaryStage ;
-        Parent root = FXMLLoader.load(getClass().getResource("GUI/Exams.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("GUI/login.fxml"));
         Scene scene = new Scene(root) ;
         window.setTitle("Faculty Examination System");
         window.setScene(scene);

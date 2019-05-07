@@ -86,7 +86,7 @@ public class GUIHelper {
         validator.setIcon(warn);
     }
 
-    public void ShowDialog(StackPane stackPane, String Heading, String Body, String ButtonTxt) {
+    public void ShowDialog(StackPane stackPane, String Heading, String Body, String ButtonTxt, String newForm) {
         JFXDialogLayout content = new JFXDialogLayout();
         content.setHeading(new Text(Heading));
         content.setBody(new Text(Body));
@@ -97,6 +97,8 @@ public class GUIHelper {
             @Override
             public void handle(ActionEvent event) {
                 dialog.close();
+                if(!newForm.equals("-1"))
+                    GoToForm(newForm);
             }
         });
         content.setActions(button);

@@ -7,11 +7,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import main.Session.ExamSession;
-import main.Session.ListOfExamSession;
-import main.Users.Student;
+import main.Exam.ExamSession;
 import main.dataBaseHelper.DBExaminationSession;
-import main.dataBaseHelper.DBListOfExamSessions;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -21,7 +18,7 @@ public class ExaminationSessionExamController implements Initializable {
     @FXML
     TableView<ExamSession> table;
     @FXML
-    TableColumn<ExamSession,String> ExCol = new TableColumn<>("Examination Session");
+    TableColumn<ExamSession,String> ExCol = new TableColumn<>("Examination Exam");
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ExCol.setCellValueFactory(new PropertyValueFactory("ID"));
