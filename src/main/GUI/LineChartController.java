@@ -6,6 +6,7 @@ import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.util.Pair;
+import main.Exam.Exam;
 import main.dataBaseHelper.DBQustion;
 
 import java.awt.event.ActionEvent;
@@ -28,7 +29,8 @@ public class LineChartController {
         new GUIHelper().GoToForm("Histogram.fxml");
     }
     public void initialize(URL url, ResourceBundle resourceBundle){
-        ArrayList <Pair< Integer, DBQustion >> v = passData.QuestionsFreq;
+        ExamController e = new ExamController() ;
+        ArrayList <Pair< Integer, DBQustion >> v = e.getFreq("z");
         XYChart.Series series = new XYChart.Series();
         for(int i = 0 ; i < v.size() ; i++){
             String questionID = v.get(i).getValue().QuesID;
