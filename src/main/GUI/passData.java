@@ -2,10 +2,13 @@ package main.GUI;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.util.Pair;
 import main.dataBaseHelper.DBExam;
 import main.dataBaseHelper.DBInstructor;
+import main.dataBaseHelper.DBQustion;
 import main.dataBaseHelper.DBStudent;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public final class passData {
@@ -15,4 +18,5 @@ public final class passData {
     public static ObservableList<String> Corseslist = FXCollections.observableArrayList();
     public static String chosenExam = new String();
     public static int numOfQ = 0;
+    public static ArrayList<Pair<Integer, DBQustion>> QuestionsFreq;
 }

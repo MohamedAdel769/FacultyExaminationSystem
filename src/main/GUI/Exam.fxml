@@ -67,22 +67,22 @@
                   <Font name="Century Gothic Bold" size="14.0" />
                </font>
             </Label>
-            <JFXCheckBox fx:id="choice1" layoutX="45.0" layoutY="226.0" onAction="#Choice1" prefHeight="20.0" prefWidth="683.0" text=" ">
+            <JFXCheckBox fx:id="choice1" disable="true" layoutX="45.0" layoutY="226.0" onAction="#Choice1" prefHeight="20.0" prefWidth="683.0" text=" ">
                <font>
                   <Font name="Century Gothic" size="16.0" />
                </font>
             </JFXCheckBox>
-            <JFXCheckBox fx:id="choice2" layoutX="45.0" layoutY="279.0" onAction="#Choice2" prefHeight="20.0" prefWidth="683.0" text=" ">
+            <JFXCheckBox fx:id="choice2" disable="true" layoutX="45.0" layoutY="279.0" onAction="#Choice2" prefHeight="20.0" prefWidth="683.0" text=" ">
                <font>
                   <Font name="Century Gothic" size="16.0" />
                </font>
             </JFXCheckBox>
-            <JFXCheckBox fx:id="choice3" layoutX="45.0" layoutY="332.0" onAction="#Choice3" prefHeight="20.0" prefWidth="683.0" text=" ">
+            <JFXCheckBox fx:id="choice3" disable="true" layoutX="45.0" layoutY="332.0" onAction="#Choice3" prefHeight="20.0" prefWidth="683.0" text=" ">
                <font>
                   <Font name="Century Gothic" size="16.0" />
                </font>
             </JFXCheckBox>
-            <JFXCheckBox fx:id="choice4" layoutX="45.0" layoutY="383.0" onAction="#Choice4" prefHeight="20.0" prefWidth="683.0" text=" ">
+            <JFXCheckBox fx:id="choice4" disable="true" layoutX="45.0" layoutY="383.0" onAction="#Choice4" prefHeight="20.0" prefWidth="683.0" text=" ">
                <font>
                   <Font name="Century Gothic" size="16.0" />
                </font>
@@ -103,7 +103,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </JFXButton>
-            <JFXButton buttonType="RAISED" layoutX="314.0" layoutY="405.0" prefHeight="32.0" prefWidth="98.0" ripplerFill="#46ff99" style="-fx-background-color: #00A651;" text="Submit">
+            <JFXButton buttonType="RAISED" layoutX="314.0" layoutY="405.0" onAction="#Submit" prefHeight="32.0" prefWidth="98.0" ripplerFill="#46ff99" style="-fx-background-color: #00A651;" text="Submit">
                <font>
                   <Font name="Century Gothic Bold" size="14.0" />
                </font>

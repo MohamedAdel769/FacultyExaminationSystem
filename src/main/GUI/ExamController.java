@@ -5,10 +5,12 @@ import com.jfoenix.controls.JFXCheckBox;
 import com.jfoenix.controls.JFXTextArea;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
+import javafx.stage.WindowEvent;
 import main.dataBaseHelper.DBExam;
 import main.dataBaseHelper.DBQustion;
 
@@ -17,6 +19,8 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.Timer;
 import java.util.TimerTask;
+import main.Main;
+
 
 public class ExamController implements Initializable {
     ArrayList<DBQustion> Qlist ;
@@ -42,6 +46,10 @@ public class ExamController implements Initializable {
 
     @FXML
     public void startTimer(ActionEvent event){
+        choice1.setDisable(true);
+        choice2.setDisable(true);
+        choice3.setDisable(true);
+        choice4.setDisable(true);
         SetQuestion(Qlist.get(currIndex));
         qNo.setText("1");
         DBExam e = new DBExam();
@@ -134,5 +142,10 @@ public class ExamController implements Initializable {
         choice2.setText(qustion.Choice2);
         choice3.setText(qustion.Choice3);
         choice4.setText(qustion.Choice4);
+    }
+
+    @FXML
+    public void Submit(ActionEvent event){
+
     }
 }
