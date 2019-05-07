@@ -40,8 +40,6 @@ public class ExamController implements Initializable {
     @FXML
     JFXButton startBtn ;
     @FXML
-    Label userName , name;
-    @FXML
     StackPane stackPane ;
     @FXML
     JFXButton submitBtn, nextBtn , prevBtn ;
@@ -55,22 +53,20 @@ public class ExamController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-       timeLeft.setText("00:00:00");
-       qNo.setText("0");
-       totalGrade = 0;
-       dbQ  = new DBQustion();
-       Qlist  = new ArrayList<>(dbQ.getByExamId("z"));
-       timert = new Timer();
-       mxIndex = Qlist.size() ;
-       ch  = new int[mxIndex];
-       for(int i = 0;i<mxIndex;i++){
-           ch[i] = -1;
-       }
-       currIndex = 0;
-       userName.setText(passData.Student.Username);
-       name.setText(passData.Student.Name);
-       e = new DBExam();
-       g = new GUIHelper();
+        timeLeft.setText("00:00:00");
+        qNo.setText("0");
+        totalGrade = 0;
+        dbQ  = new DBQustion();
+        Qlist  = new ArrayList<>(dbQ.getByExamId("z"));
+        timert = new Timer();
+        mxIndex = Qlist.size() ;
+        ch  = new int[mxIndex];
+        for(int i = 0;i<mxIndex;i++){
+            ch[i] = -1;
+        }
+        currIndex = 0;
+        e = new DBExam();
+        g = new GUIHelper();
     }
 
     @FXML
@@ -207,6 +203,26 @@ public class ExamController implements Initializable {
 
     @FXML
     public void Submit(ActionEvent event){
+        for(int i=0;i<Qlist.size();i++){
+            if(ch[i]!= -1){
+                DBQustion q = Qlist.get(i);
+                if((q.CorrectChoice.equals("A") && ch[i] == 1)||(q.CorrectChoice.equals("B") && ch[i] == 2)
+                        ||(q.CorrectChoice.equals("C") && ch[i] == 3)||(q.CorrectChoice.equals("D") && ch[i] == 4)){
+                    totalGrade += q.grade;
+                }
+            }
+        }
+        ExamFinished();
+    }
+
+    public  void ExamFinished(){
+        timert.cancel();
+        stackPane.setVisible(true);
+        g.ShowDialog(stackPane, "Exam Finished", "Your Grade is: " + totalGrade + "/" + e.getById("z").totalGrade,"OK", "StudentHome.fxml");
+    }
+
+    public  ArrayList<Pair<Integer, DBQustion>> getFreq(String examID){
+        Qlist  = new ArrayList<>(dbQ.getByExamId(examID));
         ArrayList<Pair<Integer, DBQustion>> freq = new ArrayList<>();
         for (int i=0;i<Qlist.size();i++){
             freq.add(new Pair<>(0, Qlist.get(i)));
@@ -228,13 +244,6 @@ public class ExamController implements Initializable {
                 }
             }
         }
-        ExamFinished();
-        passData.QuestionsFreq = new ArrayList<>(freq);
-    }
-
-    public void ExamFinished(){
-        timert.cancel();
-        stackPane.setVisible(true);
-        g.ShowDialog(stackPane, "Exam Finished", "Your Grade is: " + totalGrade + "/" + e.getById("z").totalGrade,"OK", "StudentHome.fxml");
+        return freq;
     }
 }
