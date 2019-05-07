@@ -5,7 +5,8 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.scene.control.CheckBox;
 
-public abstract class User {
+
+public abstract class User implements getFromDB {
 
     private SimpleStringProperty name;
     private SimpleStringProperty phone;
