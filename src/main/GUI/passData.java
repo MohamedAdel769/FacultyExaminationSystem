@@ -18,4 +18,6 @@ public final class passData {
     public static ObservableList<String> Corseslist = FXCollections.observableArrayList();
     public static String chosenExam = new String();
     public static int numOfQ = 0;
+    public static String examID = new String();
+    public static ArrayList<Pair<Integer, DBQustion>> QuestionsFreq;
 }
