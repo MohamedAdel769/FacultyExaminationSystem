@@ -25,7 +25,12 @@
                   <Image url="@../../imgs/rsz_fes.png" />
                </image>
             </ImageView>
-            <JFXButton buttonType="RAISED" layoutX="628.0" layoutY="24.0" prefHeight="32.0" prefWidth="98.0" ripplerFill="#46ff99" style="-fx-background-color: #00A651;" text="Submit">
+            <Label layoutX="409.0" layoutY="22.0" prefHeight="32.0" prefWidth="169.0" text="Student name" textFill="#575555">
+               <font>
+                  <Font name="Calibri" size="28.0" />
+               </font>
+            </Label>
+            <JFXButton fx:id="startBtn" buttonType="RAISED" layoutX="618.0" layoutY="22.0" onAction="#startTimer" prefHeight="32.0" prefWidth="98.0" ripplerFill="#46ff99" style="-fx-background-color: #00A651;" text="Start">
                <font>
                   <Font name="Century Gothic Bold" size="14.0" />
                </font>
@@ -33,16 +38,11 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </JFXButton>
-            <Label layoutX="409.0" layoutY="22.0" prefHeight="32.0" prefWidth="169.0" text="Student name" textFill="#575555">
-               <font>
-                  <Font name="Calibri" size="28.0" />
-               </font>
-            </Label>
          </children>
       </Pane>
       <Pane layoutY="73.0" prefHeight="452.0" prefWidth="742.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <JFXTextArea fx:id="questionTxt" layoutX="20.0" layoutY="38.0" prefHeight="164.0" prefWidth="707.0">
+            <JFXTextArea fx:id="questionTxt" editable="false" layoutX="20.0" layoutY="38.0" prefHeight="164.0" prefWidth="707.0">
                <font>
                   <Font name="Century Gothic" size="18.0" />
                </font>
@@ -52,7 +52,7 @@
                   <Font name="Century Gothic" size="14.0" />
                </font>
             </Label>
-            <Label fx:id="qNo" layoutX="64.0" layoutY="9.0" text="5">
+            <Label fx:id="qNo" layoutX="64.0" layoutY="9.0">
                <font>
                   <Font name="Century Gothic" size="14.0" />
                </font>
@@ -62,27 +62,27 @@
                   <Font name="Century Gothic Bold" size="14.0" />
                </font>
             </Label>
-            <Label fx:id="timeLeft" layoutX="657.0" layoutY="9.0" text="1:10:23">
+            <Label fx:id="timeLeft" layoutX="657.0" layoutY="9.0" textFill="#00a651">
                <font>
                   <Font name="Century Gothic Bold" size="14.0" />
                </font>
             </Label>
-            <JFXCheckBox fx:id="choice1" layoutX="45.0" layoutY="226.0" prefHeight="20.0" prefWidth="683.0" text="100">
+            <JFXCheckBox fx:id="choice1" layoutX="45.0" layoutY="226.0" onAction="#Choice1" prefHeight="20.0" prefWidth="683.0" text=" ">
                <font>
                   <Font name="Century Gothic" size="16.0" />
                </font>
             </JFXCheckBox>
-            <JFXCheckBox fx:id="choice2" layoutX="45.0" layoutY="279.0" prefHeight="20.0" prefWidth="683.0" text="100">
+            <JFXCheckBox fx:id="choice2" layoutX="45.0" layoutY="279.0" onAction="#Choice2" prefHeight="20.0" prefWidth="683.0" text=" ">
                <font>
                   <Font name="Century Gothic" size="16.0" />
                </font>
             </JFXCheckBox>
-            <JFXCheckBox fx:id="choice3" layoutX="45.0" layoutY="332.0" prefHeight="20.0" prefWidth="683.0" text="100">
+            <JFXCheckBox fx:id="choice3" layoutX="45.0" layoutY="332.0" onAction="#Choice3" prefHeight="20.0" prefWidth="683.0" text=" ">
                <font>
                   <Font name="Century Gothic" size="16.0" />
                </font>
             </JFXCheckBox>
-            <JFXCheckBox fx:id="choice4" layoutX="45.0" layoutY="383.0" prefHeight="20.0" prefWidth="683.0" text="100">
+            <JFXCheckBox fx:id="choice4" layoutX="45.0" layoutY="383.0" onAction="#Choice4" prefHeight="20.0" prefWidth="683.0" text=" ">
                <font>
                   <Font name="Century Gothic" size="16.0" />
                </font>
@@ -95,7 +95,15 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </JFXButton>
-            <JFXButton layoutX="461.0" layoutY="406.0" onAction="#Previous" prefHeight="32.0" prefWidth="98.0" ripplerFill="#46ff99" style="-fx-background-color: #00A651;" text="Pervious">
+            <JFXButton layoutX="473.0" layoutY="405.0" onAction="#Previous" prefHeight="32.0" prefWidth="98.0" ripplerFill="#46ff99" style="-fx-background-color: #00A651;" text="Pervious">
+               <font>
+                  <Font name="Century Gothic Bold" size="14.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <JFXButton buttonType="RAISED" layoutX="314.0" layoutY="405.0" prefHeight="32.0" prefWidth="98.0" ripplerFill="#46ff99" style="-fx-background-color: #00A651;" text="Submit">
                <font>
                   <Font name="Century Gothic Bold" size="14.0" />
                </font>
