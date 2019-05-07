@@ -61,7 +61,7 @@ public class AdminHomeController implements Initializable {
         for(int i = 0;i<adminTableView.getItems().size();i++){
             adminTableView.getItems().get(i).getSelectStd().setSelected(false);
         }
-        guiHelper.ShowDialog(stackPane, "Examination Session", "You successfully added a new examination session.", "Ok");
+        guiHelper.ShowDialog(stackPane, "Examination Exam", "You successfully added a new examination session.", "Ok");
     }
 
     @Override

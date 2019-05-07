@@ -5,6 +5,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import main.Users.Student;
+import main.Users.User;
 
 public class Main extends Application {
     public static Stage window ;

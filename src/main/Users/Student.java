@@ -15,5 +15,3 @@ public class Student extends  User{
         super( id,name, email);
     }
 }
-// List<exam> ExamsWithGrades;
-
