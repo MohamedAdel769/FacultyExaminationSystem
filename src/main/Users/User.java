@@ -5,7 +5,7 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.scene.control.CheckBox;
 
-public class User {
+public abstract class User {
 
     private SimpleStringProperty name;
     private SimpleStringProperty phone;
@@ -16,7 +16,7 @@ public class User {
     private SimpleStringProperty Password;
     private CheckBox selectStd ;
 
-    public User(String name,String phone,String email ,int age,String id,String username, String password) {
+    User(String name, String phone, String email, int age, String id, String username, String password) {
         this.name = new SimpleStringProperty(name);
         this.phone = new SimpleStringProperty(phone);
         this.email = new SimpleStringProperty(email);
@@ -28,7 +28,7 @@ public class User {
 
     }
 
-    public User(String id,String name, String email) {
+    User(String id, String name, String email) {
         this.name = new SimpleStringProperty(name);
         this.email = new SimpleStringProperty(email);
         this.id = new SimpleStringProperty(id);

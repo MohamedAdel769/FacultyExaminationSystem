@@ -41,7 +41,6 @@ public class InstructorHomeController implements Initializable {
     Label userName ;
     @FXML
     JFXComboBox coursesBox;
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         JFXDrawer leftDrawer = new JFXDrawer();

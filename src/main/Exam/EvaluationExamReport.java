@@ -1,4 +1,4 @@
-package main.Session;
+package main.Exam;
 
 import java.util.ArrayList;
 
