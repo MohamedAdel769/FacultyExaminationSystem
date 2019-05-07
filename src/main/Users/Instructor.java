@@ -1,56 +1,25 @@
 package main.Users;
 
-public class Instructor {
-    private int ID,phone,age;
-    private String name,email;
+import main.dataBaseHelper.DBInstructor;
 
-    public Instructor(int ID, int phone, int age, String name, String email) {
-        this.ID = ID;
-        this.phone = phone;
-        this.age = age;
-        this.name = name;
-        this.email = email;
+public class Instructor extends User{
+
+    public Instructor(String name, String phone, String email, int age, String id, String username, String password) {
+        super(name, phone, email, age, id, username, password);
     }
 
-    public int getID() {
-        return ID;
+    public Instructor(String id, String name, String email) {
+        super(id, name, email);
     }
 
-    public void setID(int ID) {
-        this.ID = ID;
+    public void getFromDbByUserName(String username){
+        DBInstructor dbInstructor = new DBInstructor().getByUsername(username);
+        this.setName(dbInstructor.Name);
+        this.setPhone(dbInstructor.Phone);
+        this.setEmail(dbInstructor.Email);
+        this.setAge(Integer.parseInt(dbInstructor.Age));
+        this.setUsername(dbInstructor.Username);
+        this.setPassword(dbInstructor.Password);
     }
-
-    public int getPhone() {
-        return phone;
-    }
-
-    public void setPhone(int phone) {
-        this.phone = phone;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
 
 }

@@ -31,12 +31,16 @@ public class ExamController implements Initializable {
     @FXML
     JFXButton startBtn ;
     public int TotalS ;
-
+    int[] ch;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
        dbQ  = new DBQustion();
        Qlist  = new ArrayList<>(dbQ.getByExamId("z"));
        mxIndex = Qlist.size() ;
+       ch  = new int[mxIndex];
+       for(int i = 0;i<mxIndex;i++){
+           ch[i] = -1;
+       }
        currIndex = 0;
     }
 
@@ -93,6 +97,7 @@ public class ExamController implements Initializable {
             choice2.setSelected(false);
             choice3.setSelected(false);
             choice4.setSelected(false);
+            ch[currIndex] = 1;
         }
     }
     @FXML
@@ -101,6 +106,7 @@ public class ExamController implements Initializable {
             choice1.setSelected(false);
             choice3.setSelected(false);
             choice4.setSelected(false);
+            ch[currIndex] = 2;
         }
     }
     @FXML
@@ -109,6 +115,7 @@ public class ExamController implements Initializable {
             choice2.setSelected(false);
             choice1.setSelected(false);
             choice4.setSelected(false);
+            ch[currIndex] = 3;
         }
     }
     @FXML
@@ -117,13 +124,14 @@ public class ExamController implements Initializable {
             choice2.setSelected(false);
             choice3.setSelected(false);
             choice1.setSelected(false);
+            ch[currIndex] = 4;
         }
     }
     @FXML
     private void ResetChoices(){
+        choice1.setSelected(false);
         choice2.setSelected(false);
         choice3.setSelected(false);
-        choice1.setSelected(false);
         choice4.setSelected(false);
     }
 
@@ -134,5 +142,29 @@ public class ExamController implements Initializable {
         choice2.setText(qustion.Choice2);
         choice3.setText(qustion.Choice3);
         choice4.setText(qustion.Choice4);
+        if(ch[currIndex] == 1){
+            choice1.setSelected(true);
+            choice2.setSelected(false);
+            choice3.setSelected(false);
+            choice4.setSelected(false);
+        }
+        if(ch[currIndex] == 2){
+            choice1.setSelected(false);
+            choice3.setSelected(false);
+            choice4.setSelected(false);
+            choice2.setSelected(true);
+        }
+        if(ch[currIndex] == 3){
+            choice1.setSelected(false);
+            choice2.setSelected(false);
+            choice4.setSelected(false);
+            choice3.setSelected(true);
+        }
+        if(ch[currIndex] == 4){
+            choice4.setSelected(true);
+            choice1.setSelected(false);
+            choice2.setSelected(false);
+            choice3.setSelected(false);
+        }
     }
 }

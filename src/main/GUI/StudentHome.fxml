@@ -86,7 +86,7 @@
       </VBox>
       <Pane prefHeight="535.0" prefWidth="740.0">
          <children>
-            <JFXTextField fx:id="idTxt" labelFloat="true" layoutX="135.0" layoutY="242.0" prefHeight="47.0" prefWidth="209.0" promptText="ID" style="-fx-text-inner-color: black;">
+            <JFXTextField fx:id="idTxt" editable="false" labelFloat="true" layoutX="135.0" layoutY="242.0" prefHeight="47.0" prefWidth="209.0" promptText="ID" style="-fx-text-inner-color: black;">
                <font>
                   <Font name="Century Gothic" size="24.0" />
                </font>
@@ -110,11 +110,6 @@
                </cursor>
             </JFXButton>
             <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="599.0" layoutY="257.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../imgs/baseline_edit_black_18dp.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="326.0" layoutY="257.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../imgs/baseline_edit_black_18dp.png" />
                </image>
