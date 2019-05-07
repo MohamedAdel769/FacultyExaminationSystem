@@ -15,6 +15,7 @@ import main.dataBaseHelper.DBExam;
 import main.dataBaseHelper.DBQustion;
 
 
+import java.lang.reflect.Array;
 import java.net.URL;
 import java.util.*;
 
@@ -97,62 +98,43 @@ public class EvaluationExamReportController implements Initializable {
         String examID = idExamBox.getText();
         DBExam curExam = new DBExam().getById(examID);
         if (curExam.acceptStatus == false){
-            // el accept status bt5osh 3la tool
-            Vector<DBQustion> questions = new DBQustion().getByExamId(examID);
+            ArrayList < DBQustion > v = new ArrayList<>();
+            // 7ot dola hena 
+            ArrayList< Pair<Integer, DBQustion>> questions = new ArrayList<>();
+            for(int i = 0 ; i < 5 ; i++){
+                for(int j = i + 1 ; j < questions.size() ; j++){
+                    Pair p1 = questions.get(i);
+                    Pair p2 = questions.get(j);
+                    if((int)p1.getKey() > (int)p2.getKey()){
+                        Pair < Integer, DBQustion > temp;
+                        temp = p1;
+                        questions.set(i, questions.get(j));
+                        questions.set(j, temp);
+                    }
+                }
+                DBQustion z = questions.get(i).getValue();
+                v.add(z);
+            }
             displayHisto.setDisable(false);
             tabPane.setDisable(false);
             // han-fill el data hena
-            Vector < Integer > a = new Vector ();
-            Vector < Integer > b = new Vector ();
-            Vector < Integer > c = new Vector ();
-            Vector < Integer > d = new Vector ();
-
-            for(int i = 0 ; i < questions.size() ; i++){
-                DBQustion temp = questions.elementAt(i);
-                if (temp.EvaluationRankAChar.equals("A"))
-                    a.add(i);
-                if (temp.EvaluationRankAChar.equals("B"))
-                    b.add(i);
-                if (temp.EvaluationRankAChar.equals("C"))
-                    c.add(i);
-                if (temp.EvaluationRankAChar.equals("D"))
-                    d.add(i);
-            }
-            int cnt = 0;
-            Vector < DBQustion > v = new Vector();
-            for(int i = 0 ; i < a.size() && cnt < 5 ; i++){
-                v.add(questions.elementAt(a.elementAt(i)));
-                cnt++;
-            }
-            for(int i = 0 ; i < b.size() && cnt < 5 ; i++){
-                v.add(questions.elementAt(b.elementAt(i)));
-                cnt++;
-            }
-            for(int i = 0 ; i < c.size() && cnt < 5 ; i++){
-                v.add(questions.elementAt(c.elementAt(i)));
-                cnt++;
-            }
-            for(int i = 0 ; i < d.size() && cnt < 5 ; i++){
-                v.add(questions.elementAt(d.elementAt(i)));
-                cnt++;
-            }
-            Vector < String > ev =new Vector < String>  ();
-            Vector < Integer > gr = new Vector <Integer>();
+            ArrayList < String > ev =new ArrayList<>();
+            ArrayList < Integer > gr = new ArrayList<>();
             for(int i = 0 ; i < 5 ; i++){
-                DBQustion he5o = v.elementAt(i);
+                DBQustion he5o = v.get(i);
                 ev.add(he5o.EvaluationRankAChar);
                 gr.add(he5o.grade);
             }
-            q1_gradeBox.setText(gr.elementAt(0).toString());
-            q1_evaluationRankBox.setText(ev.elementAt(0));
-            q2_gradeBox.setText(gr.elementAt(1).toString());
-            q2_evaluationRankBox.setText(ev.elementAt(1));
-            q3_gradeBox.setText(gr.elementAt(2).toString());
-            q3_evaluationRankBox.setText(ev.elementAt(2));
-            q4_gradeBox.setText(gr.elementAt(3).toString());
-            q4_evaluationRankBox.setText(ev.elementAt(3));
-            q5_gradeBox.setText(gr.elementAt(4).toString());
-            q5_evaluationRankBox.setText(ev.elementAt(4));
+            q1_gradeBox.setText(gr.get(0).toString());
+            q1_evaluationRankBox.setText(ev.get(0));
+            q2_gradeBox.setText(gr.get(1).toString());
+            q2_evaluationRankBox.setText(ev.get(1));
+            q3_gradeBox.setText(gr.get(2).toString());
+            q3_evaluationRankBox.setText(ev.get(2));
+            q4_gradeBox.setText(gr.get(3).toString());
+            q4_evaluationRankBox.setText(ev.get(3));
+            q5_gradeBox.setText(gr.get(4).toString());
+            q5_evaluationRankBox.setText(ev.get(4));
             tabPane.setDisable(false);
             displayHisto.setDisable(false);
         }

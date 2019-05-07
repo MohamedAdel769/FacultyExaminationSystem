@@ -3,6 +3,7 @@ package main.GUI;
 import javafx.beans.property.SimpleStringProperty;
 
 public class tableData {
+
     public SimpleStringProperty fff, sss;
 
     public String getFff() {
