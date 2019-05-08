@@ -3,10 +3,7 @@ package main.GUI;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.util.Pair;
-import main.dataBaseHelper.DBExam;
-import main.dataBaseHelper.DBInstructor;
-import main.dataBaseHelper.DBQustion;
-import main.dataBaseHelper.DBStudent;
+import main.dataBaseHelper.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;

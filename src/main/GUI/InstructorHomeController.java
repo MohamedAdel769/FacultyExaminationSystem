@@ -120,6 +120,10 @@ public class InstructorHomeController implements Initializable {
         guiHelper.GoToForm("instructorHome.fxml");
     }
     @FXML
+    public void Announcment(ActionEvent e){
+        guiHelper.GoToForm("Announcement.fxml");
+    }
+    @FXML
     public void save(){
         String name = nameTxt.getText();
         String id = passData.instructor.Username;

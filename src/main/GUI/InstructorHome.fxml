@@ -47,6 +47,11 @@
                   </ImageView>
                </graphic>
             </JFXButton>
+            <JFXButton fx:id="annBtn" onAction="#Announcment" text="Announcment" textFill="#e4e2e2">
+               <font>
+                  <Font name="Century Gothic" size="18.0" />
+               </font>
+            </JFXButton>
             <JFXButton onAction="#addCourses" prefHeight="65.0" prefWidth="199.0" text="Courses" textFill="#e4e2e2">
                <font>
                   <Font name="Century Gothic" size="18.0" />

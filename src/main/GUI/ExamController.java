@@ -14,7 +14,10 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.WindowEvent;
 import javafx.util.Pair;
 import main.Exam.Question;
+import main.dataBaseHelper.DBAnnouncement;
 import main.dataBaseHelper.DBExam;
+import main.dataBaseHelper.DBExaminationSession;
+import main.dataBaseHelper.DBListOfGrades;
 import main.dataBaseHelper.DBQustion;
 
 import java.net.URL;
@@ -29,7 +32,9 @@ import javax.swing.*;
 
 public class ExamController implements Initializable {
     ArrayList<DBQustion> Qlist ;
+    ArrayList<DBAnnouncement> AnList;
     DBQustion dbQ ;
+    DBAnnouncement dbA ;
     int currIndex , mxIndex ;
     @FXML
     JFXTextArea questionTxt ;
@@ -50,14 +55,24 @@ public class ExamController implements Initializable {
     DBExam e ;
     GUIHelper g ;
     Timer timert ;
+    String examID ;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        stackPane.setVisible(true);
+        dbA = new DBAnnouncement();
+        examID = new DBExaminationSession().getById(passData.chosenExam).examID ;
+        AnList = new ArrayList<>(dbA.getByExamId(examID));
+        g = new GUIHelper();
+        for(int i=0;i<AnList.size();i++){
+            g.ShowDialog(stackPane, AnList.get(i).msgHead, AnList.get(i).msgBody ,"OK", "-1");
+        }
+        System.out.println();
         timeLeft.setText("00:00:00");
         qNo.setText("0");
         totalGrade = 0;
         dbQ  = new DBQustion();
-        Qlist  = new ArrayList<>(dbQ.getByExamId(passData.chosenExam));
+        Qlist  = new ArrayList<>(dbQ.getByExamId(examID));
         timert = new Timer();
         mxIndex = Qlist.size() ;
         ch  = new int[mxIndex];
@@ -66,7 +81,6 @@ public class ExamController implements Initializable {
         }
         currIndex = 0;
         e = new DBExam();
-        g = new GUIHelper();
     }
 
     @FXML
@@ -80,8 +94,8 @@ public class ExamController implements Initializable {
         choice4.setDisable(false);
         SetQuestion(Qlist.get(currIndex));
         qNo.setText("1");
-        timeLeft.setText(e.getById(passData.chosenExam).durationTime);
-        String [] time = e.getById(passData.chosenExam).durationTime.split(":");
+        timeLeft.setText(e.getById(examID).durationTime);
+        String [] time = e.getById(examID).durationTime.split(":");
         int H = Integer.parseInt(time[0]) , M = Integer.parseInt(time[1]) , S = Integer.parseInt(time[2]);
         TotalS = (M * 60) + (H * 60 * 60) + S ;
         long delay = TotalS * 1000;
@@ -219,7 +233,9 @@ public class ExamController implements Initializable {
     public  void ExamFinished(){
         timert.cancel();
         stackPane.setVisible(true);
-        g.ShowDialog(stackPane, "Exam Finished", "Your Grade is: " + totalGrade + "/" + e.getById(passData.chosenExam).totalGrade,"OK", "StudentHome.fxml");
+        DBListOfGrades G=new DBListOfGrades("1","1",totalGrade,e.getById("z").totalGrade,"OOP");
+        G.add(G);
+        g.ShowDialog(stackPane, "Exam Finished", "Your Grade is: " + totalGrade + "/" + e.getById(examID).totalGrade,"OK", "StudentHome.fxml");
     }
 
     public  ArrayList<Pair<Integer, DBQustion>> getFreq(String examID){

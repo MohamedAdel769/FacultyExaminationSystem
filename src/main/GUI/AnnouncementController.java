@@ -7,6 +7,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.util.Pair;
 import main.dataBaseHelper.DBAnnouncement;
 
 import java.net.URL;
@@ -29,14 +30,18 @@ public class AnnouncementController implements Initializable {
     @FXML
     private JFXButton addBtn;
 
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        instName.setText(passData.instructor.Name);
     }
 
     @FXML
     public void Add(ActionEvent event){
-        //examID, msgBody,  msgHead, tableName, tableId
-        //DBAnnouncement announcement = new DBAnnouncement(passData.instructor.Username, examIDTxt.getText(), );
+        DBAnnouncement announcement = new DBAnnouncement(GUIHelper.randomAlphaNumeric(4),passData.instructor.Username, examIDTxt.getText(), bodyTxt.getText(), headerTxt.getText());
+        new DBAnnouncement().add(announcement);
+        examIDTxt.clear();
+        bodyTxt.clear();
+        headerTxt.clear();
     }
 }
