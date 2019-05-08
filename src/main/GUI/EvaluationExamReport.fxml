@@ -58,7 +58,7 @@
                     <content>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="265.0" prefWidth="659.0">
                            <children>
-                              <JFXTextArea disable="true" prefHeight="240.0" prefWidth="474.0" style="-fx-background-color: white;" />
+                              <JFXTextArea fx:id="z1" disable="true" prefHeight="240.0" prefWidth="474.0" style="-fx-background-color: white;" />
                               <Label layoutX="487.0" layoutY="38.0" text="Grade:">
                                  <font>
                                     <Font name="Century Gothic" size="18.0" />
@@ -87,7 +87,7 @@
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="265.0" prefWidth="659.0">
                            <children>
-                              <JFXTextArea disable="true" prefHeight="240.0" prefWidth="474.0" style="-fx-background-color: white;" />
+                              <JFXTextArea fx:id="z2" disable="true" prefHeight="240.0" prefWidth="474.0" style="-fx-background-color: white;" />
                               <Label layoutX="487.0" layoutY="38.0" text="Grade:">
                                  <font>
                                     <Font name="Century Gothic" size="18.0" />
@@ -116,7 +116,7 @@
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="265.0" prefWidth="659.0">
                            <children>
-                              <JFXTextArea disable="true" prefHeight="240.0" prefWidth="474.0" style="-fx-background-color: white;" />
+                              <JFXTextArea fx:id="z3" disable="true" prefHeight="240.0" prefWidth="474.0" style="-fx-background-color: white;" />
                               <Label layoutX="487.0" layoutY="38.0" text="Grade:">
                                  <font>
                                     <Font name="Century Gothic" size="18.0" />
@@ -145,7 +145,7 @@
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="265.0" prefWidth="659.0">
                            <children>
-                              <JFXTextArea disable="true" prefHeight="240.0" prefWidth="474.0" style="-fx-background-color: white;" />
+                              <JFXTextArea fx:id="z4" disable="true" prefHeight="240.0" prefWidth="474.0" style="-fx-background-color: white;" />
                               <Label layoutX="487.0" layoutY="38.0" text="Grade:">
                                  <font>
                                     <Font name="Century Gothic" size="18.0" />
@@ -174,7 +174,7 @@
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="265.0" prefWidth="659.0">
                            <children>
-                              <JFXTextArea disable="true" prefHeight="240.0" prefWidth="474.0" style="-fx-background-color: white;" />
+                              <JFXTextArea fx:id="z5" disable="true" prefHeight="240.0" prefWidth="474.0" style="-fx-background-color: white;" />
                               <Label layoutX="487.0" layoutY="38.0" text="Grade:">
                                  <font>
                                     <Font name="Century Gothic" size="18.0" />

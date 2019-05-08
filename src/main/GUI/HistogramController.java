@@ -51,7 +51,7 @@ public class HistogramController implements Initializable {
             tableData temp = new tableData();
             temp.fff = new SimpleStringProperty(v.get(i).getValue().QuesID);
             double ratio = 5 ;
-            ratio = v.get(i).getKey() / Math.max(totalStudents, 1);
+            ratio = v.get(i).getKey() / totalStudents;
             String he5o ;
             if (ratio >= 50){
                 he5o = "Experienced";
