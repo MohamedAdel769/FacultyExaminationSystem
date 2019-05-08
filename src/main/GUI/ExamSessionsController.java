@@ -19,6 +19,7 @@ import main.dataBaseHelper.DBExam;
 import main.dataBaseHelper.DBExaminationSession;
 import main.dataBaseHelper.DBListOfExamSessions;
 
+import javax.swing.*;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -95,8 +96,13 @@ public class ExamSessionsController implements Initializable {
         // shof anhe selected
         tableData chosen = tableView.getSelectionModel().getSelectedItem();
         // ro7 lel exam ele 3mltlo select
-        passData.chosenExam =  chosen.fff.getValue();
-        new GUIHelper().GoToForm("Exam.fxml");
+        if(chosen.getSss().equals("Yes")){
+            passData.chosenExam =  chosen.fff.getValue();
+            new GUIHelper().GoToForm("Exam.fxml");
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "This Exam Session has ended.");
+        }
     }
     @FXML
     public void LogOut(ActionEvent e){

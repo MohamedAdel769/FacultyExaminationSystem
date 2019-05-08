@@ -2,6 +2,7 @@ package main.dataBaseHelper;
 
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Vector;
 
 import static main.dataBaseHelper.dataBaseConVars.*;
 import static main.dataBaseHelper.dataBaseConVars.dBResult;
@@ -14,14 +15,12 @@ public class DBAnnouncement {
     public DBAnnouncement() {
     }
 
-    public DBAnnouncement(String announID, String instructorID, String examID, String msgBody, String msgHead, String tableName, String tableId) {
+    public DBAnnouncement(String announID, String instructorID, String examID, String msgBody, String msgHead) {
         this.announID = announID;
         this.instructorID = instructorID;
         this.examID = examID;
         this.msgBody = msgBody;
         this.msgHead = msgHead;
-        this.tableName = tableName;
-        this.tableId = tableId;
     }
 
     public DBAnnouncement getById(String id) {
@@ -58,11 +57,30 @@ public class DBAnnouncement {
         }
         return OK;
     }
+
+    public Vector<DBAnnouncement> getByExamId(String id){
+        startConnection();
+        Vector<DBAnnouncement> v = new Vector<>();
+        try {
+            String query = String.format("select * from %s where examID = '%s' ",tableName, id);
+            dBResult = stmt.executeQuery(query);
+            while (dBResult.next()) {
+                DBAnnouncement tem = new DBAnnouncement();
+                tem.announID = dBResult.getString("announID");
+                tem.instructorID = dBResult.getString("instructorID");
+                tem.examID = dBResult.getString("examID");
+                tem.msgBody = dBResult.getString("msgBody");
+                tem.msgHead = dBResult.getString("msgHead");
+                v.add(tem);
+            }
+        } catch (SQLException ex) {
+            System.out.println("query error " + new Throwable().getStackTrace()[0].getMethodName() + " " + ex );
+        }
+        return v;
+    }
+
     public int add(DBAnnouncement ann) {
         try {
-            if(getById(ann.announID).announID != null){
-                return ALREADY_EXIST;
-            }
             startConnection();
             String query = String.format("insert into %s (announID, instructorID, examID, msgBody, msgHead)" +
                     "values ('%s','%s','%s','%s','%s')",tableName,ann.announID,ann.instructorID,ann.examID,ann.msgBody,ann.msgHead);
