@@ -29,7 +29,6 @@ public class LineChartController implements Initializable{
     public void initialize(URL url, ResourceBundle resourceBundle){
         ArrayList <Pair< Integer, DBQustion >> v = passData.Question_num;
         XYChart.Series series = new XYChart.Series();
-        System.out.println(v.size());
         for(int i = 0 ; i < v.size() ; i++){
             String questionID = v.get(i).getValue().QuesID;
             int num = v.get(i).getKey();

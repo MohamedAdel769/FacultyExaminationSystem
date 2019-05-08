@@ -25,42 +25,70 @@ import static java.lang.Integer.min;
 public class EvaluationExamReportController implements Initializable {
     GUIHelper guiHelper = new GUIHelper();
     @FXML
-    JFXTabPane tabPane ;
-    @FXML
-    JFXButton displayHisto ;
-    @FXML
-    JFXDrawersStack Drawer ;
-    @FXML
-    JFXHamburger hamburger ;
-    @FXML
-    VBox vBox ;
-    // Bohoty
-    @FXML
-    JFXTextField idExamBox;
-    @FXML
-    StackPane h5a;
-    @FXML
-    Label q1_gradeBox ;
-    @FXML
-    Label q1_evaluationRankBox;
-    @FXML
-    Label q2_gradeBox ;
-    @FXML
-    Label q2_evaluationRankBox;
-    @FXML
-    Label q3_gradeBox ;
-    @FXML
-    Label q3_evaluationRankBox;
-    @FXML
-    Label q4_gradeBox ;
-    @FXML
-    Label q4_evaluationRankBox;
-    @FXML
-    Label q5_gradeBox ;
-    @FXML
-    Label q5_evaluationRankBox;
-    // Bohoty
+    private JFXTextField idExamBox;
 
+    @FXML
+    private JFXButton displayHisto;
+
+    @FXML
+    private JFXTabPane tabPane;
+
+    @FXML
+    private JFXTextArea z1;
+
+    @FXML
+    private Label q1_gradeBox;
+
+    @FXML
+    private Label q1_evaluationRankBox;
+
+    @FXML
+    private JFXTextArea z2;
+
+    @FXML
+    private Label q2_gradeBox;
+
+    @FXML
+    private Label q2_evaluationRankBox;
+
+    @FXML
+    private JFXTextArea z3;
+
+    @FXML
+    private Label q3_gradeBox;
+
+    @FXML
+    private Label q3_evaluationRankBox;
+
+    @FXML
+    private JFXTextArea z4;
+
+    @FXML
+    private Label q4_gradeBox;
+
+    @FXML
+    private Label q4_evaluationRankBox;
+
+    @FXML
+    private JFXTextArea z5;
+
+    @FXML
+    private Label q5_gradeBox;
+
+    @FXML
+    private Label q5_evaluationRankBox;
+
+    @FXML
+    private JFXHamburger hamburger;
+
+    @FXML
+    private JFXDrawersStack Drawer;
+
+    @FXML
+    private StackPane h5a;
+
+    @FXML
+    private VBox vBox;
 
 
 
@@ -100,7 +128,6 @@ public class EvaluationExamReportController implements Initializable {
         passData.examID = examID;
         if (curExam.acceptStatus == false){
             ArrayList < DBQustion > v = new ArrayList<>();
-            // 7ot dola hena
             ArrayList< Pair<Integer, DBQustion>> questions = new DBQustion().getHis(examID);
             for(int i = 0 ; i < 5 ; i++){
                 for(int j = i + 1 ; j < questions.size() ; j++){
@@ -121,21 +148,28 @@ public class EvaluationExamReportController implements Initializable {
             // han-fill el data hena
             ArrayList < String > ev =new ArrayList<>();
             ArrayList < Integer > gr = new ArrayList<>();
+            ArrayList < String > txt = new ArrayList<>();
             for(int i = 0 ; i < 5 ; i++){
                 DBQustion he5o = v.get(i);
                 ev.add(he5o.EvaluationRankAChar);
                 gr.add(he5o.grade);
+                txt.add(he5o.Question);
             }
             q1_gradeBox.setText(gr.get(0).toString());
             q1_evaluationRankBox.setText(ev.get(0));
+            z1.setText(txt.get(0));
             q2_gradeBox.setText(gr.get(1).toString());
             q2_evaluationRankBox.setText(ev.get(1));
+            z2.setText(txt.get(1));
             q3_gradeBox.setText(gr.get(2).toString());
             q3_evaluationRankBox.setText(ev.get(2));
+            z3.setText(txt.get(2));
             q4_gradeBox.setText(gr.get(3).toString());
             q4_evaluationRankBox.setText(ev.get(3));
+            z4.setText(txt.get(3));
             q5_gradeBox.setText(gr.get(4).toString());
             q5_evaluationRankBox.setText(ev.get(4));
+            z5.setText(txt.get(4));
             tabPane.setDisable(false);
             displayHisto.setDisable(false);
         }

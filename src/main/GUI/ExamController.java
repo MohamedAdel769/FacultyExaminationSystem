@@ -10,12 +10,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 import javafx.util.Pair;
-import main.dataBaseHelper.DBAnnouncement;
-import main.dataBaseHelper.DBExam;
-import main.dataBaseHelper.DBExaminationSession;
-import main.dataBaseHelper.DBListOfGrades;
-import main.dataBaseHelper.DBQustion;
+import main.dataBaseHelper.*;
 
+import javax.swing.*;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -227,7 +224,14 @@ public class ExamController implements Initializable {
     public  void ExamFinished(){
         timert.cancel();
         stackPane.setVisible(true);
-        DBListOfGrades G=new DBListOfGrades("1","1",totalGrade,e.getById("z").totalGrade,"OOP");
+        DBExaminationSession ex = new DBExaminationSession();
+        String eid = ex.getById(passData.chosenExam).examID;
+        DBExam E = new DBExam();
+        String cID = E.getById(eid).courseId;
+        DBCourse C = new DBCourse();
+        String cN = C.getById(cID).Name;
+        JOptionPane.showMessageDialog(null,cN);
+        DBListOfGrades G=new DBListOfGrades(passData.Student.stdID,examID,totalGrade,e.getById(examID).totalGrade,cN);
         G.add(G);
         g.ShowDialog(stackPane, "Exam Finished", "Your Grade is: " + totalGrade + "/" + e.getById(examID).totalGrade,"OK", "StudentHome.fxml");
     }

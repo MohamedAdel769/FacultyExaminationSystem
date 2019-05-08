@@ -35,8 +35,8 @@ public class GradesController implements Initializable {
     TableView<GradesData> GradesTableView;
     @FXML
     TableColumn<GradesData,String> Grade = new TableColumn<>("Student Grades");
-    //@FXML
-    //TableColumn<GradesData,String> Course = new TableColumn<>("Course");
+    @FXML
+    TableColumn<GradesData,String> Course = new TableColumn<>("Course");
     @FXML
     TableColumn<GradesData,String> Total_Grades = new TableColumn<>("Total Grades");
 
@@ -47,15 +47,15 @@ public class GradesController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ObservableList<GradesData> items = FXCollections.observableArrayList();
-       // Course.setCellValueFactory(new PropertyValueFactory("Course"));
+       Course.setCellValueFactory(new PropertyValueFactory("C_name"));
         Total_Grades.setCellValueFactory(new PropertyValueFactory("examGrade"));
         Grade.setCellValueFactory(new PropertyValueFactory("TotalGrade"));
         startConnection();
         try{
-            String query = String.format("select stdGrade,ExamGrade  from ListOfGrades");
+            String query = String.format("select Course_Name,stdGrade,ExamGrade  from ListOfGrades where stdID='%s'",passData.Student.stdID);
             dBResult = stmt.executeQuery(query);
             while (dBResult.next()){
-                items.add(new GradesData(dBResult.getInt("ExamGrade"),dBResult.getInt("stdGrade")));
+                items.add(new GradesData(dBResult.getString("Course_Name"),dBResult.getInt("ExamGrade"),dBResult.getInt("stdGrade")));
             }
         } catch (
                 SQLException ex) {

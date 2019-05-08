@@ -35,8 +35,9 @@
             </Pane>
             <TableView fx:id="GradesTableView" layoutX="32.0" layoutY="132.0" prefHeight="325.0" prefWidth="686.0">
                <columns>
-                  <TableColumn fx:id="Total_Grades" prefWidth="117.0" text="Total Grades" />
-                  <TableColumn fx:id="Grade" prefWidth="101.0" text="Student Grades" />
+                  <TableColumn fx:id="Course" prefWidth="117.0" text="Course Name" />
+                  <TableColumn fx:id="Total_Grades" prefWidth="101.0" text="Total Grades" />
+                  <TableColumn fx:id="Grade" prefWidth="112.0" text="Student Grades" />
                </columns>
             </TableView>
          </children>
