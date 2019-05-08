@@ -1,7 +1,10 @@
 package main.dataBaseHelper;
 
+import javafx.util.Pair;
+
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.Vector;
 
 import static main.dataBaseHelper.dataBaseConVars.*;
@@ -18,6 +21,7 @@ public class DBQustion {
    public String EvaluationRankAChar ;
    public String examID  = null;
    public String Question = null;
+   public int num = 0;
    public final String tableName = "Questions";
 
     public DBQustion( String choice1, String choice2, String choice3, String choice4, String correctChoice, int grade, String evaluationRankAChar, String examID,String Question) {
@@ -30,6 +34,20 @@ public class DBQustion {
         EvaluationRankAChar = evaluationRankAChar;
         this.examID = examID;
         this.Question = Question;
+    }
+
+    public DBQustion(String quesID, String choice1, String choice2, String choice3, String choice4, String correctChoice, int grade, String evaluationRankAChar, String examID, String question, int num) {
+        QuesID = quesID;
+        Choice1 = choice1;
+        Choice2 = choice2;
+        Choice3 = choice3;
+        Choice4 = choice4;
+        CorrectChoice = correctChoice;
+        this.grade = grade;
+        EvaluationRankAChar = evaluationRankAChar;
+        this.examID = examID;
+        Question = question;
+        this.num = num;
     }
 
     public DBQustion() {
@@ -53,6 +71,7 @@ public class DBQustion {
                 tem.EvaluationRankAChar = dBResult.getString("EvaluationRank");
                 tem.examID = dBResult.getString("examID");
                 tem.Question = dBResult.getString("Question");
+                tem.num = dBResult.getInt("num");
             }
         } catch (SQLException ex) {
             System.out.println("query error " + new Throwable().getStackTrace()[0].getMethodName() + " " + ex );
@@ -76,6 +95,7 @@ public class DBQustion {
                 tem.grade = dBResult.getInt("grade");
                 tem.EvaluationRankAChar = dBResult.getString("EvaluationRank");
                 tem.examID = dBResult.getString("examID");
+                tem.num = dBResult.getInt("num");
                 v.add(tem);
             }
         } catch (SQLException ex) {
@@ -83,13 +103,40 @@ public class DBQustion {
         }
         return v;
     }
+
+    public ArrayList<Pair<Integer , DBQustion>> getHis(String id){
+        startConnection();
+        ArrayList<Pair<Integer , DBQustion>> v = new ArrayList<Pair<Integer , DBQustion>>();
+        try {
+            String query = String.format("select * from %s where examID = '%s' ",tableName, id);
+            dBResult = stmt.executeQuery(query);
+            while (dBResult.next()) {
+                DBQustion tem = new DBQustion();
+                tem.QuesID = dBResult.getString("QuesID");
+                tem.Choice1 = dBResult.getString("Choice1");
+                tem.Choice2 = dBResult.getString("Choice2");
+                tem.Choice3 = dBResult.getString("Choice3");
+                tem.Choice4 = dBResult.getString("Choice4");
+                tem.CorrectChoice = dBResult.getString("CorrectChoice");
+                tem.grade = dBResult.getInt("grade");
+                tem.EvaluationRankAChar = dBResult.getString("EvaluationRank");
+                tem.examID = dBResult.getString("examID");
+                tem.num = dBResult.getInt("num");
+                v.add(new Pair<Integer, DBQustion>(tem.num ,tem));
+            }
+        } catch (SQLException ex) {
+            System.out.println("query error " + new Throwable().getStackTrace()[0].getMethodName() + " " + ex );
+        }
+        return v;
+    }
+
     public int add(DBQustion tem) {
         try {
             startConnection();
             String s = "";
             String query = String.format("insert into %s (Choice1, Choice2, Choice3, Choice4, CorrectChoice, grade, EvaluationRank, examID,Question)" +
-                    "values ('%s','%s','%s','%s', '%s' ,%d ,'%s','%s','%s')",tableName,tem.Choice1,tem.Choice2
-                    ,tem.Choice3,tem.Choice4 , tem.CorrectChoice,tem.grade,tem.EvaluationRankAChar,tem.examID,tem.Question);
+                    "values ('%s','%s','%s','%s', '%s' ,%d ,'%s','%s','%s' , %d )",tableName,tem.Choice1,tem.Choice2
+                    ,tem.Choice3,tem.Choice4 , tem.CorrectChoice,tem.grade,tem.EvaluationRankAChar,tem.examID,tem.Question , tem.num);
             stmt.executeUpdate(query, Statement.RETURN_GENERATED_KEYS);
         } catch (SQLException ex) {
             System.out.println("query error " + new Throwable().getStackTrace()[0].getMethodName() + " " + ex);
@@ -97,5 +144,17 @@ public class DBQustion {
             close();
         }
         return OK;
+    }
+    public void pulsById(String id){
+        try {
+            startConnection();
+            int x = new DBQustion().getById(id).num +1;
+            String query = String.format("update Questions set num = %d ",x);
+            stmt.executeUpdate(query, Statement.RETURN_GENERATED_KEYS);
+        } catch (SQLException ex) {
+            System.out.println("query error " + new Throwable().getStackTrace()[0].getMethodName() + " " + ex);
+        }finally {
+            close();
+        }
     }
 }

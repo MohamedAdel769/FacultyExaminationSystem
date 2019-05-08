@@ -7,11 +7,21 @@ import com.jfoenix.transitions.hamburger.HamburgerBackArrowBasicTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import main.Users.Student;
 
+import javax.swing.*;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
+
+import static main.dataBaseHelper.dataBaseConVars.*;
 
 public class GradesController implements Initializable {
     GUIHelper guiHelper = new GUIHelper();
@@ -21,9 +31,38 @@ public class GradesController implements Initializable {
     JFXHamburger hamburger ;
     @FXML
     VBox vBox ;
+    @FXML
+    TableView<GradesData> GradesTableView;
+    @FXML
+    TableColumn<GradesData,String> Grade = new TableColumn<>("Student Grades");
+    //@FXML
+    //TableColumn<GradesData,String> Course = new TableColumn<>("Course");
+    @FXML
+    TableColumn<GradesData,String> Total_Grades = new TableColumn<>("Total Grades");
+
+
+
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        ObservableList<GradesData> items = FXCollections.observableArrayList();
+       // Course.setCellValueFactory(new PropertyValueFactory("Course"));
+        Total_Grades.setCellValueFactory(new PropertyValueFactory("examGrade"));
+        Grade.setCellValueFactory(new PropertyValueFactory("TotalGrade"));
+        startConnection();
+        try{
+            String query = String.format("select stdGrade,ExamGrade  from ListOfGrades");
+            dBResult = stmt.executeQuery(query);
+            while (dBResult.next()){
+                items.add(new GradesData(dBResult.getInt("ExamGrade"),dBResult.getInt("stdGrade")));
+            }
+        } catch (
+                SQLException ex) {
+            System.out.println("query error " + new Throwable().getStackTrace()[0].getMethodName() + " " + ex );
+        }
+        GradesTableView.setItems(items);
+
         JFXDrawer leftDrawer = new JFXDrawer();
         vBox.setVisible(true);
         leftDrawer.setSidePane(vBox);
@@ -46,6 +85,7 @@ public class GradesController implements Initializable {
             else
                 Drawer.setPrefWidth(55);
         });
+
     }
     @FXML
     public void LogOut(ActionEvent e){

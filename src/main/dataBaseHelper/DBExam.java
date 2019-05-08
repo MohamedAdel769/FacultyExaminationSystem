@@ -15,7 +15,7 @@ public class DBExam {
     public int totalGrade = 0;
     public String handlingTimer  = null;
     public String accepTimer = null;
-
+    public int num = 0;
     final String tableName = "Exam";
     final String tableId = "examId";
     public DBExam() {
@@ -45,6 +45,19 @@ public class DBExam {
         this.accepTimer = accepTimer;
     }
 
+    public DBExam(String examId, String courseId, String durationTime, boolean acceptStatus, String releaseData, String instructorId, int totalGrade, String handlingTimer, String accepTimer, int num) {
+        this.examId = examId;
+        this.courseId = courseId;
+        this.durationTime = durationTime;
+        this.acceptStatus = acceptStatus;
+        this.releaseData = releaseData;
+        this.instructorId = instructorId;
+        this.totalGrade = totalGrade;
+        this.handlingTimer = handlingTimer;
+        this.accepTimer = accepTimer;
+        this.num = num;
+    }
+
     public DBExam getById(String id) {
         startConnection();
         DBExam dbExam = new DBExam();
@@ -61,6 +74,7 @@ public class DBExam {
                 dbExam.totalGrade = dBResult.getInt("totalGrade");
                 dbExam.handlingTimer = dBResult.getString("handlingTimer");
                 dbExam.accepTimer = dBResult.getString("accepTimer");
+                dbExam.num = dBResult.getInt("num");
             }
         } catch (SQLException ex) {
             System.out.println("query error " + new Throwable().getStackTrace()[0].getMethodName()+ " " + ex);
@@ -69,21 +83,6 @@ public class DBExam {
         return dbExam;
     }
 
-    public int deleteById(String id){
-        try {
-            if(getById(id).examId == null){
-                return NOT_FOUNDED;
-            }
-            startConnection();
-            String query = String.format("DELETE FROM %s where %s = '%s'",tableName,tableId,id);
-            stmt.executeUpdate(query, Statement.RETURN_GENERATED_KEYS);
-        } catch (SQLException ex) {
-            System.out.println("query error " + new Throwable().getStackTrace()[0].getMethodName()+ " " + ex);
-        }finally {
-            close();
-        }
-        return OK;
-    }
 
     public int add(DBExam exam) {
         try {
@@ -91,8 +90,8 @@ public class DBExam {
                 return ALREADY_EXIST;
             }
             startConnection();
-            String query = String.format("insert into %s  (examId,courseId, durationTime, acceptStatus, releaseDate, instructorId, totalGrade , handlingTimer , accepTimer)" +
-                    "values ('%s','%s','%s',%b,'%s','%s',%d,'%s','%s')",tableName,exam.examId, exam.courseId, exam.durationTime, exam.acceptStatus, exam.releaseData, exam.instructorId, exam.totalGrade , exam.handlingTimer , exam.accepTimer);
+            String query = String.format("insert into %s  (examId,courseId, durationTime, acceptStatus, releaseDate, instructorId, totalGrade , handlingTimer , accepTimer , num)" +
+                    "values ('%s','%s','%s',%b,'%s','%s',%d,'%s','%s' , %d)",tableName,exam.examId, exam.courseId, exam.durationTime, exam.acceptStatus, exam.releaseData, exam.instructorId, exam.totalGrade , exam.handlingTimer , exam.accepTimer ,exam.num);
             stmt.executeUpdate(query, Statement.RETURN_GENERATED_KEYS);
         } catch (SQLException ex) {
             System.out.println("query error " + new Throwable().getStackTrace()[0].getMethodName() + "  " + ex);
@@ -101,22 +100,16 @@ public class DBExam {
         }
         return OK;
     }
-
-    public int update(DBExam exam){
+    public void pulsById(String id){
         try {
-            if(getById(exam.examId).examId == null){
-                return NOT_FOUNDED;
-            }
             startConnection();
-            String query = String.format("update %s set\n" +
-                    "courseId = '%s', durationTime = '%s', acceptStatus = %b, releaseDate = '%s', instructorId = '%s', totalGrade = %d , handlingTimer = '%s' , accepTimer = '%s'  where examId = '%s'",tableName,exam.courseId, exam.durationTime, exam.acceptStatus, exam.releaseData, exam.instructorId, exam.totalGrade,exam.examId,exam.handlingTimer , exam.accepTimer);
+            int x = new DBExam().getById(id).num +1;
+            String query = String.format("update Exam set num = %d ",x);
             stmt.executeUpdate(query, Statement.RETURN_GENERATED_KEYS);
         } catch (SQLException ex) {
-            System.out.println("query error " + new Throwable().getStackTrace()[0].getMethodName()+ " " + ex);
+            System.out.println("query error " + new Throwable().getStackTrace()[0].getMethodName() + " " + ex);
         }finally {
             close();
         }
-        return OK;
     }
-
 }

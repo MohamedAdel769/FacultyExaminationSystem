@@ -17,6 +17,7 @@ import main.Exam.Question;
 import main.dataBaseHelper.DBAnnouncement;
 import main.dataBaseHelper.DBExam;
 import main.dataBaseHelper.DBExaminationSession;
+import main.dataBaseHelper.DBListOfGrades;
 import main.dataBaseHelper.DBQustion;
 
 import java.net.URL;
@@ -225,12 +226,15 @@ public class ExamController implements Initializable {
                 }
             }
         }
+        new DBExam().pulsById(passData.chosenExam);
         ExamFinished();
     }
 
     public  void ExamFinished(){
         timert.cancel();
         stackPane.setVisible(true);
+        DBListOfGrades G=new DBListOfGrades("1","1",totalGrade,e.getById("z").totalGrade,"OOP");
+        G.add(G);
         g.ShowDialog(stackPane, "Exam Finished", "Your Grade is: " + totalGrade + "/" + e.getById(examID).totalGrade,"OK", "StudentHome.fxml");
     }
 
@@ -247,6 +251,7 @@ public class ExamController implements Initializable {
                 if((q.CorrectChoice.equals("A") && ch[i] == 1)||(q.CorrectChoice.equals("B") && ch[i] == 2)
                         ||(q.CorrectChoice.equals("C") && ch[i] == 3)||(q.CorrectChoice.equals("D") && ch[i] == 4)){
                     totalGrade += q.grade;
+                    q.pulsById(q.QuesID);
                 }
                 for(int j=0;j<freq.size();j++){
                     Pair<Integer, DBQustion> current = freq.get(j);
