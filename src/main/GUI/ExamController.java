@@ -15,6 +15,7 @@ import javafx.stage.WindowEvent;
 import javafx.util.Pair;
 import main.Exam.Question;
 import main.dataBaseHelper.DBExam;
+import main.dataBaseHelper.DBListOfGrades;
 import main.dataBaseHelper.DBQustion;
 
 import java.net.URL;
@@ -218,6 +219,10 @@ public class ExamController implements Initializable {
     public  void ExamFinished(){
         timert.cancel();
         stackPane.setVisible(true);
+       /* GradesData Gr = new GradesData(e.getById("z").totalGrade,totalGrade);
+        passData.grade = Gr;*/
+        DBListOfGrades G=new DBListOfGrades("1","1",totalGrade,e.getById("z").totalGrade,"OOP");
+        G.add(G);
         g.ShowDialog(stackPane, "Exam Finished", "Your Grade is: " + totalGrade + "/" + e.getById("z").totalGrade,"OK", "StudentHome.fxml");
     }
 
