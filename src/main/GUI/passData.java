@@ -19,4 +19,5 @@ public final class passData {
     public static String chosenExam = "";
     public static int numOfQ = 0;
     public static String examID = new String();
+    public static ArrayList<Pair<Integer, DBQustion>> Question_num = new ArrayList<>();
 }
