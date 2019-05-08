@@ -32,6 +32,8 @@ public class DBExaminationSession {
             }
         } catch (SQLException ex) {
             System.out.println("query error " + new Throwable().getStackTrace()[0].getMethodName() + " " + ex );
+        }finally {
+            close();
         }
         return tem;
     }
@@ -44,6 +46,8 @@ public class DBExaminationSession {
 
         }catch (SQLException ex){
             System.out.println("query error " + new Throwable().getStackTrace()[0].getMethodName() + " " + ex );
+        }finally {
+            close();
         }
     }
 
@@ -61,6 +65,8 @@ public class DBExaminationSession {
             }
         } catch (SQLException ex) {
             System.out.println("query error " + new Throwable().getStackTrace()[0].getMethodName() + " " + ex );
+        }finally {
+            close();
         }
         return v;
     }

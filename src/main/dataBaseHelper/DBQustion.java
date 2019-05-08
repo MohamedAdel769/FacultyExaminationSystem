@@ -75,6 +75,8 @@ public class DBQustion {
             }
         } catch (SQLException ex) {
             System.out.println("query error " + new Throwable().getStackTrace()[0].getMethodName() + " " + ex );
+        }finally {
+            close();
         }
         return tem;
     }
@@ -100,6 +102,8 @@ public class DBQustion {
             }
         } catch (SQLException ex) {
             System.out.println("query error " + new Throwable().getStackTrace()[0].getMethodName() + " " + ex );
+        }finally {
+            close();
         }
         return v;
     }
@@ -126,6 +130,8 @@ public class DBQustion {
             }
         } catch (SQLException ex) {
             System.out.println("query error " + new Throwable().getStackTrace()[0].getMethodName() + " " + ex );
+        }finally {
+            close();
         }
         return v;
     }
@@ -134,7 +140,7 @@ public class DBQustion {
         try {
             startConnection();
             String s = "";
-            String query = String.format("insert into %s (Choice1, Choice2, Choice3, Choice4, CorrectChoice, grade, EvaluationRank, examID,Question)" +
+            String query = String.format("insert into %s (Choice1, Choice2, Choice3, Choice4, CorrectChoice, grade, EvaluationRank, examID,Question , num)" +
                     "values ('%s','%s','%s','%s', '%s' ,%d ,'%s','%s','%s' , %d )",tableName,tem.Choice1,tem.Choice2
                     ,tem.Choice3,tem.Choice4 , tem.CorrectChoice,tem.grade,tem.EvaluationRankAChar,tem.examID,tem.Question , tem.num);
             stmt.executeUpdate(query, Statement.RETURN_GENERATED_KEYS);
@@ -145,11 +151,11 @@ public class DBQustion {
         }
         return OK;
     }
-    public void pulsById(String id){
+    public void plusById(String id){
         try {
-            startConnection();
             int x = new DBQustion().getById(id).num +1;
-            String query = String.format("update Questions set num = %d ",x);
+            startConnection();
+            String query = String.format("update Questions set num = %d where QuesID = '%s' ",x , id);
             stmt.executeUpdate(query, Statement.RETURN_GENERATED_KEYS);
         } catch (SQLException ex) {
             System.out.println("query error " + new Throwable().getStackTrace()[0].getMethodName() + " " + ex);
