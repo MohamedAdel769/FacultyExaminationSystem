@@ -10,6 +10,7 @@ import javafx.fxml.Initializable;
 import main.dataBaseHelper.DBQustion;
 import main.dataBaseHelper.dataBaseConVars;
 
+import javax.swing.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -62,8 +63,7 @@ public class QuestionsController implements Initializable {
         if(passData.numOfQ > 1) {
             new GUIHelper().GoToForm("ExaminationSessionExam.fxml");
         }else{
-            /// TODO message Box ( add more Questions )
-
+            JOptionPane.showMessageDialog(null, "Enter more Questions.");
         }
     }
 }

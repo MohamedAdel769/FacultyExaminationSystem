@@ -50,13 +50,13 @@
             <JFXTabPane fx:id="tabPane" disable="true" layoutX="41.0" layoutY="199.0" prefHeight="279.0" prefWidth="659.0" side="BOTTOM" style="-fx-background-color: lightgrey;">
                <tabs>
                   <Tab closable="false" disable="true" text="Hardest Questions:">
-                    <content>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="117.0" prefWidth="320.0" />
-                    </content>
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="117.0" prefWidth="320.0" />
+                     </content>
                   </Tab>
                   <Tab text="Q1">
-                    <content>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="265.0" prefWidth="659.0">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="265.0" prefWidth="659.0">
                            <children>
                               <JFXTextArea fx:id="z1" disable="true" prefHeight="240.0" prefWidth="474.0" style="-fx-background-color: white;">
                                  <font>
@@ -84,7 +84,7 @@
                               </Label>
                            </children>
                         </AnchorPane>
-                    </content>
+                     </content>
                   </Tab>
                   <Tab text="Q2">
                      <content>
@@ -225,14 +225,14 @@
                         <Font name="Calibri" size="28.0" />
                      </font>
                   </Label>
-                  <ImageView fitHeight="47.0" fitWidth="83.0" layoutX="60.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="47.0" fitWidth="83.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../imgs/rsz_fes.png" />
                      </image>
                   </ImageView>
-                  <StackPane layoutX="2.0" prefHeight="150.0" prefWidth="200.0" />
                </children>
             </Pane>
+            <StackPane prefHeight="150.0" prefWidth="200.0" />
             <StackPane fx:id="h5a" layoutX="201.0" layoutY="76.0" prefHeight="125.0" prefWidth="323.0" />
          </children>
       </Pane>
