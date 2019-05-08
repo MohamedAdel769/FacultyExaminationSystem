@@ -47,6 +47,8 @@ public class DBStudent {
             }
         } catch (SQLException ex) {
             System.out.println("query error " + new Throwable().getStackTrace()[0].getMethodName() + " " + ex );
+        }finally {
+            close();
         }
         return tem;
     }
@@ -107,6 +109,8 @@ public class DBStudent {
             }
         } catch (SQLException ex) {
             System.out.println("query error " + new Throwable().getStackTrace()[0].getMethodName() + " " + ex );
+        }finally {
+            close();
         }
         return res;
     }

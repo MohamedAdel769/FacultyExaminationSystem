@@ -78,8 +78,9 @@ public class DBExam {
             }
         } catch (SQLException ex) {
             System.out.println("query error " + new Throwable().getStackTrace()[0].getMethodName()+ " " + ex);
+        }finally {
+            close();
         }
-        close();
         return dbExam;
     }
 
@@ -100,11 +101,11 @@ public class DBExam {
         }
         return OK;
     }
-    public void pulsById(String id){
+    public void plusById(String id){
         try {
-            startConnection();
             int x = new DBExam().getById(id).num +1;
-            String query = String.format("update Exam set num = %d ",x);
+            startConnection();
+            String query = String.format("update Exam set num = %d where examId = '%s' ",x,id);
             stmt.executeUpdate(query, Statement.RETURN_GENERATED_KEYS);
         } catch (SQLException ex) {
             System.out.println("query error " + new Throwable().getStackTrace()[0].getMethodName() + " " + ex);

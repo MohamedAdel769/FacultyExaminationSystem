@@ -5,25 +5,22 @@ import com.jfoenix.controls.JFXCheckBox;
 import com.jfoenix.controls.JFXTextArea;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
-import javafx.stage.WindowEvent;
 import javafx.util.Pair;
-import main.Exam.Question;
-import main.dataBaseHelper.*;
+import main.dataBaseHelper.DBAnnouncement;
+import main.dataBaseHelper.DBExam;
+import main.dataBaseHelper.DBExaminationSession;
+import main.dataBaseHelper.DBListOfGrades;
+import main.dataBaseHelper.DBQustion;
 
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.Timer;
 import java.util.TimerTask;
-import main.Main;
-
-import javax.swing.*;
 
 
 public class ExamController implements Initializable {
@@ -77,7 +74,6 @@ public class ExamController implements Initializable {
         }
         currIndex = 0;
         e = new DBExam();
-        g = new GUIHelper();
     }
 
     @FXML
@@ -223,7 +219,7 @@ public class ExamController implements Initializable {
                 }
             }
         }
-       // new DBExam().pulsById(passData.chosenExam);
+        new DBExam().plusById(passData.chosenExam);
         ExamFinished();
     }
 

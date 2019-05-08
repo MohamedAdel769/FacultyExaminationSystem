@@ -100,9 +100,8 @@ public class EvaluationExamReportController implements Initializable {
         passData.examID = examID;
         if (curExam.acceptStatus == false){
             ArrayList < DBQustion > v = new ArrayList<>();
-            ExamController e = new ExamController() ;
             // 7ot dola hena
-            ArrayList< Pair<Integer, DBQustion>> questions = e.getFreq(examID);
+            ArrayList< Pair<Integer, DBQustion>> questions = new DBQustion().getHis(examID);
             for(int i = 0 ; i < 5 ; i++){
                 for(int j = i + 1 ; j < questions.size() ; j++){
                     Pair p1 = questions.get(i);
@@ -147,8 +146,9 @@ public class EvaluationExamReportController implements Initializable {
     }
 
 
-    public void displayHistogram(ActionEvent e){
+    public void displayHistogram(ActionEvent event){
           passData.examID = idExamBox.getText();
+          guiHelper.GoToForm("Histogram.fxml");
     }
     @FXML
     public void LogOut(ActionEvent e){

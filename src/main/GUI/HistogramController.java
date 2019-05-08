@@ -9,7 +9,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.util.Pair;
+import main.dataBaseHelper.DBExam;
 import main.dataBaseHelper.DBQustion;
 
 import java.net.URL;
@@ -23,12 +25,11 @@ public class HistogramController implements Initializable {
 
     @FXML
     private TableView<tableData> tableGamed;
+    @FXML
+    private TableColumn<tableData, String> gradesCol = new TableColumn<>("Qeustion ID");
 
     @FXML
-    private TableColumn<?, ?> gradesCol;
-
-    @FXML
-    private TableColumn<?, ?> numberOfStudentsCol;
+    private TableColumn<tableData, String> numberOfStudentsCol = new TableColumn<>("Number of students ");
 
     @FXML
     void backToEvaluationButton(ActionEvent event) {
@@ -37,19 +38,20 @@ public class HistogramController implements Initializable {
 
     @FXML
     void viewHistogramButton(ActionEvent event) {
+        passData.Question_num = new DBQustion().getHis(passData.examID);
         new GUIHelper().GoToForm("LineChart.fxml");
     }
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        ExamController e = new ExamController() ;
-        ArrayList <Pair<Integer, DBQustion>> v = e.getFreq(passData.examID);
+        gradesCol.setCellValueFactory(new PropertyValueFactory("fff"));
+        numberOfStudentsCol.setCellValueFactory(new PropertyValueFactory("sss"));
+        ArrayList <Pair<Integer, DBQustion>> v = new DBQustion().getHis(passData.examID);
         ObservableList< tableData > print = FXCollections.observableArrayList();
-        /// 7ot dola hena
-        int totalStudents = 5;
+        int totalStudents = (int)new DBExam().getById(passData.examID).num;
         for(int i = 0 ; i < v.size() ; i++){
             tableData temp = new tableData();
             temp.fff = new SimpleStringProperty(v.get(i).getValue().QuesID);
-            double ratio ;
-            ratio = v.get(i).getKey() / totalStudents;
+            double ratio = 5 ;
+            ratio = v.get(i).getKey() / Math.max(totalStudents, 1);
             String he5o ;
             if (ratio >= 50){
                 he5o = "Experienced";
