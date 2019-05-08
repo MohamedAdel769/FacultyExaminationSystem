@@ -16,6 +16,7 @@ import main.Users.Student;
 import main.dataBaseHelper.DBExaminationSession;
 import main.dataBaseHelper.DBListOfExamSessions;
 
+import javax.swing.*;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -50,18 +51,21 @@ public class AdminHomeController implements Initializable {
     @FXML
     public void CreateSession(ActionEvent event){
         String idV = id.getText();
-        for(int i = 0;i<adminTableView.getItems().size();i++){
-            if(adminTableView.getItems().get(i).getSelectStd().isSelected()){
+        if (id.getText().equals("")) {
+            JOptionPane.showMessageDialog(null ,"Please Enter a Session ID","Session ID",JOptionPane.ERROR_MESSAGE);
+        }
+        else{for (int i = 0; i < adminTableView.getItems().size(); i++) {
+            if (adminTableView.getItems().get(i).getSelectStd().isSelected()) {
                 String StuId = adminTableView.getItems().get(i).getId();
-                new DBListOfExamSessions().add(new DBListOfExamSessions(StuId , idV));
+                new DBListOfExamSessions().add(new DBListOfExamSessions(StuId, idV));
             }
         }
-        new DBExaminationSession().add(new DBExaminationSession(idV , null));
-        id.clear();
-        for(int i = 0;i<adminTableView.getItems().size();i++){
-            adminTableView.getItems().get(i).getSelectStd().setSelected(false);
-        }
-        guiHelper.ShowDialog(stackPane, "Examination Exam", "You successfully added a new examination session.", "Ok","-1");
+            new DBExaminationSession().add(new DBExaminationSession(idV, null));
+            id.clear();
+            for (int i = 0; i < adminTableView.getItems().size(); i++) {
+                adminTableView.getItems().get(i).getSelectStd().setSelected(false);
+            }
+            guiHelper.ShowDialog(stackPane, "Examination Exam", "You successfully added a new examination session.", "Ok", "-1");}
     }
 
     @Override
@@ -73,7 +77,7 @@ public class AdminHomeController implements Initializable {
         ObservableList<Student> items = FXCollections.observableArrayList();
         startConnection();
         try{
-        String query = String.format("select stdID,Name,Email");
+        String query = String.format("select stdID,Name,Email  from Student");
         dBResult = stmt.executeQuery(query);
         while (dBResult.next()){
             items.add(new Student(dBResult.getString("stdID"),dBResult.getString("Name"),dBResult.getString("Email")));

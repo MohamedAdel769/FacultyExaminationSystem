@@ -18,12 +18,15 @@ import main.dataBaseHelper.DBInstructor;
 import main.dataBaseHelper.DBStudent;
 
 import javax.swing.*;
+import java.awt.*;
 import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class StudentHomeController implements Initializable {
     GUIHelper guiHelper = new GUIHelper();
+    @FXML
+    Label userName ;
     @FXML
     private JFXTextField nameTxt ;
     @FXML
@@ -69,7 +72,7 @@ public class StudentHomeController implements Initializable {
             else
                 Drawer.setPrefWidth(55);
         });
-        nameTxt.setText(passData.Student.Username);
+        nameTxt.setText(passData.Student.Name);
         //passF.setText(passData.instructor.Password);
         phoneTxt.setText(passData.Student.Phone);
         emailTxt.setText(passData.Student.email);
