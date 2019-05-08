@@ -8,6 +8,7 @@ import com.jfoenix.transitions.hamburger.HamburgerBackArrowBasicTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -39,9 +40,13 @@ public class StudentHomeController implements Initializable {
     VBox vBox ;
     @FXML
     ImageView profileImg;
+    @FXML
+    Label userNameTxt ;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        userNameTxt.setText(passData.Student.Username);
+
         JFXDrawer leftDrawer = new JFXDrawer();
         vBox.setVisible(true);
         leftDrawer.setSidePane(vBox);

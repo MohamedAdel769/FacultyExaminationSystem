@@ -21,7 +21,9 @@ import main.dataBaseHelper.DBListOfExamSessions;
 
 import javax.swing.*;
 import java.net.URL;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 public class ExamSessionsController implements Initializable {
@@ -56,7 +58,7 @@ public class ExamSessionsController implements Initializable {
         }
         for(int i = 0 ; i < v.size() ; i++){
             String id = v.get(i).examID;
-            boolean ac = new DBExam().getById(id).acceptStatus;
+            boolean ac = checkDate(new DBExam().getById(v.get(i).examID).handlingTimer) ;
             tableData temp = new tableData();
             temp.fff = new SimpleStringProperty(v.get(i).examSessionsID);
             if (ac){
@@ -91,6 +93,25 @@ public class ExamSessionsController implements Initializable {
                 Drawer.setPrefWidth(55);
         });
     }
+
+    public boolean checkDate(String deadline){
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        Date date = new Date();
+        String [] dt = simpleDateFormat.format(date).split(" ");
+        String [] deadlineTime = deadline.split(":");
+        String [] currentTime = dt[1].split(":");
+        int dH = Integer.parseInt(deadlineTime[0]) , dM = Integer.parseInt(deadlineTime[1]) , cH = Integer.parseInt(currentTime[0]) , cM = Integer.parseInt(currentTime[1]) ;
+        if(dH > cH){
+            return true ;
+        }
+        else if(dH == cH){
+            return (dM > cM);
+        }
+        else {
+            return false;
+        }
+    }
+
     @FXML
     public void takeExamButton(ActionEvent e) {
         // shof anhe selected
