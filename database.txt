@@ -1,0 +1,112 @@
+create table Announcement
+(
+    announID     varchar(50) not null
+        primary key,
+    instructorID varchar(50) not null,
+    examID       varchar(50) not null,
+    msgBody      varchar(50) not null,
+    msgHead      varchar(50) not null
+);
+
+create table Course
+(
+    courseID   varchar(50) not null
+        primary key,
+    Name       varchar(50) not null,
+    Department varchar(50) not null,
+    instrID    varchar(50) not null
+);
+
+create table EvaluationExamReport
+(
+    examID      varchar(50) not null,
+    histogramID varchar(50) not null,
+    hardQ1      varchar(50) not null,
+    hardQ2      varchar(50) not null,
+    hardQ3      varchar(50) not null,
+    hardQ4      varchar(50) not null,
+    hardQ5      varchar(50) not null
+);
+
+create table Exam
+(
+    examId        varchar(50)   not null
+        primary key,
+    courseId      varchar(50)   not null,
+    durationTime  time(6)       not null,
+    acceptStatus  bit           not null,
+    releaseDate   date          not null,
+    instructorId  varchar(50)   not null,
+    totalGrade    int           not null,
+    handlingTimer time          not null,
+    accepTimer    time          not null,
+    num           int default 0 null
+);
+
+create table ExaminationSession
+(
+    examSessionsID varchar(50) not null
+        primary key,
+    examID         varchar(50) not null
+);
+
+create table Histogram
+(
+    histoID varchar(50) not null
+        primary key,
+    examID  varchar(50) not null
+);
+
+create table Instructor
+(
+    Name     varchar(50) not null,
+    Phone    varchar(50) not null,
+    Email    varchar(50) not null,
+    Age      tinyint     not null,
+    Username varchar(50) not null
+        primary key,
+    Password varchar(50) not null
+);
+
+create table ListOfExamSessions
+(
+    StuID          varchar(50) not null,
+    examSessionsID varchar(50) not null
+);
+
+create table ListOfGrades
+(
+    stdID       varchar(50) not null,
+    examID      varchar(50) not null,
+    stdGrade    int         not null,
+    ExamGrade   int         not null,
+    Course_Name varchar(50) not null
+);
+
+create table Questions
+(
+    QuesID         int(50) auto_increment
+        primary key,
+    Choice1        varchar(50)   not null,
+    Choice2        varchar(50)   not null,
+    Choice3        varchar(50)   not null,
+    Choice4        varchar(50)   not null,
+    CorrectChoice  char          not null,
+    grade          int           not null,
+    EvaluationRank char          not null,
+    examID         varchar(50)   not null,
+    Question       varchar(100)  not null,
+    num            int default 0 null
+);
+
+create table Student
+(
+    stdID    varchar(50) not null,
+    Name     varchar(50) not null,
+    Phone    varchar(50) not null,
+    Email    varchar(50) not null,
+    Username varchar(50) not null
+        primary key,
+    Password varchar(50) not null
+);
+
