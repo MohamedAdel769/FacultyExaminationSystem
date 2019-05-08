@@ -24,10 +24,7 @@ public class LineChartController implements Initializable{
 
     @FXML
     private NumberAxis y;
-    @FXML
-    void backButton(ActionEvent event) {
-        new GUIHelper().GoToForm("Histogram.fxml");
-    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
         ArrayList <Pair< Integer, DBQustion >> v = passData.Question_num;
@@ -41,5 +38,8 @@ public class LineChartController implements Initializable{
         lineChart.getData().addAll(series);
     }
 
-
+    @FXML
+    public void backButton(javafx.event.ActionEvent event) {
+        new GUIHelper().GoToForm("Histogram.fxml");
+    }
 }
