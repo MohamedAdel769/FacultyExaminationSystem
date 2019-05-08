@@ -226,7 +226,7 @@ public class ExamController implements Initializable {
                 }
             }
         }
-        new DBExam().pulsById(passData.chosenExam);
+        new DBExam().pulsById(examID);
         ExamFinished();
     }
 
