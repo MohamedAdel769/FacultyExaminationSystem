@@ -230,7 +230,6 @@ public class ExamController implements Initializable {
         String cID = E.getById(eid).courseId;
         DBCourse C = new DBCourse();
         String cN = C.getById(cID).Name;
-        JOptionPane.showMessageDialog(null,cN);
         DBListOfGrades G=new DBListOfGrades(passData.Student.stdID,examID,totalGrade,e.getById(examID).totalGrade,cN);
         G.add(G);
         g.ShowDialog(stackPane, "Exam Finished", "Your Grade is: " + totalGrade + "/" + e.getById(examID).totalGrade,"OK", "StudentHome.fxml");
