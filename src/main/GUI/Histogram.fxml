@@ -49,9 +49,9 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <TableView layoutX="14.0" layoutY="116.0" prefHeight="368.0" prefWidth="494.0">
+      <TableView fx:id="tableGamed" layoutX="14.0" layoutY="116.0" prefHeight="368.0" prefWidth="494.0">
          <columns>
-            <TableColumn fx:id="gradesCol" prefWidth="153.0" text="Grades" />
+            <TableColumn fx:id="gradesCol" prefWidth="153.0" text="Qeustion ID" />
             <TableColumn fx:id="numberOfStudentsCol" prefWidth="152.0" text="Number of students " />
          </columns>
       </TableView>
