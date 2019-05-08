@@ -14,11 +14,7 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.WindowEvent;
 import javafx.util.Pair;
 import main.Exam.Question;
-import main.dataBaseHelper.DBAnnouncement;
-import main.dataBaseHelper.DBExam;
-import main.dataBaseHelper.DBExaminationSession;
-import main.dataBaseHelper.DBListOfGrades;
-import main.dataBaseHelper.DBQustion;
+import main.dataBaseHelper.*;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -81,6 +77,7 @@ public class ExamController implements Initializable {
         }
         currIndex = 0;
         e = new DBExam();
+        g = new GUIHelper();
     }
 
     @FXML
@@ -226,14 +223,21 @@ public class ExamController implements Initializable {
                 }
             }
         }
-        new DBExam().pulsById(passData.chosenExam);
+       // new DBExam().pulsById(passData.chosenExam);
         ExamFinished();
     }
 
     public  void ExamFinished(){
         timert.cancel();
         stackPane.setVisible(true);
-        DBListOfGrades G=new DBListOfGrades("1","1",totalGrade,e.getById("z").totalGrade,"OOP");
+        DBExaminationSession ex = new DBExaminationSession();
+        String eid = ex.getById(passData.chosenExam).examID;
+        DBExam E = new DBExam();
+        String cID = E.getById(eid).courseId;
+        DBCourse C = new DBCourse();
+        String cN = C.getById(cID).Name;
+        JOptionPane.showMessageDialog(null,cN);
+        DBListOfGrades G=new DBListOfGrades(passData.Student.stdID,examID,totalGrade,e.getById(examID).totalGrade,cN);
         G.add(G);
         g.ShowDialog(stackPane, "Exam Finished", "Your Grade is: " + totalGrade + "/" + e.getById(examID).totalGrade,"OK", "StudentHome.fxml");
     }
