@@ -73,7 +73,7 @@ public class AdminHomeController implements Initializable {
         ObservableList<Student> items = FXCollections.observableArrayList();
         startConnection();
         try{
-        String query = String.format("select stdID,Name,Email  from Student ORDER BY stdID ASC");
+        String query = String.format("select stdID,Name,Email");
         dBResult = stmt.executeQuery(query);
         while (dBResult.next()){
             items.add(new Student(dBResult.getString("stdID"),dBResult.getString("Name"),dBResult.getString("Email")));

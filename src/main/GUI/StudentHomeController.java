@@ -37,6 +37,8 @@ public class StudentHomeController implements Initializable {
     JFXHamburger hamburger ;
     @FXML
     VBox vBox ;
+    @FXML
+    ImageView profileImg;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -67,6 +69,23 @@ public class StudentHomeController implements Initializable {
         phoneTxt.setText(passData.Student.Phone);
         emailTxt.setText(passData.Student.email);
         idTxt.setText(passData.Student.stdID);
+    }
+
+    @FXML
+    public void addImage(ActionEvent e)  {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("128x128 - png", "*.png"), new FileChooser.ExtensionFilter("128x128 - jpg", "*.jpg"));
+        try{
+            File file = fileChooser.showOpenDialog(null);
+            String path = file.toURI().toURL().toString() ;
+
+            Image image = new Image(path);
+            profileImg.setImage(image);
+            profileImg.setPreserveRatio(true);
+        }
+        catch (Exception ex){
+            JOptionPane.showMessageDialog(null,"You didn't choose a photo", "Warning",JOptionPane.WARNING_MESSAGE);
+        }
     }
 
     @FXML

@@ -38,6 +38,8 @@ public class ExamController implements Initializable {
     StackPane stackPane ;
     @FXML
     JFXButton submitBtn, nextBtn , prevBtn ;
+    @FXML
+    Label userName , name ;
 
     public int TotalS ;
     int[] ch;
@@ -49,6 +51,8 @@ public class ExamController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        userName.setText(passData.Student.Username);
+        name.setText(passData.Student.Name);
         stackPane.setVisible(true);
         dbA = new DBAnnouncement();
         examID = new DBExaminationSession().getById(passData.chosenExam).examID ;
