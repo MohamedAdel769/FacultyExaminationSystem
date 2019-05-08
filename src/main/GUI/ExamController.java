@@ -57,7 +57,7 @@ public class ExamController implements Initializable {
         qNo.setText("0");
         totalGrade = 0;
         dbQ  = new DBQustion();
-        Qlist  = new ArrayList<>(dbQ.getByExamId("z"));
+        Qlist  = new ArrayList<>(dbQ.getByExamId(passData.chosenExam));
         timert = new Timer();
         mxIndex = Qlist.size() ;
         ch  = new int[mxIndex];
@@ -80,8 +80,8 @@ public class ExamController implements Initializable {
         choice4.setDisable(false);
         SetQuestion(Qlist.get(currIndex));
         qNo.setText("1");
-        timeLeft.setText(e.getById("z").durationTime);
-        String [] time = e.getById("z").durationTime.split(":");
+        timeLeft.setText(e.getById(passData.chosenExam).durationTime);
+        String [] time = e.getById(passData.chosenExam).durationTime.split(":");
         int H = Integer.parseInt(time[0]) , M = Integer.parseInt(time[1]) , S = Integer.parseInt(time[2]);
         TotalS = (M * 60) + (H * 60 * 60) + S ;
         long delay = TotalS * 1000;
@@ -212,13 +212,14 @@ public class ExamController implements Initializable {
                 }
             }
         }
+        new DBExam().pulsById(passData.chosenExam);
         ExamFinished();
     }
 
     public  void ExamFinished(){
         timert.cancel();
         stackPane.setVisible(true);
-        g.ShowDialog(stackPane, "Exam Finished", "Your Grade is: " + totalGrade + "/" + e.getById("z").totalGrade,"OK", "StudentHome.fxml");
+        g.ShowDialog(stackPane, "Exam Finished", "Your Grade is: " + totalGrade + "/" + e.getById(passData.chosenExam).totalGrade,"OK", "StudentHome.fxml");
     }
 
     public  ArrayList<Pair<Integer, DBQustion>> getFreq(String examID){

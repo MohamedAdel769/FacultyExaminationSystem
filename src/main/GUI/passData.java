@@ -16,7 +16,7 @@ public final class passData {
     public static DBStudent Student = new DBStudent();
     public static DBExam Exam = new DBExam();
     public static ObservableList<String> Corseslist = FXCollections.observableArrayList();
-    public static String chosenExam = new String();
+    public static String chosenExam = "";
     public static int numOfQ = 0;
     public static String examID = new String();
 }
