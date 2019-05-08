@@ -129,9 +129,6 @@ public class EvaluationExamReportController implements Initializable {
         if (curExam.acceptStatus == false){
             ArrayList < DBQustion > v = new ArrayList<>();
             ArrayList< Pair<Integer, DBQustion>> questions = new DBQustion().getHis(examID);
-            for(int i = 0 ; i < questions.size() ; i++){
-                System.out.println(questions.get(i).getValue().Question);
-            }
             for(int i = 0 ; i < 5 ; i++){
                 for(int j = i + 1 ; j < questions.size() ; j++){
                     Pair p1 = questions.get(i);

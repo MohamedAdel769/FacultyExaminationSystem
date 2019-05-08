@@ -126,6 +126,7 @@ public class DBQustion {
                 tem.EvaluationRankAChar = dBResult.getString("EvaluationRank");
                 tem.examID = dBResult.getString("examID");
                 tem.num = dBResult.getInt("num");
+                tem.Question = dBResult.getString("Question");
                 v.add(new Pair<Integer, DBQustion>(tem.num ,tem));
             }
         } catch (SQLException ex) {
