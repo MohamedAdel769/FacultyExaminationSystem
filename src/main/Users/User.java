@@ -17,16 +17,24 @@ public abstract class User implements getFromDB {
     private SimpleStringProperty Password;
     private CheckBox selectStd ;
 
-    User(String name, String phone, String email, int age, String id, String username, String password) {
+    User(String name, String phone, String email, int age, String username, String password) {
         this.name = new SimpleStringProperty(name);
         this.phone = new SimpleStringProperty(phone);
         this.email = new SimpleStringProperty(email);
         this.age = age;
+        this.username = new SimpleStringProperty(username);
+        this.Password =  new SimpleStringProperty(password);
+        this.selectStd=new CheckBox();
+    }
+
+    User(String name, String phone, String email, String id, String username, String password) {
+        this.name = new SimpleStringProperty(name);
+        this.phone = new SimpleStringProperty(phone);
+        this.email = new SimpleStringProperty(email);
         this.id = new SimpleStringProperty(id);
         this.username = new SimpleStringProperty(username);
         this.Password =  new SimpleStringProperty(password);
         this.selectStd=new CheckBox();
-
     }
 
     User(String id, String name, String email) {

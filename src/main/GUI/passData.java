@@ -7,6 +7,7 @@ import main.dataBaseHelper.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import main.Users.User;
 
 public final class passData {
     public static DBInstructor instructor = new DBInstructor();
@@ -17,4 +18,5 @@ public final class passData {
     public static int numOfQ = 0;
     public static String examID = new String();
     public static ArrayList<Pair<Integer, DBQustion>> Question_num = new ArrayList<>();
+    public static User user ;
 }

@@ -26,6 +26,9 @@ import main.Main;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 
+import main.Users.Instructor;
+import main.Users.Student;
+import main.Users.User;
 import main.dataBaseHelper.DBInstructor;
 import main.dataBaseHelper.DBStudent;
 
@@ -64,6 +67,7 @@ public class SignupController implements Initializable {
 
     @FXML
     public void GoToLogin(ActionEvent event) {
+        User newUser = null;
         if(ComboBox.getValue().equals("Student")) {
             if(new DBStudent().getByUsername(UsernameTxt.getText()).Username != null) {
                 JOptionPane.showMessageDialog(null,"Please try again","Wrong Username",JOptionPane.ERROR_MESSAGE);
@@ -72,9 +76,9 @@ public class SignupController implements Initializable {
             else {
                 DBStudent stu = new DBStudent(IDTxt.getText(), FnameTxt.getText() + " " + LnameTxt.getText(), PhoneTxt.getText(), EmailTxt.getText(), UsernameTxt.getText(), PassTxt.getText());
                 stu.add(stu);
+                newUser = new Student(FnameTxt.getText() + " " + LnameTxt.getText(), PhoneTxt.getText(), EmailTxt.getText(), IDTxt.getText(), UsernameTxt.getText(), PassTxt.getText());
                 guiHelper.GoToForm("Login.fxml");
             }
-
         }
         else {
             if(new DBInstructor().getByUsername(UsernameTxt.getText()).Username != null) {
@@ -83,10 +87,11 @@ public class SignupController implements Initializable {
             else{
                 DBInstructor inst = new DBInstructor(FnameTxt.getText() + " " + LnameTxt.getText(), PhoneTxt.getText(), EmailTxt.getText(), AgeTxt.getText(), UsernameTxt.getText(), PassTxt.getText());
                 inst.add(inst);
+                newUser = new Instructor(FnameTxt.getText() + " " + LnameTxt.getText(), PhoneTxt.getText(), EmailTxt.getText(), Integer.parseInt(AgeTxt.getText()), UsernameTxt.getText(), PassTxt.getText());
                 guiHelper.GoToForm("Login.fxml");
             }
         }
-       // guiHelper.GoToForm("Login.fxml");
+        passData.user = newUser;
     }
 
     @Override

@@ -58,9 +58,6 @@ public class LoginController implements Initializable  {
 
     @FXML
     public void Signin(ActionEvent event){
-        // if the user is admin
-        //guiHelper.GoToForm("AdminHome.fxml");
-        // student
         if (UserTxt.getText().equals("admin")&&PassTxt.getText().equals("admin"))
         {
             guiHelper.GoToForm("AdminHome.fxml");
@@ -86,10 +83,6 @@ public class LoginController implements Initializable  {
         else {
             JOptionPane.showMessageDialog(null,"Please try again","Wrong Username",JOptionPane.ERROR_MESSAGE);
         }
-
-
-        // instructor
-
     }
 
 

@@ -4,8 +4,8 @@ import main.dataBaseHelper.DBInstructor;
 
 public class Instructor extends User{
 
-    public Instructor(String name, String phone, String email, int age, String id, String username, String password) {
-        super(name, phone, email, age, id, username, password);
+    public Instructor(String name, String phone, String email, int age, String username, String password) {
+        super(name, phone, email, age, username, password);
     }
 
     public Instructor(String id, String name, String email) {

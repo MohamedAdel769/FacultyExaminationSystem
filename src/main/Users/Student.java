@@ -10,8 +10,8 @@ import java.util.List;
 
 public class Student extends  User{
 
-    public Student(String name, String phone, String email, int age, String id, String username, String password) {
-        super(name, phone, email, age, id, username, password);
+    public Student(String name, String phone, String email, String id, String username, String password) {
+        super(name, phone, email, id, username, password);
     }
     public Student(String id, String name, String email ) {
         super( id,name, email);
