@@ -19,6 +19,7 @@ import main.dataBaseHelper.DBExam;
 import main.dataBaseHelper.DBExaminationSession;
 import main.dataBaseHelper.DBListOfGrades;
 import main.dataBaseHelper.DBQustion;
+import main.dataBaseHelper.DBCourse;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -258,7 +259,7 @@ public class ExamController implements Initializable {
                 if((q.CorrectChoice.equals("A") && ch[i] == 1)||(q.CorrectChoice.equals("B") && ch[i] == 2)
                         ||(q.CorrectChoice.equals("C") && ch[i] == 3)||(q.CorrectChoice.equals("D") && ch[i] == 4)){
                     totalGrade += q.grade;
-                    q.pulsById(q.QuesID);
+                    q.plusById(q.QuesID);
                 }
                 for(int j=0;j<freq.size();j++){
                     Pair<Integer, DBQustion> current = freq.get(j);
