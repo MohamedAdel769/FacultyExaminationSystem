@@ -151,11 +151,11 @@ public class DBQustion {
         }
         return OK;
     }
-    public void pulsById(String id){
+    public void plusById(String id){
         try {
-            startConnection();
             int x = new DBQustion().getById(id).num +1;
-            String query = String.format("update Questions set num = %d ",x);
+            startConnection();
+            String query = String.format("update Questions set num = %d where QuesID = '%s' ",x , id);
             stmt.executeUpdate(query, Statement.RETURN_GENERATED_KEYS);
         } catch (SQLException ex) {
             System.out.println("query error " + new Throwable().getStackTrace()[0].getMethodName() + " " + ex);

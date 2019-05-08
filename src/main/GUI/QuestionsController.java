@@ -46,7 +46,6 @@ public class QuestionsController implements Initializable {
             Q4txt.clear();
             QtxtArea.clear();
             Gradetxt.clear();
-            Answertxt.resetValidation();
         }else{
             System.out.println("not Added");
         }

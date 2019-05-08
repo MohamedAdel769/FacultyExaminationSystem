@@ -5,15 +5,11 @@ import com.jfoenix.controls.JFXCheckBox;
 import com.jfoenix.controls.JFXTextArea;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
-import javafx.stage.WindowEvent;
 import javafx.util.Pair;
-import main.Exam.Question;
 import main.dataBaseHelper.DBAnnouncement;
 import main.dataBaseHelper.DBExam;
 import main.dataBaseHelper.DBExaminationSession;
@@ -25,9 +21,6 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.Timer;
 import java.util.TimerTask;
-import main.Main;
-
-import javax.swing.*;
 
 
 public class ExamController implements Initializable {
@@ -226,7 +219,7 @@ public class ExamController implements Initializable {
                 }
             }
         }
-        new DBExam().pulsById(passData.chosenExam);
+        new DBExam().plusById(passData.chosenExam);
         ExamFinished();
     }
 
@@ -251,7 +244,7 @@ public class ExamController implements Initializable {
                 if((q.CorrectChoice.equals("A") && ch[i] == 1)||(q.CorrectChoice.equals("B") && ch[i] == 2)
                         ||(q.CorrectChoice.equals("C") && ch[i] == 3)||(q.CorrectChoice.equals("D") && ch[i] == 4)){
                     totalGrade += q.grade;
-                    q.pulsById(q.QuesID);
+                    q.plusById(q.QuesID);
                 }
                 for(int j=0;j<freq.size();j++){
                     Pair<Integer, DBQustion> current = freq.get(j);
