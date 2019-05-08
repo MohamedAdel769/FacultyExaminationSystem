@@ -233,7 +233,14 @@ public class ExamController implements Initializable {
     public  void ExamFinished(){
         timert.cancel();
         stackPane.setVisible(true);
-        DBListOfGrades G=new DBListOfGrades("1","1",totalGrade,e.getById("z").totalGrade,"OOP");
+        DBExaminationSession ex = new DBExaminationSession();
+        String eid = ex.getById(passData.chosenExam).examID;
+        DBExam E = new DBExam();
+        String cID = E.getById(eid).courseId;
+        DBCourse C = new DBCourse();
+        String cN = C.getById(cID).Name;
+        JOptionPane.showMessageDialog(null,cN);
+        DBListOfGrades G=new DBListOfGrades(passData.Student.stdID,examID,totalGrade,e.getById(examID).totalGrade,cN);
         G.add(G);
         g.ShowDialog(stackPane, "Exam Finished", "Your Grade is: " + totalGrade + "/" + e.getById(examID).totalGrade,"OK", "StudentHome.fxml");
     }
@@ -251,7 +258,7 @@ public class ExamController implements Initializable {
                 if((q.CorrectChoice.equals("A") && ch[i] == 1)||(q.CorrectChoice.equals("B") && ch[i] == 2)
                         ||(q.CorrectChoice.equals("C") && ch[i] == 3)||(q.CorrectChoice.equals("D") && ch[i] == 4)){
                     totalGrade += q.grade;
-                    q.plusById(q.QuesID);
+                    q.pulsById(q.QuesID);
                 }
                 for(int j=0;j<freq.size();j++){
                     Pair<Integer, DBQustion> current = freq.get(j);
